@@ -31,7 +31,7 @@ public class CameraOperation : MonoBehaviour
     // Update is called once per frame
     void Update()
     { // When LMB clicked get mouse click position and set panning to true (Перетягивание колёсиком мышки)
-        if (Input.GetKey(KeyCode.Mouse2))
+        if (Input.GetKey(KeyCode.Mouse2) )
         {
             if (mouseClickPos == default)
             {
@@ -40,7 +40,9 @@ public class CameraOperation : MonoBehaviour
 
             mouseCurrentPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var distance = mouseCurrentPos - mouseClickPos;
-            transform.position += new Vector3(-distance.x, -distance.y, 0);
+
+            transform.position += new Vector3(Mathf.Clamp(-distance.x, YminCameraDistance, YmaxCameraDistance), Mathf.Clamp(-distance.y, YminCameraDistance, YmaxCameraDistance), 0);
+            //transform.position += new Vector3( -distance.x, -distance.y, 0);
         }
             // If LMB is released, stop moving the camera
             if (Input.GetKeyUp(KeyCode.Mouse2))

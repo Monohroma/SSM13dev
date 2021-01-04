@@ -157,16 +157,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7e67851098e9074bb36f66df693b986, type: 3}
+  m_Script: {fileID: 11500000, guid: a61a6b730297bad49886c6f62baf3b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 13
-  XminCameraDistance: -900
-  XmaxCameraDistance: 500
-  YminCameraDistance: -500
-  YmaxCameraDistance: 999
-  minZoom: 0.6
-  maxZoom: 9
+  speed: 15
+  XminCameraDistance: -23
+  XmaxCameraDistance: 26
+  YminCameraDistance: -19
+  YmaxCameraDistance: 18
+  minZoom: 0.7
+  maxZoom: 5
   zoomSpeed: 5
   smoothSpeed: 7
 --- !u!20 &519420031
