@@ -14,7 +14,7 @@ public class CameraOperation : MonoBehaviour
     public int YminCameraDistance; public int YmaxCameraDistance;
 
     public float minZoom; public float maxZoom;
-    public float zoomSpeed = 1; private float targetOrtho; public float smoothSpeed = 2.0f;
+    public float zoomSpeed; private float targetOrtho; public float smoothSpeed;
 
     Vector2 mouseClickPos;
     Vector2 mouseCurrentPos;
