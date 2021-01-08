@@ -33,22 +33,23 @@ public class Power : MonoBehaviour
         ChargeText.text = ChargePercent() +"%";
     }
     IEnumerator PowerOut()
-    {
-        
+    {   
        while(true)
-        {
-            
+        {   
             Consumption();
             yield return new WaitForSeconds(1f);
-            
         }
-        
-        
     }
     public string WattText(int input)
     {
         string output = "";
-        if (input >= 1000)
+        if (input >= 1000000)
+        {
+            input /= 1000000;
+            output = input.ToString() + "MW";
+            return output;
+        }
+        else if(input >= 1000)
         {
             input /= 1000;
             output = input.ToString() + "kW";
