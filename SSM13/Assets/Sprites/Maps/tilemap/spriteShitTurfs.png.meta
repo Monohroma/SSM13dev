@@ -245,6 +245,33 @@ TextureImporter:
   - first:
       213: -6864165991984534030
     second: spriteShitTurfs_80
+  - first:
+      213: -6866780953850046300
+    second: spriteShitTurfs_81
+  - first:
+      213: -1920577176623165100
+    second: spriteShitTurfs_82
+  - first:
+      213: -4152234367994882600
+    second: spriteShitTurfs_83
+  - first:
+      213: -2631180030313137048
+    second: spriteShitTurfs_84
+  - first:
+      213: 2673651854001862495
+    second: spriteShitTurfs_85
+  - first:
+      213: 7890020127999897969
+    second: spriteShitTurfs_86
+  - first:
+      213: 5199657151264653280
+    second: spriteShitTurfs_87
+  - first:
+      213: 1160302992127429020
+    second: spriteShitTurfs_88
+  - first:
+      213: -6215222048669763887
+    second: spriteShitTurfs_89
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -522,8 +549,8 @@ TextureImporter:
       name: spriteShitTurfs_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 224
+        x: 288
+        y: 256
         width: 32
         height: 32
       alignment: 0
@@ -543,7 +570,7 @@ TextureImporter:
       name: spriteShitTurfs_10
       rect:
         serializedVersion: 2
-        x: 32
+        x: 0
         y: 224
         width: 32
         height: 32
@@ -564,7 +591,7 @@ TextureImporter:
       name: spriteShitTurfs_11
       rect:
         serializedVersion: 2
-        x: 64
+        x: 32
         y: 224
         width: 32
         height: 32
@@ -585,7 +612,7 @@ TextureImporter:
       name: spriteShitTurfs_12
       rect:
         serializedVersion: 2
-        x: 96
+        x: 64
         y: 224
         width: 32
         height: 32
@@ -606,7 +633,7 @@ TextureImporter:
       name: spriteShitTurfs_13
       rect:
         serializedVersion: 2
-        x: 128
+        x: 96
         y: 224
         width: 32
         height: 32
@@ -627,7 +654,7 @@ TextureImporter:
       name: spriteShitTurfs_14
       rect:
         serializedVersion: 2
-        x: 160
+        x: 128
         y: 224
         width: 32
         height: 32
@@ -648,7 +675,7 @@ TextureImporter:
       name: spriteShitTurfs_15
       rect:
         serializedVersion: 2
-        x: 192
+        x: 160
         y: 224
         width: 32
         height: 32
@@ -669,7 +696,7 @@ TextureImporter:
       name: spriteShitTurfs_16
       rect:
         serializedVersion: 2
-        x: 224
+        x: 192
         y: 224
         width: 32
         height: 32
@@ -690,7 +717,7 @@ TextureImporter:
       name: spriteShitTurfs_17
       rect:
         serializedVersion: 2
-        x: 256
+        x: 224
         y: 224
         width: 32
         height: 32
@@ -711,8 +738,8 @@ TextureImporter:
       name: spriteShitTurfs_18
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
+        x: 256
+        y: 224
         width: 32
         height: 32
       alignment: 0
@@ -732,8 +759,8 @@ TextureImporter:
       name: spriteShitTurfs_19
       rect:
         serializedVersion: 2
-        x: 32
-        y: 192
+        x: 288
+        y: 224
         width: 32
         height: 32
       alignment: 0
@@ -753,7 +780,7 @@ TextureImporter:
       name: spriteShitTurfs_20
       rect:
         serializedVersion: 2
-        x: 64
+        x: 0
         y: 192
         width: 32
         height: 32
@@ -774,7 +801,7 @@ TextureImporter:
       name: spriteShitTurfs_21
       rect:
         serializedVersion: 2
-        x: 96
+        x: 32
         y: 192
         width: 32
         height: 32
@@ -795,7 +822,7 @@ TextureImporter:
       name: spriteShitTurfs_22
       rect:
         serializedVersion: 2
-        x: 128
+        x: 64
         y: 192
         width: 32
         height: 32
@@ -816,7 +843,7 @@ TextureImporter:
       name: spriteShitTurfs_23
       rect:
         serializedVersion: 2
-        x: 160
+        x: 96
         y: 192
         width: 32
         height: 32
@@ -837,7 +864,7 @@ TextureImporter:
       name: spriteShitTurfs_24
       rect:
         serializedVersion: 2
-        x: 192
+        x: 128
         y: 192
         width: 32
         height: 32
@@ -858,7 +885,7 @@ TextureImporter:
       name: spriteShitTurfs_25
       rect:
         serializedVersion: 2
-        x: 224
+        x: 160
         y: 192
         width: 32
         height: 32
@@ -879,7 +906,7 @@ TextureImporter:
       name: spriteShitTurfs_26
       rect:
         serializedVersion: 2
-        x: 256
+        x: 192
         y: 192
         width: 32
         height: 32
@@ -900,8 +927,8 @@ TextureImporter:
       name: spriteShitTurfs_27
       rect:
         serializedVersion: 2
-        x: 0
-        y: 160
+        x: 224
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -921,8 +948,8 @@ TextureImporter:
       name: spriteShitTurfs_28
       rect:
         serializedVersion: 2
-        x: 32
-        y: 160
+        x: 256
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -942,8 +969,8 @@ TextureImporter:
       name: spriteShitTurfs_29
       rect:
         serializedVersion: 2
-        x: 64
-        y: 160
+        x: 288
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -963,7 +990,7 @@ TextureImporter:
       name: spriteShitTurfs_30
       rect:
         serializedVersion: 2
-        x: 96
+        x: 0
         y: 160
         width: 32
         height: 32
@@ -984,7 +1011,7 @@ TextureImporter:
       name: spriteShitTurfs_31
       rect:
         serializedVersion: 2
-        x: 128
+        x: 32
         y: 160
         width: 32
         height: 32
@@ -1005,7 +1032,7 @@ TextureImporter:
       name: spriteShitTurfs_32
       rect:
         serializedVersion: 2
-        x: 160
+        x: 64
         y: 160
         width: 32
         height: 32
@@ -1026,7 +1053,7 @@ TextureImporter:
       name: spriteShitTurfs_33
       rect:
         serializedVersion: 2
-        x: 192
+        x: 96
         y: 160
         width: 32
         height: 32
@@ -1047,7 +1074,7 @@ TextureImporter:
       name: spriteShitTurfs_34
       rect:
         serializedVersion: 2
-        x: 224
+        x: 128
         y: 160
         width: 32
         height: 32
@@ -1068,7 +1095,7 @@ TextureImporter:
       name: spriteShitTurfs_35
       rect:
         serializedVersion: 2
-        x: 256
+        x: 160
         y: 160
         width: 32
         height: 32
@@ -1089,8 +1116,8 @@ TextureImporter:
       name: spriteShitTurfs_36
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
+        x: 192
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -1110,8 +1137,8 @@ TextureImporter:
       name: spriteShitTurfs_37
       rect:
         serializedVersion: 2
-        x: 32
-        y: 128
+        x: 224
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -1131,8 +1158,8 @@ TextureImporter:
       name: spriteShitTurfs_38
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
+        x: 256
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -1152,8 +1179,8 @@ TextureImporter:
       name: spriteShitTurfs_39
       rect:
         serializedVersion: 2
-        x: 96
-        y: 128
+        x: 288
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -1173,7 +1200,7 @@ TextureImporter:
       name: spriteShitTurfs_40
       rect:
         serializedVersion: 2
-        x: 128
+        x: 0
         y: 128
         width: 32
         height: 32
@@ -1194,7 +1221,7 @@ TextureImporter:
       name: spriteShitTurfs_41
       rect:
         serializedVersion: 2
-        x: 160
+        x: 32
         y: 128
         width: 32
         height: 32
@@ -1215,7 +1242,7 @@ TextureImporter:
       name: spriteShitTurfs_42
       rect:
         serializedVersion: 2
-        x: 192
+        x: 64
         y: 128
         width: 32
         height: 32
@@ -1236,7 +1263,7 @@ TextureImporter:
       name: spriteShitTurfs_43
       rect:
         serializedVersion: 2
-        x: 224
+        x: 96
         y: 128
         width: 32
         height: 32
@@ -1257,7 +1284,7 @@ TextureImporter:
       name: spriteShitTurfs_44
       rect:
         serializedVersion: 2
-        x: 256
+        x: 128
         y: 128
         width: 32
         height: 32
@@ -1278,8 +1305,8 @@ TextureImporter:
       name: spriteShitTurfs_45
       rect:
         serializedVersion: 2
-        x: 0
-        y: 96
+        x: 160
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -1299,8 +1326,8 @@ TextureImporter:
       name: spriteShitTurfs_46
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
+        x: 192
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -1320,8 +1347,8 @@ TextureImporter:
       name: spriteShitTurfs_47
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
+        x: 224
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -1341,8 +1368,8 @@ TextureImporter:
       name: spriteShitTurfs_48
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
+        x: 256
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -1362,8 +1389,8 @@ TextureImporter:
       name: spriteShitTurfs_49
       rect:
         serializedVersion: 2
-        x: 128
-        y: 96
+        x: 288
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -1383,7 +1410,7 @@ TextureImporter:
       name: spriteShitTurfs_50
       rect:
         serializedVersion: 2
-        x: 160
+        x: 0
         y: 96
         width: 32
         height: 32
@@ -1404,7 +1431,7 @@ TextureImporter:
       name: spriteShitTurfs_51
       rect:
         serializedVersion: 2
-        x: 192
+        x: 32
         y: 96
         width: 32
         height: 32
@@ -1425,7 +1452,7 @@ TextureImporter:
       name: spriteShitTurfs_52
       rect:
         serializedVersion: 2
-        x: 224
+        x: 64
         y: 96
         width: 32
         height: 32
@@ -1446,7 +1473,7 @@ TextureImporter:
       name: spriteShitTurfs_53
       rect:
         serializedVersion: 2
-        x: 256
+        x: 96
         y: 96
         width: 32
         height: 32
@@ -1467,8 +1494,8 @@ TextureImporter:
       name: spriteShitTurfs_54
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
+        x: 128
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -1488,8 +1515,8 @@ TextureImporter:
       name: spriteShitTurfs_55
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
+        x: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -1509,8 +1536,8 @@ TextureImporter:
       name: spriteShitTurfs_56
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
+        x: 192
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -1530,8 +1557,8 @@ TextureImporter:
       name: spriteShitTurfs_57
       rect:
         serializedVersion: 2
-        x: 96
-        y: 64
+        x: 224
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -1551,8 +1578,8 @@ TextureImporter:
       name: spriteShitTurfs_58
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
+        x: 256
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -1572,8 +1599,8 @@ TextureImporter:
       name: spriteShitTurfs_59
       rect:
         serializedVersion: 2
-        x: 160
-        y: 64
+        x: 288
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -1593,7 +1620,7 @@ TextureImporter:
       name: spriteShitTurfs_60
       rect:
         serializedVersion: 2
-        x: 192
+        x: 0
         y: 64
         width: 32
         height: 32
@@ -1614,7 +1641,7 @@ TextureImporter:
       name: spriteShitTurfs_61
       rect:
         serializedVersion: 2
-        x: 224
+        x: 32
         y: 64
         width: 32
         height: 32
@@ -1635,7 +1662,7 @@ TextureImporter:
       name: spriteShitTurfs_62
       rect:
         serializedVersion: 2
-        x: 256
+        x: 64
         y: 64
         width: 32
         height: 32
@@ -1656,8 +1683,8 @@ TextureImporter:
       name: spriteShitTurfs_63
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 96
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -1677,8 +1704,8 @@ TextureImporter:
       name: spriteShitTurfs_64
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
+        x: 128
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -1698,8 +1725,8 @@ TextureImporter:
       name: spriteShitTurfs_65
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
+        x: 160
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -1719,8 +1746,8 @@ TextureImporter:
       name: spriteShitTurfs_66
       rect:
         serializedVersion: 2
-        x: 96
-        y: 32
+        x: 192
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -1740,8 +1767,8 @@ TextureImporter:
       name: spriteShitTurfs_67
       rect:
         serializedVersion: 2
-        x: 128
-        y: 32
+        x: 224
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -1761,8 +1788,8 @@ TextureImporter:
       name: spriteShitTurfs_68
       rect:
         serializedVersion: 2
-        x: 160
-        y: 32
+        x: 256
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -1782,8 +1809,8 @@ TextureImporter:
       name: spriteShitTurfs_69
       rect:
         serializedVersion: 2
-        x: 192
-        y: 32
+        x: 288
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -1803,7 +1830,7 @@ TextureImporter:
       name: spriteShitTurfs_70
       rect:
         serializedVersion: 2
-        x: 224
+        x: 0
         y: 32
         width: 32
         height: 32
@@ -1824,7 +1851,7 @@ TextureImporter:
       name: spriteShitTurfs_71
       rect:
         serializedVersion: 2
-        x: 256
+        x: 32
         y: 32
         width: 32
         height: 32
@@ -1845,8 +1872,8 @@ TextureImporter:
       name: spriteShitTurfs_72
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 64
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -1866,8 +1893,8 @@ TextureImporter:
       name: spriteShitTurfs_73
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 96
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -1887,8 +1914,8 @@ TextureImporter:
       name: spriteShitTurfs_74
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 128
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -1908,8 +1935,8 @@ TextureImporter:
       name: spriteShitTurfs_75
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
+        x: 160
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -1929,8 +1956,8 @@ TextureImporter:
       name: spriteShitTurfs_76
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
+        x: 192
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -1950,8 +1977,8 @@ TextureImporter:
       name: spriteShitTurfs_77
       rect:
         serializedVersion: 2
-        x: 160
-        y: 0
+        x: 224
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -1971,8 +1998,8 @@ TextureImporter:
       name: spriteShitTurfs_78
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
+        x: 256
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -1992,8 +2019,8 @@ TextureImporter:
       name: spriteShitTurfs_79
       rect:
         serializedVersion: 2
-        x: 224
-        y: 0
+        x: 288
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -2013,7 +2040,7 @@ TextureImporter:
       name: spriteShitTurfs_80
       rect:
         serializedVersion: 2
-        x: 256
+        x: 0
         y: 0
         width: 32
         height: 32
@@ -2026,6 +2053,195 @@ TextureImporter:
       bones: []
       spriteID: 2fde170f5659db0a0800000000000000
       internalID: -6864165991984534030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteShitTurfs_81
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a8995faa1b44b0a0800000000000000
+      internalID: -6866780953850046300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteShitTurfs_82
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45157a7cb3db855e0800000000000000
+      internalID: -1920577176623165100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteShitTurfs_83
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d51f7f77dc4066c0800000000000000
+      internalID: -4152234367994882600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteShitTurfs_84
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86c7519f3bb2c7bd0800000000000000
+      internalID: -2631180030313137048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteShitTurfs_85
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5778d21238ba1520800000000000000
+      internalID: 2673651854001862495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteShitTurfs_86
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 171bd18d08bfe7d60800000000000000
+      internalID: 7890020127999897969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteShitTurfs_87
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eff2fe41a4e82840800000000000000
+      internalID: 5199657151264653280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteShitTurfs_88
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c99049d7c693a1010800000000000000
+      internalID: 1160302992127429020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteShitTurfs_89
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d6fcd4f9781fb9a0800000000000000
+      internalID: -6215222048669763887
       vertices: []
       indices: 
       edges: []
