@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +8,7 @@ public class Power : MonoBehaviour
 {
     public Slider slider;
     public Text ChargeText; public Text EquipmentText; public Text LightingText; public Text EnviromentText; public Text TotalLoadText;
-    private int СonsumptionEnergy; 
+    private int СonsumptionEnergy;
     public int ConsumptionLight;
     public int ConsumptionEquipment;
     public int ConsumptionEnviroment;
@@ -17,25 +18,44 @@ public class Power : MonoBehaviour
     public string ChargePercent()
     {
         float result = Mathf.Round(chargeLevel / Capacity * 100);
-        return result.ToString(); 
-        
+
+        return result.ToString();
+
+
     }
-     void Start()
+    void Start()
     {
         StartCoroutine(PowerOut());
-        
-          
+
+
     }
     void Update()
     {
         int SlideValue = int.Parse(ChargePercent());
         slider.value = SlideValue;
-        ChargeText.text = ChargePercent() +"%";
+        ChargeText.text = ChargePercent() + "%";
+
+        if (Convert.ToInt32(ChargePercent()) >= 60)
+        {
+
+            GetComponent<Image>().color = new Color(0.29f, 0.49f, 0.16f);
+
+        }
+        else if (Convert.ToInt32(ChargePercent()) <= 20)
+        {
+            GetComponent<Image>().color = Color.red;
+        }
+        else
+        {
+            GetComponent<Image>().color = new Color(0.9f, 0.5f, 0.1f);
+        }
+
+
     }
     IEnumerator PowerOut()
-    {   
-       while(true)
-        {   
+    {
+        while (true)
+        {
             Consumption();
             yield return new WaitForSeconds(1f);
         }
@@ -49,7 +69,7 @@ public class Power : MonoBehaviour
             output = input.ToString() + "MW";
             return output;
         }
-        else if(input >= 1000)
+        else if (input >= 1000)
         {
             input /= 1000;
             output = input.ToString() + "kW";
@@ -70,18 +90,22 @@ public class Power : MonoBehaviour
         LightingText.text = WattText(ConsumptionLight);
         СonsumptionEnergy /= 60; //Вт в час переводим в секунды
 
+
+
         if (chargeLevel > 0)
         {
-            chargeLevel -=СonsumptionEnergy;
+            chargeLevel -= СonsumptionEnergy;
         }
         else
         {
             chargeLevel = 0;
         }
-            
-            
-           
-        
-            
+
+
+
+
+
+
+
     }
 }
