@@ -1,10 +1,15 @@
-﻿using UnityEngine;
-
-class Item : MonoBehaviour
+﻿public class Item
 {
-	private ITEMTYPE type;
-	private ITEMNAME name;
-	private uint count = 0;
+	public ITEMTYPE Type;
+	public ITEMNAME Name;
+	public uint Count;
+
+	public Item(ITEMNAME name, ITEMTYPE type, uint count)
+	{
+		Type = type;
+		Name = name;
+		Count = count;
+	}
 }
 
 public enum ITEMNAME
