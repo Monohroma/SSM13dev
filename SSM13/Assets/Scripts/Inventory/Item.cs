@@ -2,8 +2,8 @@
 
 class Item : MonoBehaviour
 {
-	private ITEMTYPE type = ITEMTYPE.FOOD;
-	private ITEMNAME name = ITEMNAME.POTATO;
+	private ITEMTYPE type;
+	private ITEMNAME name;
 	private uint count = 0;
 }
 
