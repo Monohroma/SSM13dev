@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bay : MonoBehaviour
+namespace Bay
 {
-    public string Name { get; private set; }
-    public int Consumption {get; set;}
-    public bool Bought { get; set; }
-    public Bay(string Name, bool Bought, int Consumption )
+
+
+    public class Bay
     {
-        this.Name = Name;
-        this.Bought = Bought;
-        this.Consumption = Consumption;
+        public string Name { get; private set; }
+        public int Consumption { get; set; }
+        public bool Bought { get; set; }
+        public Bay(string Name, bool Bought, int Consumption)
+        {
+            this.Name = Name;
+            this.Bought = Bought;
+            this.Consumption = Consumption;
+        }
+
     }
-   
 }
