@@ -5,7 +5,7 @@ public class InventoryManager : MonoBehaviour
 {
 	public Dictionary<ITEMNAME, Item> items; // Не хочется держать его как паблик, но для дебага надо
 
-	public void AddItem(Item item)
+	public void CreateItem(Item item)
 	{
 		if (items.ContainsKey(item.Name))
 		{
@@ -15,14 +15,14 @@ public class InventoryManager : MonoBehaviour
 		items.Add(item.Name, item);
 	}
 
-	public void AddItem(ITEMNAME name, ITEMTYPE type, uint count)
+	public void CreateItem(ITEMNAME name, ITEMTYPE type, uint count)
 	{
-		AddItem(new Item(name, type, count, 100));
+		CreateItem(new Item(name, type, count, 100));
 	}
 
 	public void DebugAddPotato(int count) // Инспектор юнити не видит функцию с uint
 	{
-		AddItem(ITEMNAME.POTATO, ITEMTYPE.FOOD, (uint)count);
+		CreateItem(ITEMNAME.POTATO, ITEMTYPE.FOOD, (uint)count);
 	}
 
 	public void Remove(ITEMNAME name, uint count)
@@ -33,6 +33,15 @@ public class InventoryManager : MonoBehaviour
 			return;
 		}
 		Debug.LogWarning("Trying to remove item that not in the inventory");
+	}
+
+	public void Add(ITEMNAME name, uint count)
+	{
+		if (items.ContainsKey(name))
+		{
+			items[name].Count += count;
+			return;
+		}
 	}
 
 	private void Awake()
