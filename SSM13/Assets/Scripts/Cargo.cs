@@ -3,27 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Cargo : MonoBehaviour
 {
-    void Start()
+    public InventoryManager inventory;
+    public uint Buy(uint Price, uint Count, ITEMNAME name)// покупка предметов с цк
     {
-        
-    }
+        uint money = 0;
 
+        return money;
+    }
+    public uint Sell(uint Price, uint Count, ITEMNAME name)// продажа предметов на цк
+    {
+        uint money = 0;
+
+        return money;
+    }
     
-    void Update()
+   /* public Item CheckInventory(ITEMNAME thingName)// проверка инвентаря
     {
+        Item thing;
+        foreach (Item obj in inventory.items)
+        {
+          if(thingName == obj.Name)
+          {
+                thing = obj;
+          }
+        return thing;
+        }
         
-    }
-
-    public int Buy()// покупка предметов с цк
-    {
-        int money = 0;
-
-        return money;
-    }
-    public int Sell()// продажа предметов на цк
-    {
-        int money = 0;
-
-        return money;
-    }
+    } */
 }
