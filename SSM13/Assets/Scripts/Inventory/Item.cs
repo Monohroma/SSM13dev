@@ -14,7 +14,7 @@
 	}
 }
 
-public enum ITEMNAME
+public enum ITEMNAME : int
 {
 	POTATO,
 	HOTPOTATO

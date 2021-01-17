@@ -10,7 +10,7 @@ public class Station : MonoBehaviour
 	private List<Crew> crewList;
 	private Timer crewUpdateTimer;
 
-	private uint money;
+	private uint money = 0;
 	
 	public uint Money
 	{
