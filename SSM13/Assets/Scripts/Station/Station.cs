@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Station : MonoBehaviour
 {
+	[SerializeField]
+	private int crewUpdateTime = 5000;
+
 	private List<Crew> crewList;
 	private Timer crewUpdateTimer;
 
@@ -38,7 +41,7 @@ public class Station : MonoBehaviour
 
 	private void Awake()
 	{
-		crewUpdateTimer = new Timer(5000);
+		crewUpdateTimer = new Timer(crewUpdateTime);
 		crewUpdateTimer.Elapsed += crewUpdateTrigger;
 	}
 	private void crewUpdateTrigger(object sender, ElapsedEventArgs e)
