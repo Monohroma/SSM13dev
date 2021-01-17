@@ -43,7 +43,7 @@ public class InventoryManager : MonoBehaviour
 			return;
 		}
 	}
-
+	public uint Credits = 1000;
 	private void Awake()
 	{
 		items = new Dictionary<ITEMNAME, Item>();
