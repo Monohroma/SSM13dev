@@ -27,7 +27,7 @@ public class InventoryManager : MonoBehaviour
 
 	public void Remove(ITEMNAME name, uint count)
 	{
-		if (items.ContainsKey(name))
+		if (Contains(name))
 		{
 			items[name].Count -= count;
 			return;
@@ -37,11 +37,20 @@ public class InventoryManager : MonoBehaviour
 
 	public void Add(ITEMNAME name, uint count)
 	{
-		if (items.ContainsKey(name))
+		if (Contains(name))
 		{
 			items[name].Count += count;
-			return;
 		}
+	}	
+
+	public bool Contains(ITEMNAME name)
+	{
+		return items.ContainsKey(name);
+	}
+
+	public Item GetItem(ITEMNAME name)
+	{
+		return items[name];
 	}
 	public uint Credits = 1000;
 	private void Awake()
