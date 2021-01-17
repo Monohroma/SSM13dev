@@ -4,30 +4,33 @@ using UnityEngine;
 public class Cargo : MonoBehaviour
 {
     public InventoryManager inventory;
-    public uint Buy(uint Price, uint Count, ITEMNAME name)// покупка предметов с цк
+    public Station station;
+    public void Buy(int name)// покупка предметов с цк
     {
-        uint money = 0;
+        Item thing = inventory.GetItem((ITEMNAME)name);
 
-        return money;
-    }
-    public uint Sell(uint Price, uint Count, ITEMNAME name)// продажа предметов на цк
-    {
-        uint money = 0;
-
-        return money;
-    }
-    
-   /* public Item CheckInventory(ITEMNAME thingName)// проверка инвентаря
-    {
-        Item thing;
-        foreach (Item obj in inventory.items)
+        if (thing.Price <= station.Money)
         {
-          if(thingName == obj.Name)
-          {
-                thing = obj;
-          }
-        return thing;
+            thing.Count++;
+            station.TakeMoney(thing.Price);
         }
-        
-    } */
+        else
+        {
+            Debug.Log("денег нет");
+        }
+    }
+    public void Sell(int name)// продажа предметов на цк
+    {
+        Item thing = inventory.GetItem((ITEMNAME)name);
+
+        if (thing.Price <= station.Money)
+        {
+            thing.Count--;
+            station.AddMoney(thing.Price - 5);
+        }
+        else
+        {
+            Debug.Log("денег нет");
+        }
+    }
 }
