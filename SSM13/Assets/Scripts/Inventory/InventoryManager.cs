@@ -15,14 +15,14 @@ public class InventoryManager : MonoBehaviour
 		items.Add(item.Name, item);
 	}
 
-	public void CreateItem(ITEMNAME name, ITEMTYPE type, uint count)
+	public void CreateItem(ITEMNAME name, ITEMTYPE type, uint count, uint price)
 	{
-		CreateItem(new Item(name, type, count, 100));
+		CreateItem(new Item(name, type, count, price));
 	}
 
 	public void DebugAddPotato(int count) // Инспектор юнити не видит функцию с uint
 	{
-		CreateItem(ITEMNAME.POTATO, ITEMTYPE.FOOD, (uint)count);
+		CreateItem(ITEMNAME.POTATO, ITEMTYPE.FOOD, (uint)count, 100);
 	}
 
 	public void Remove(ITEMNAME name, uint count)
