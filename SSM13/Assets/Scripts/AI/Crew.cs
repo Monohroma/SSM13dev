@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class Crew : NPC
 {
+    private Station station;
     private WORK work;
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.Instance.AddCrew(this);
+        station = FindObjectOfType<Station>();
+        station.AddCrew(this);
         work = WORK.ASSISTANT;
     }
 
