@@ -23,7 +23,7 @@ public class Cargo : MonoBehaviour
     {
         Item thing = inventory.GetItem((ITEMNAME)name);
 
-        if (thing.Price <= station.Money)
+        if (thing.Count > 0)
         {
             thing.Count--;
             station.AddMoney(thing.Price - 5);

@@ -5,13 +5,10 @@ using UnityEngine;
 
 public class ShowInventory : MonoBehaviour
 {
+    public TextMeshProUGUI MoneyT;
     public TextMeshProUGUI textComponent;
     public InventoryManager inventory;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Station station;
 
     // Update is called once per frame
     void Update()
@@ -22,5 +19,6 @@ public class ShowInventory : MonoBehaviour
             defaultString += string.Format("{0}: {1}\n", obj.Key.ToString(), obj.Value.Count);
 		}
         textComponent.text = defaultString;
+        MoneyT.text = station.Money.ToString();
     }
 }
