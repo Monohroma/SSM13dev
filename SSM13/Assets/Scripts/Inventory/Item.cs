@@ -17,7 +17,8 @@
 public enum ITEMNAME : int
 {
 	POTATO,
-	HOTPOTATO
+	HOTPOTATO,
+	TOMATO
 }
 
 public enum ITEMTYPE

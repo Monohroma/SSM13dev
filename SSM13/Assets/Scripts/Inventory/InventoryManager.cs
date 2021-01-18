@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-	public Dictionary<ITEMNAME, Item> items; // Не хочется держать его как паблик, но для дебага надо
+	public static InventoryManager Instance { get; private set; }
+	void Start() => Instance = this;
+   
+    public Dictionary<ITEMNAME, Item> items; // Не хочется держать его как паблик, но для дебага надо
 
 	public void CreateItem(Item item)
 	{
