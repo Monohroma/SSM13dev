@@ -700,6 +700,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a368a6869d2975f46a87d78369f01515, type: 3}
+--- !u!4 &448023260 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5177288802317616600, guid: 3568d7f5c381f5247a343e87f35dc41b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8414752856154382862}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &626889106
 GameObject:
   m_ObjectHideFlags: 0
@@ -6670,6 +6676,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1241218078}
   m_CullTransparentMesh: 0
+--- !u!1 &1327613290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1327613291}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1327613291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327613290}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.53900146, y: 0.5269995, z: -67.44476}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 448023260}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1362272111
 GameObject:
   m_ObjectHideFlags: 0
@@ -8549,7 +8585,7 @@ PrefabInstance:
     - target: {fileID: 5177288802317616600, guid: 3568d7f5c381f5247a343e87f35dc41b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.978671
+      value: 15.159
       objectReference: {fileID: 0}
     - target: {fileID: 5177288802317616600, guid: 3568d7f5c381f5247a343e87f35dc41b,
         type: 3}
@@ -8593,9 +8629,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6942811976491693715, guid: 3568d7f5c381f5247a343e87f35dc41b,
         type: 3}
+      propertyPath: spawn
+      value: 
+      objectReference: {fileID: 1327613291}
+    - target: {fileID: 6942811976491693715, guid: 3568d7f5c381f5247a343e87f35dc41b,
+        type: 3}
       propertyPath: station
       value: 
       objectReference: {fileID: 1856278223}
+    - target: {fileID: 6942811976491693715, guid: 3568d7f5c381f5247a343e87f35dc41b,
+        type: 3}
+      propertyPath: Assistent
+      value: 
+      objectReference: {fileID: 1962196098208388849, guid: b8f1fae62b9b2a14ea75cf9ee61c4dd3,
+        type: 3}
     - target: {fileID: 6942811976491693715, guid: 3568d7f5c381f5247a343e87f35dc41b,
         type: 3}
       propertyPath: inventory

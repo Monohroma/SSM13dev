@@ -34,8 +34,8 @@ struct CoroutineOperation
 }
 public class Hydroponics : MonoBehaviour
 {
-    bool BayActive = true;
-    Bay.Bay Botanics = new Bay.Bay("Hydroponics", false, 4000, 3000);
+    public bool BayActive = true;
+    public Bay.Bay Botanics = new Bay.Bay("Hydroponics", false, 4000, 3000);
     Plants Tomato = new Plants("Tomato", 3, 55, 3, 0.10f, Random.Range(2, 4)); // 110-220
     Plants Potato = new Plants("Potato", 6, 35, 1, 0.2f, Random.Range(5, 7));  //175-245 
     List<CoroutineOperation> Coroutines = new List<CoroutineOperation>();

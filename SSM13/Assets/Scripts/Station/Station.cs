@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
+using Bay;
 
 public class Station : MonoBehaviour
 {
@@ -51,4 +52,9 @@ public class Station : MonoBehaviour
 			crew.CrewUpdate();
 		}
 	}
+
+	public void BuyBay()
+    {
+	 
+    }
 }

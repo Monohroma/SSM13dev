@@ -5,6 +5,8 @@ public class Cargo : MonoBehaviour
 {
     public InventoryManager inventory;
     public Station station;
+    public Transform spawn;
+    public GameObject Assistent;
     public void Buy(int name)// покупка предметов с цк
     {
         Item thing = inventory.GetItem((ITEMNAME)name);
@@ -33,4 +35,5 @@ public class Cargo : MonoBehaviour
             Debug.Log("денег нет");
         }
     }
+
 }
