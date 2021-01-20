@@ -7,15 +7,12 @@ public class Power : MonoBehaviour
 	public Slider slider;
 	public Text ChargeText; public Text EquipmentText; public Text LightingText; public Text EnviromentText; public Text TotalLoadText;
 	private int СonsumptionEnergy;
-	public int ConsumptionLight;
-	public int ConsumptionEquipment;
-	public int ConsumptionEnviroment;
 	private int ProduceEnergy;
 	public float Capacity;
 	public float chargeLevel;
 	public int ChargePercent()
 	{
-		float result = Mathf.Round(chargeLevel / Capacity * 100);
+		float result = (chargeLevel / Capacity * 100);
 
 		return (int)result;
 
@@ -81,15 +78,11 @@ public class Power : MonoBehaviour
 	}
 	public void Consumption()
 	{
-		СonsumptionEnergy = ConsumptionLight + ConsumptionEquipment + ConsumptionEnviroment;
-		TotalLoadText.text = WattText(СonsumptionEnergy);
-		EquipmentText.text = WattText(ConsumptionEquipment);
-		EnviromentText.text = WattText(ConsumptionEnviroment);
-		LightingText.text = WattText(ConsumptionLight);
+		// СonsumptionEnergy = ConsumptionLight + ConsumptionEquipment + ConsumptionEnviroment;
 		СonsumptionEnergy /= 60; //Вт в час переводим в секунды
 
 
-
+		
 		if (chargeLevel > 0)
 		{
 			chargeLevel -= СonsumptionEnergy;
