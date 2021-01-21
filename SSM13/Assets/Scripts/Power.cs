@@ -1,18 +1,50 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Power : MonoBehaviour
 {
+	[SerializeField]
+    Solar[] Solars;
+	public int SolarCost = 1000;
+	Bay.Bay Cargo = new Bay.Bay();
+	public Station station;
+	private byte QuantitySolars = 0;
+	public TextMeshProUGUI QuantitySolarsText;
+
+	private int ProduceEnergy() =>(20000/60)* QuantitySolars;
 	public Slider slider;
-	public Text ChargeText; public Text EquipmentText; public Text LightingText; public Text EnviromentText; public Text TotalLoadText;
+	public Text ChargeText;public Text TotalLoadText;
 	private int СonsumptionEnergy;
-	private int ProduceEnergy;
 	public float Capacity;
-	public float chargeLevel;
+	public float CurrentCharge;
+	
+	public void BuySolar()
+    {
+		if(SolarCost <= station.Money)
+        {
+			for (int i = 0; i < Solars.Length; i++)
+			{
+				if (!Solars[i].Bought)
+                {
+					station.TakeMoney((uint)SolarCost);
+					Solars[i].Bought = true;
+					QuantitySolars++;
+					QuantitySolarsText.text = QuantitySolars.ToString();
+					break;
+				}
+	      	}
+		}
+		else
+		{
+			Debug.Log("Денег нет!");
+		}
+
+	}
 	public int ChargePercent()
 	{
-		float result = (chargeLevel / Capacity * 100);
+		float result = (CurrentCharge / Capacity * 100);
 
 		return (int)result;
 
@@ -20,6 +52,7 @@ public class Power : MonoBehaviour
 	}
 	void Start()
 	{
+		Solars = GetComponentsInChildren<Solar>();
 		StartCoroutine(PowerOut());
 
 
@@ -78,25 +111,21 @@ public class Power : MonoBehaviour
 	}
 	public void Consumption()
 	{
-		// СonsumptionEnergy = ConsumptionLight + ConsumptionEquipment + ConsumptionEnviroment;
-		СonsumptionEnergy /= 60; //Вт в час переводим в секунды
-
-
 		
-		if (chargeLevel > 0)
+		СonsumptionEnergy /= 60; //Вт в час переводим в секунды
+		CurrentCharge += ProduceEnergy();
+		Debug.Log(ProduceEnergy());
+
+
+
+		if (CurrentCharge > 0)
 		{
-			chargeLevel -= СonsumptionEnergy;
+			CurrentCharge -= СonsumptionEnergy;
 		}
 		else
 		{
-			chargeLevel = 0;
+			CurrentCharge = 0;
 		}
-
-
-
-
-
-
-
 	}
+
 }
