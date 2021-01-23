@@ -1,39 +1,38 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Ark;
+using Storage;
 using UnityEngine;
-public class Cargo : MonoBehaviour
+using UnityEngine.UI;
+
+
+public class Cargo : Ark.Bay
 {
-    public InventoryManager inventory;
+    // ================ fields ================
+    [Header("System setup")]
     public Station station;
     public Transform spawn;
     public GameObject Assistent;
-    public void Buy(int name)// покупка предметов с цк
-    {
-        Item thing = inventory.GetItem((ITEMNAME)name);
 
-        if (thing.Price <= station.Money)
-        {
-            thing.Count++;
-            station.TakeMoney(thing.Price);
-        }
-        else
-        {
-            Debug.Log("денег нет");
-        }
-    }
-    public void Sell(int name)// продажа предметов на цк
-    {
-        Item thing = inventory.GetItem((ITEMNAME)name);
+    [Header("Item setup")]
+    public int ItemId;
 
-        if (thing.Count > 0)
-        {
-            thing.Count--;
-            station.AddMoney(thing.Price - 5);
-        }
-        else
-        {
-            Debug.Log("денег нет");
-        }
+    
+    // DON'T use GameItem from assets!!!
+    private GameItem _item => Storage.Inventory.Instance.GetItem(ItemId);
+    
+    // ================ inventory ================
+    private Inventory _inventory;
+    /// <summary>
+    /// Validate inventory. 
+    /// </summary>
+    private void Awake() => _inventory = Storage.Inventory.Instance;
+    
+    // ================ methods ================
+    private void BuyItem(GameItem element)
+    {
+        
     }
 
 }

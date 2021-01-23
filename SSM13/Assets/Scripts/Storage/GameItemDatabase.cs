@@ -49,7 +49,7 @@ public class GameItemDatabase
       {
          if (item.ItemID == id)
          {
-            return item;
+            return ScriptableObject.Instantiate(item) as GameItem;
          }
       }
       return null;
@@ -62,7 +62,7 @@ public class GameItemDatabase
       {
          if (item.ItemName == name)
          {
-            return item;
+            return ScriptableObject.Instantiate(item) as GameItem;
          }
       }
       return null;
@@ -75,7 +75,7 @@ public class GameItemDatabase
       {
          if (item == element)
          {
-            return element;
+            return ScriptableObject.Instantiate(element) as GameItem;
          }
       }
       return null;
@@ -84,7 +84,12 @@ public class GameItemDatabase
    public static List<GameItem> GetListItems()
    {
       ValidateDatabase();
-      return _items;
+      List<GameItem> items = new List<GameItem>();
+      foreach (var item in _items)
+      {
+         items.Add(ScriptableObject.Instantiate(item));
+      }
+      return items;
    }
    
    public static GameItem[] GetItems()
