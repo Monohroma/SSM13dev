@@ -6,11 +6,13 @@ namespace Ark
 {
     public class Bay : MonoBehaviour
     {
+        
         public string Name => _name;
         public int Energy => _energy;
 
-        protected string _name;
-        protected int _energy;
+        [Header("Bay options")]
+        [SerializeField] protected string _name;
+        [SerializeField] protected int _energy;
         
         public void AddConsumptionEnergy(int value)
         {
@@ -44,8 +46,9 @@ namespace Ark
         public int Cost => _cost;
         public bool Purcased => _bought;
         
-        private int _cost;
-        private bool _bought = false;
+        [Header("Dynamic Bay options")]
+        [SerializeField] private int _cost;
+        [SerializeField] private bool _bought = false;
 
         public DynamicBay(string name, int energy, int costBay)
         {
