@@ -62,6 +62,7 @@ public class Cell : MonoBehaviour
     {
        
     }
+   
     public void FixedUpdate()
     {
         var getText = GetComponentInChildren<TMP_Text>();

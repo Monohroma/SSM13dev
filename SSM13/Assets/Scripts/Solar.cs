@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Solar : MonoBehaviour
 {
     public bool Bought = false;
-    
+
 
     void Start()
     {
