@@ -41,6 +41,12 @@ namespace Storage
                 item.SetCount(0);
             }
         }
+
+        public GameItem[] GetItems()
+        {
+            ValidateInventory();
+            return _items.ToArray();
+        }
         
         public GameItem GetItem(int itemId)
         {
