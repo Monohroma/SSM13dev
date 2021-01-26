@@ -13,7 +13,9 @@ namespace Storage
         [SerializeField] private string Name;
         [SerializeField] private int ID;
         [SerializeField] private int Price;
+        [TextArea]
         [SerializeField] private string Description;
+        [Space(1f)]
         [SerializeField] private Sprite Sprite;
 
         [Header("Don't change! / Only DEBUG")]
