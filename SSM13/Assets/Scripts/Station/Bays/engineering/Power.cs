@@ -114,7 +114,6 @@ public class Power : MonoBehaviour
 		
 		СonsumptionEnergy /= 60; //Вт в час переводим в секунды
 		CurrentCharge += ProduceEnergy();
-		Debug.Log(ProduceEnergy());
 
 
 

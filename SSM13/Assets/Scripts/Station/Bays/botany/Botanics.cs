@@ -11,8 +11,8 @@ public class Botanics : MonoBehaviour
     void Start()
     {
      
-        Tomato = new Plants() { Name = "Tomato", GrowingTime = 35, Cost = 15, NumberOfGrowths = 2, HarvestAmount = 4, ItemName = ITEMNAME.TOMATO };
-        Potato = new Plants() { Name = "Potato", GrowingTime = 60, Cost = 35, NumberOfGrowths = 1, HarvestAmount = 7, ItemName = ITEMNAME.POTATO };
+      //  Tomato = new Plants() { Name = "Tomato", GrowingTime = 35, Cost = 15, NumberOfGrowths = 2, HarvestAmount = 4, ItemName = ITEMNAME.TOMATO };
+      //  Potato = new Plants() { Name = "Potato", GrowingTime = 60, Cost = 35, NumberOfGrowths = 1, HarvestAmount = 7, ItemName = ITEMNAME.POTATO };
         Cells =  GetComponentsInChildren<Cell>();
     }
 

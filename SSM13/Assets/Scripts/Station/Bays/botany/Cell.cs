@@ -24,7 +24,7 @@ public class Cell : MonoBehaviour
             Progress++;
         }
         var amount = Random.Range(0,currentPlant.HarvestAmount);
-        InventoryManager.Instance.CreateItem(currentPlant.ItemName, ITEMTYPE.FOOD, (uint)amount, 100);
+       // InventoryManager.Instance.CreateItem(currentPlant.ItemName, ITEMTYPE.FOOD, (uint)amount, 100);
         NumberOfGrowths++;
         Progress = 0;
                               
@@ -62,6 +62,7 @@ public class Cell : MonoBehaviour
     {
        
     }
+   
     public void FixedUpdate()
     {
         var getText = GetComponentInChildren<TMP_Text>();

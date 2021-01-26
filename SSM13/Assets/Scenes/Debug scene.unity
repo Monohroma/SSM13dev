@@ -151,7 +151,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 846941829}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -298,6 +298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46b0cb1663e7e74280455810777edfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Completed>k__BackingField: 1
+  <Progress>k__BackingField: 0
 --- !u!1 &157875722
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,6 +432,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46b0cb1663e7e74280455810777edfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Completed>k__BackingField: 1
+  <Progress>k__BackingField: 0
 --- !u!1 &160143702
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,7 +694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &283069574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1253,6 +1257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46b0cb1663e7e74280455810777edfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Completed>k__BackingField: 1
+  <Progress>k__BackingField: 0
 --- !u!1 &436325203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,6 +1765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46b0cb1663e7e74280455810777edfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Completed>k__BackingField: 1
+  <Progress>k__BackingField: 0
 --- !u!1 &626889106
 GameObject:
   m_ObjectHideFlags: 0
@@ -2299,7 +2307,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoneyT: {fileID: 4765407}
   textComponent: {fileID: 846941831}
-  inventory: {fileID: 6659693691882586782}
   station: {fileID: 1856278223}
 --- !u!114 &846941831
 MonoBehaviour:
@@ -2961,6 +2968,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46b0cb1663e7e74280455810777edfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Completed>k__BackingField: 1
+  <Progress>k__BackingField: 0
 --- !u!1 &1185778790
 GameObject:
   m_ObjectHideFlags: 0
@@ -9051,6 +9060,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46b0cb1663e7e74280455810777edfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Completed>k__BackingField: 1
+  <Progress>k__BackingField: 0
 --- !u!1 &1582308057
 GameObject:
   m_ObjectHideFlags: 0
@@ -9951,7 +9962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1815259584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10099,10 +10110,12 @@ MonoBehaviour:
   Solars: []
   SolarCost: 1000
   station: {fileID: 1856278223}
+  QuantitySolars: 0
   QuantitySolarsText: {fileID: 1970852375}
   slider: {fileID: 0}
   ChargeText: {fileID: 0}
   TotalLoadText: {fileID: 0}
+  "\u0421onsumptionEnergy": 0
   Capacity: 45000
   CurrentCharge: 15000
 --- !u!1 &1823243852
