@@ -47,15 +47,8 @@ namespace Ark
         public bool Purcased => _bought;
         
         [Header("Dynamic Bay options")]
-        [SerializeField] private int _cost;
-        [SerializeField] private bool _bought = false;
-
-        public DynamicBay(string name, int energy, int costBay)
-        {
-            _name = name;
-            _energy = energy;
-            _cost = costBay;
-        }
+        [SerializeField] protected int _cost;
+        [SerializeField] protected bool _bought = false;
 
         public void BuyBay() 
         {

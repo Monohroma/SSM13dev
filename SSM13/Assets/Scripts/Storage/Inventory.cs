@@ -102,5 +102,15 @@ namespace Storage
             GetItem(id).RemoveCount(count);
         }
 
+        public string dev_ShowInfo()
+        {
+            ValidateInventory();
+            string data = "";
+            foreach (var item in _items)
+            {
+                data += $"Name >> {item.ItemName} ID >> {item.ItemID.ToString()} Count >> {item.ItemCount.ToString()} Price >> {item.ItemPrice.ToString()} \n";
+            }
+            return data;
+        }
     }
 }

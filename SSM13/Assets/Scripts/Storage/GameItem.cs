@@ -9,23 +9,22 @@ namespace Storage
 {
     public class GameItem : ScriptableObject
     {
-        [Header("Item values")] [SerializeField]
-        private string Name;
-
+        [Header("Item values")]
+        [SerializeField] private string Name;
         [SerializeField] private int ID;
         [SerializeField] private int Price;
+        [SerializeField] private string Description;
         [SerializeField] private Sprite Sprite;
 
-        [Header("Don't change! / Only DEBUG")] [SerializeField]
-        private int _count = 0;
-
-        private bool _isEmpty;
+        [Header("Don't change! / Only DEBUG")]
+        [SerializeField] private int _count = 0;
 
         public string ItemName => Name;
         public int ItemID => ID;
+        public int ItemPrice => Price;
+        public string ItemDescription => Description;
         public int ItemCount => _count;
         public bool IsEmpty => _count == 0 ? true : false;
-        public int ItemPrice => Price;
         public Sprite ItemSprite => Sprite;
 
         public void SetCount(int value)
