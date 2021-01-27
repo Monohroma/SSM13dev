@@ -15,12 +15,9 @@ public class Cargo : Ark.Bay
     public Transform spawn;
     public GameObject Assistent;
 
-    [Header("Item setup")]
-    public int ItemId;
 
-    
     // DON'T use GameItem from assets!!!
-    private GameItem _item => Storage.Inventory.Instance.GetItem(ItemId);
+    
     
     // ================ inventory ================
     private Inventory _inventory;
