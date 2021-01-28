@@ -298,8 +298,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46b0cb1663e7e74280455810777edfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Completed>k__BackingField: 1
-  <Progress>k__BackingField: 0
 --- !u!1 &157875722
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +348,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e59aae6fe945c42823fa108b56bb33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bought: 0
 --- !u!114 &157875725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,8 +429,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46b0cb1663e7e74280455810777edfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Completed>k__BackingField: 1
-  <Progress>k__BackingField: 0
 --- !u!1 &160143702
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,7 +479,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e59aae6fe945c42823fa108b56bb33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bought: 0
 --- !u!114 &160143705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,7 +632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e59aae6fe945c42823fa108b56bb33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bought: 0
 --- !u!114 &266936923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1174,7 +1167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e59aae6fe945c42823fa108b56bb33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bought: 0
 --- !u!114 &416526113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1257,8 +1249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46b0cb1663e7e74280455810777edfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Completed>k__BackingField: 1
-  <Progress>k__BackingField: 0
 --- !u!1 &436325203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1499,7 +1489,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e59aae6fe945c42823fa108b56bb33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bought: 0
 --- !u!1 &557739127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,7 +1672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e59aae6fe945c42823fa108b56bb33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bought: 0
 --- !u!114 &571421886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1765,8 +1753,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46b0cb1663e7e74280455810777edfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Completed>k__BackingField: 1
-  <Progress>k__BackingField: 0
 --- !u!1 &626889106
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,28 +1827,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148387606d0ccd84fa326ca211f274ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_OverrideByGrid: 0
-  m_UseMeshPrefab: {fileID: 0}
-  m_CompressBounds: 0
-  m_OverrideVector: {x: 1, y: 1, z: 1}
-  m_DefaultArea: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 71dc7e6317b563d41bbb2a7780f1070a, type: 2}
-  m_LastPosition: {x: -20.314, y: 15.681, z: -1.0998535}
-  m_LastRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
 --- !u!4 &632699374
 Transform:
   m_ObjectHideFlags: 0
@@ -2193,7 +2157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e59aae6fe945c42823fa108b56bb33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bought: 0
 --- !u!114 &668887932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2281,7 +2244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e59aae6fe945c42823fa108b56bb33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bought: 0
 --- !u!114 &746171337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2821,7 +2783,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e59aae6fe945c42823fa108b56bb33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bought: 0
 --- !u!114 &1065986377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3033,8 +2994,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46b0cb1663e7e74280455810777edfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Completed>k__BackingField: 1
-  <Progress>k__BackingField: 0
 --- !u!1 &1185778790
 GameObject:
   m_ObjectHideFlags: 0
@@ -8474,10 +8433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 0
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!1 &1241218078
 GameObject:
   m_ObjectHideFlags: 0
@@ -8658,7 +8613,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e59aae6fe945c42823fa108b56bb33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bought: 0
 --- !u!114 &1300075774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8910,7 +8864,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e59aae6fe945c42823fa108b56bb33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bought: 0
 --- !u!114 &1420091375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9125,8 +9078,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46b0cb1663e7e74280455810777edfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Completed>k__BackingField: 1
-  <Progress>k__BackingField: 0
 --- !u!1 &1582308057
 GameObject:
   m_ObjectHideFlags: 0
@@ -9310,7 +9261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e59aae6fe945c42823fa108b56bb33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bought: 0
 --- !u!114 &1597700077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9532,7 +9482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e59aae6fe945c42823fa108b56bb33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bought: 0
 --- !u!114 &1736187973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9620,7 +9569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e59aae6fe945c42823fa108b56bb33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bought: 0
 --- !u!114 &1749734989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9708,7 +9656,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e59aae6fe945c42823fa108b56bb33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bought: 0
 --- !u!114 &1753471404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10172,17 +10119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24dd0de98f17c8a4c95ce9775085c48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Solars: []
-  SolarCost: 1000
-  station: {fileID: 1856278223}
-  QuantitySolars: 0
-  QuantitySolarsText: {fileID: 1970852375}
-  slider: {fileID: 0}
-  ChargeText: {fileID: 0}
-  TotalLoadText: {fileID: 0}
-  "\u0421onsumptionEnergy": 0
-  Capacity: 45000
-  CurrentCharge: 15000
 --- !u!1 &1823243852
 GameObject:
   m_ObjectHideFlags: 0
@@ -11001,7 +10937,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e59aae6fe945c42823fa108b56bb33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bought: 0
 --- !u!1 &2135268087
 GameObject:
   m_ObjectHideFlags: 0
@@ -12468,10 +12403,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!1001 &6659693691882586781
 PrefabInstance:
   m_ObjectHideFlags: 0
