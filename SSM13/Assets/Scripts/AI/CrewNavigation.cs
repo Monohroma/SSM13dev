@@ -4,12 +4,10 @@ using UnityEngine;
 using Pathfinding;
 
 public class CrewNavigation : MonoBehaviour
-{                                           // ПОИСК ПУТИ ЕСТЬ, А ХОДЬБЫ ПО ТАЙЛАМ НЕТУ! докожу позже
+{ 
     public Transform target;
-
-    public float speed = 200f;
+    public float speed = 20f;
     public float nextWaypointDistanse = .32f;
-
     Path path;
     int currentWaypoint = 0;
     bool reacheEndOfPath = false;
@@ -36,6 +34,7 @@ public class CrewNavigation : MonoBehaviour
             currentWaypoint = 0;
         }
     }
+
     void FixedUpdate()
     {
         if (path == null)
@@ -50,6 +49,12 @@ public class CrewNavigation : MonoBehaviour
         {
             reacheEndOfPath = false;
         }
+        Vector2.Lerp((Vector2)transform.position, (Vector2)path.vectorPath[currentWaypoint], speed * Time.deltaTime);
+        float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
 
+        if (distance< nextWaypointDistanse)
+        {
+            currentWaypoint++;
+        }
     }
 }
