@@ -55,7 +55,7 @@ namespace Ark
             _bought = true;
         }
 
-        public void SetCount(int newCost)
+        public void SetCost(int newCost)
         {
             if (newCost >= 0)
             {
