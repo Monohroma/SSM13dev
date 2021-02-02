@@ -5,7 +5,7 @@ using Pathfinding;
 
 public class AssistantScript : MonoBehaviour
 {
-    private static CrewData crewData;
+    public  CrewData crewData;
     private GameObject[] NavPoints;
     private AIDestinationSetter setter;
 
@@ -18,7 +18,6 @@ public class AssistantScript : MonoBehaviour
 
     public void Start()
     {
-        Instantiate<CrewData>(crewData); // НЕ РАБОТАЕТ PRESS F
         NavPoints = GameObject.FindGameObjectsWithTag("NavPoint"); // массив с геймобджектами точек
         setter = GetComponent<AIDestinationSetter>();
         // перебераем массив и задаем трансформы нашим трансформам
@@ -46,6 +45,7 @@ public class AssistantScript : MonoBehaviour
 
         // логика
         StartCoroutine(indicatortimer(crewData.food, 5));
+        SetTask("Work");
     }
     public void SetTask(string TaskName)
     {
@@ -78,7 +78,5 @@ public class AssistantScript : MonoBehaviour
             Debug.Log(indicator);
         yield return new WaitForSeconds(timer);
         }
-        
     }
-
 }
