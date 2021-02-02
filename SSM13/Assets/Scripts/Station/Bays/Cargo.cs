@@ -21,15 +21,23 @@ public class Cargo : Ark.Bay
     
     // ================ inventory ================
     private Inventory _inventory;
-    /// <summary>
-    /// Validate inventory. 
-    /// </summary>
-    private void Awake() => _inventory = Storage.Inventory.Instance;
+    private GameItem _item;
+    private Economics _economics;
+    
+    private void Awake()
+    {
+        _inventory = Inventory.Instance;
+        _economics = Economics.Instance;
+    }
     
     // ================ methods ================
-    private void BuyItem(GameItem element)
+    public void BuyItem(string nameItem, int cost)
     {
-        
+        if (_economics.SubtractMoney(cost))
+        {
+            _inventory.AddItem(_inventory.GetItem(nameItem));
+        }
+        else print("Денег нет!");
     }
 
 }

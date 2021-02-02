@@ -14,6 +14,9 @@ namespace Ark
         
         // ============= instance =============
         private static Economics _instance;
+        /// <summary>
+        /// Переменная которая хранит экземпляр класса
+        /// </summary>
         public static Economics Instance
         {
             get
@@ -25,13 +28,24 @@ namespace Ark
         
         // ============= method =============
 
-        public void SubtractMoney(int value)
+        public void dev_SubtractMoney(int value)
         {
-            
             if ((_storedMoney - value) < 0)
                 throw new ArgumentOutOfRangeException(nameof(StoredMoney),
                     $"The {nameof(StoredMoney)} value cannot become negative.");
             _storedMoney -= value;
+        }
+
+        /// <summary>
+        /// Вычитает денюжку из банка
+        /// </summary>
+        /// <param name="value">Количество денег которое будет вычтено</param>
+        /// <returns>Возвращает true, если операция выполнена. False если обратное</returns>
+        public bool SubtractMoney(int value)
+        {
+            if ((_storedMoney - value) < 0) return false;
+            _storedMoney -= value;
+            return true;
         }
 
         public void AddMoney(int value)
