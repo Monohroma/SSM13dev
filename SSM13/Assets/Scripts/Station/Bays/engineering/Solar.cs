@@ -7,15 +7,9 @@ public class Solar : MonoBehaviour
 {
     public bool Bought = false;
 
-
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
-        GetComponent<Image>().enabled = Bought; 
+        GetComponent<SpriteRenderer>().enabled = Bought; 
         if (Bought)
         {
             gameObject.name = "bought";

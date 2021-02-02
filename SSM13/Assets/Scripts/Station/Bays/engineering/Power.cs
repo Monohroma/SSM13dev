@@ -58,7 +58,7 @@ public class Power : MonoBehaviour
 
 	}
 	void Update()
-	{
+	{ // ПЕРЕНЕСИ СЛАЙДЕР В ОТДЕЛЬНЫЙ СКРИПТ SHOWPOWER и всё что касается показа энергии в отдельный скрипт, тут должна быть только логика энергии
 		int chargePercent = ChargePercent();
 		slider.value = chargePercent;
 		ChargeText.text = chargePercent + "%";

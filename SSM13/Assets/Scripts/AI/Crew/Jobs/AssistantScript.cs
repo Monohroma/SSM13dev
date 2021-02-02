@@ -5,8 +5,8 @@ using Pathfinding;
 
 public class AssistantScript : MonoBehaviour
 {
-    private static CrewData Data;
-    private GameObject[] NavPoints = GameObject.FindGameObjectsWithTag("NavPoint"); // массив с геймобджектами точек
+    private static CrewData crewData;
+    private GameObject[] NavPoints;
     private AIDestinationSetter setter;
 
     //трансформы для точек
@@ -15,13 +15,16 @@ public class AssistantScript : MonoBehaviour
     Transform WorkZone;
     Transform HideZone;
 
-    public void Awake()
+
+    public void Start()
     {
+        Instantiate<CrewData>(crewData); // НЕ РАБОТАЕТ PRESS F
+        NavPoints = GameObject.FindGameObjectsWithTag("NavPoint"); // массив с геймобджектами точек
         setter = GetComponent<AIDestinationSetter>();
         // перебераем массив и задаем трансформы нашим трансформам
-        foreach(GameObject point in NavPoints)
+        foreach (GameObject point in NavPoints)
         {
-            switch (point.name) 
+            switch (point.name)
             {
                 case "kitchen":
                     kitchen = point.transform;
@@ -40,6 +43,9 @@ public class AssistantScript : MonoBehaviour
                     break;
             }
         }
+
+        // логика
+        StartCoroutine(indicatortimer(crewData.food, 5));
     }
     public void SetTask(string TaskName)
     {
@@ -64,8 +70,15 @@ public class AssistantScript : MonoBehaviour
 
     }
 
-    /* Дальше должена находится корутина которая уменьшает голод и корутина которая уменьшает энергию во время работы. А так же проверка в апдейте на активные желания
-       типо если всё хорошо - работаем, хочется кушать - кушаем, хочется чилить - чилим, получаем по лицу - прячемся.
-     */
+    private IEnumerator indicatortimer(int indicator, int timer)
+    {
+        while(indicator > 0)
+        {
+            indicator--;
+            Debug.Log(indicator);
+        yield return new WaitForSeconds(timer);
+        }
+        
+    }
 
 }

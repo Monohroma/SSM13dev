@@ -9,4 +9,5 @@ public class CrewData : ScriptableObject
      public float speed = 1;
      public int rest = 100;
      public int hp = 100;
+     public int food = 100; 
 }
