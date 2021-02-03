@@ -18,19 +18,17 @@ public class CameraOperation : MonoBehaviour
 
     Vector2 mouseClickPos;
     Vector2 mouseCurrentPos;
-    // Start is called before the first frame update
+    
     void Start()
     {
         screenHeight = Screen.height;
         screenWidth = Screen.width;
         targetOrtho = Camera.main.orthographicSize;
-
-
     }
 
-    // Update is called once per frame
+   
     void Update()
-    { // When LMB clicked get mouse click position and set panning to true (Перетягивание колёсиком мышки)
+    { 
         if (Input.GetKey(KeyCode.Mouse2) )
         {
             if (mouseClickPos == default)
@@ -42,7 +40,7 @@ public class CameraOperation : MonoBehaviour
             var distance = mouseCurrentPos - mouseClickPos;
 
             transform.position += new Vector3(Mathf.Clamp(-distance.x, YminCameraDistance, YmaxCameraDistance), Mathf.Clamp(-distance.y, YminCameraDistance, YmaxCameraDistance), 0);
-            //transform.position += new Vector3( -distance.x, -distance.y, 0);
+           
         }
             // If LMB is released, stop moving the camera
             if (Input.GetKeyUp(KeyCode.Mouse2))
@@ -71,7 +69,7 @@ public class CameraOperation : MonoBehaviour
             transform.position = new Vector3(Mathf.Clamp(camPos.x, XminCameraDistance, XmaxCameraDistance), Mathf.Clamp(camPos.y, YminCameraDistance, YmaxCameraDistance), camPos.z); // ограничение движения камеры
 
             float scroll = Input.GetAxis("Mouse ScrollWheel");
-            if (scroll != 0.0f) //зум
+            if (scroll != 0.0f) 
             {
                 targetOrtho -= scroll * zoomSpeed;
                 targetOrtho = Mathf.Clamp(targetOrtho, minZoom, maxZoom);
