@@ -1,15 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Storage;
 
-public class Plants
+[CreateAssetMenu(menuName = "Item/PlantItem", fileName = "New Plant")]
+public class Plants : GameItem
 {
-    public string Name { get;set; }
-    public float GrowingTime { get; set; }
-    public int Cost { get;set; }
-    public int NumberOfGrowths { get;set; } //То, сколько раз можно собрать
-    public int HarvestAmount { get;set; } //Кол-во получаемых предметов после сбора
-    public string ItemName;
+    [Header("not debug, you can change it")]
+    [SerializeField] private float GrowingTime;
+    [SerializeField] private int NumberOfGrowths;
+    [SerializeField] private int HarvestAmount;
+    [SerializeField] private int Nutritional;
 
-    
+    public float _GrowingTime => GrowingTime;
+    public int _NumberOfGrowths => NumberOfGrowths;
+    public int _HarvestAmount => HarvestAmount;
+    public int _Nutritional => Nutritional;
+
+
+
 }

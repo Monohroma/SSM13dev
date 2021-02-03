@@ -16,19 +16,19 @@ public class Cell : MonoBehaviour
         
         int NumberOfGrowths=0;
     point:
-        var timer = currentPlant.GrowingTime;
+        var timer = currentPlant._GrowingTime;
         while (timer > 0)
         {
             timer--;
             yield return new WaitForSeconds(1);
             Progress++;
         }
-        var amount = Random.Range(0,currentPlant.HarvestAmount);
+        var amount = Random.Range(0,currentPlant._HarvestAmount);
        // InventoryManager.Instance.CreateItem(currentPlant.ItemName, ITEMTYPE.FOOD, (uint)amount, 100);
         NumberOfGrowths++;
         Progress = 0;
                               
-        if(NumberOfGrowths <= currentPlant.NumberOfGrowths)
+        if(NumberOfGrowths <= currentPlant._NumberOfGrowths)
         {
             goto point;
         }
@@ -49,7 +49,7 @@ public class Cell : MonoBehaviour
         int progress = 0;
         try
         {
-             progress = (int)(Progress * 100 / currentPlant.GrowingTime);
+             progress = (int)(Progress * 100 / currentPlant._GrowingTime);
         }   
         catch
         {

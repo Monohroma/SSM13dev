@@ -37,7 +37,7 @@ public class Cargo : Ark.Bay
         {
             _inventory.AddItem(_inventory.GetItem(nameItem));
         }
-        else print("Денег нет!");
+        else Debug.Log("Денег нет!");
     }
 
 }

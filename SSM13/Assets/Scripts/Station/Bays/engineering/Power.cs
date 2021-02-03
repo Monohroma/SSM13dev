@@ -60,10 +60,10 @@ public class Power : MonoBehaviour
 	void Update()
 	{ // ПЕРЕНЕСИ СЛАЙДЕР В ОТДЕЛЬНЫЙ СКРИПТ SHOWPOWER и всё что касается показа энергии в отдельный скрипт, тут должна быть только логика энергии
 		int chargePercent = ChargePercent();
-		slider.value = chargePercent;
+	//	slider.value = chargePercent;
 		ChargeText.text = chargePercent + "%";
 
-		if (chargePercent >= 60)
+	/*	if (chargePercent >= 60)
 		{
 
 			GetComponent<Image>().color = new Color(0.29f, 0.49f, 0.16f);
@@ -76,7 +76,7 @@ public class Power : MonoBehaviour
 		else
 		{
 			GetComponent<Image>().color = new Color(0.9f, 0.5f, 0.1f);
-		}
+		} */
 
 
 	}

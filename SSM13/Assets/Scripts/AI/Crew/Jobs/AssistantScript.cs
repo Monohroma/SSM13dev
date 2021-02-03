@@ -43,9 +43,8 @@ public class AssistantScript : MonoBehaviour
             }
         }
 
-        // логика
-        StartCoroutine(indicatortimer(crewData.food, 5));
-        SetTask("Work");
+        // стартуем голод
+        StartCoroutine(IndicatorTimer(crewData.food, 5));
     }
     public void SetTask(string TaskName)
     {
@@ -70,13 +69,29 @@ public class AssistantScript : MonoBehaviour
 
     }
 
-    private IEnumerator indicatortimer(int indicator, int timer)
+    private IEnumerator IndicatorTimer(int indicator, int timer)
     {
         while(indicator > 0)
         {
             indicator--;
             Debug.Log(indicator);
         yield return new WaitForSeconds(timer);
+        }
+    }
+
+    public void Update()
+    {
+        if(crewData.rest > 0 && crewData.food >= 30)
+        {
+            SetTask("Work");
+        }
+        else if (crewData.food <= 30)
+        {
+            SetTask("Eat");
+        }
+        else
+        {
+            SetTask("Rest");
         }
     }
 }
