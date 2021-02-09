@@ -7,17 +7,17 @@ using Unity.Collections;
 
 namespace Storage
 {
-    [CreateAssetMenu(menuName = "Item/StandartItem", fileName = "New Item")]
     public class GameItem : ScriptableObject
     {
         [Header("Item values")]
         [SerializeField] private string Name;
         [SerializeField] private int ID;
         [SerializeField] private int Price;
+        
         [TextArea]
         [SerializeField] private string Description;
+        
         [Space(1f)]
-        [Tooltip("Картинка")]
         [SerializeField] private Sprite Sprite;
 
         [Header("Don't change! / Only DEBUG")]

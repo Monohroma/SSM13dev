@@ -22,7 +22,7 @@ namespace Storage
         
         private void ValidateInventory()
         {
-            if (_items == null) _items = GameItemDatabase.GetListItems();
+            _items = GameItemDatabase.GetListItems();
         }
 
         public void ClearInventory()
@@ -108,7 +108,7 @@ namespace Storage
             string data = "";
             foreach (var item in _items)
             {
-                data += $"Name >> {item.ItemName} ID >> {item.ItemID.ToString()} Count >> {item.ItemCount.ToString()} Price >> {item.ItemPrice.ToString()} \n";
+                data += $"Name >> {item.ItemName}; ID >> {item.ItemID.ToString()}; Count >> {item.ItemCount.ToString()}; Price >> {item.ItemPrice.ToString()}; \n";
             }
             return data;
         }

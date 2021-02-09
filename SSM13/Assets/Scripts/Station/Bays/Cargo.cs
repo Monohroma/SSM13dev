@@ -29,7 +29,13 @@ public class Cargo : Ark.Bay
         _inventory = Inventory.Instance;
         _economics = Economics.Instance;
     }
-    
+
+    private void Start()
+    {
+        string a = _inventory.dev_ShowInfo();
+        print(a);
+    }
+
     // ================ methods ================
     public void BuyItem(string nameItem, int cost)
     {
