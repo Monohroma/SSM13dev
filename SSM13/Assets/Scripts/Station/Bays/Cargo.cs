@@ -11,7 +11,6 @@ public class Cargo : Ark.Bay
 {
     // ================ fields ================
     [Header("System setup")]
-    public Station station;
     public Transform spawn;
     public GameObject Assistent;
 

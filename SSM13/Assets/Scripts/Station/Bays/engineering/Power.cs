@@ -2,14 +2,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Ark;
 
 public class Power : MonoBehaviour
 {
 	[SerializeField]
     Solar[] Solars;
 	public int SolarCost = 1000;
-	Bay.Bay Cargo = new Bay.Bay();
-	public Station station;
 	private byte QuantitySolars = 0;
 	public TextMeshProUGUI QuantitySolarsText;
 
@@ -19,27 +18,21 @@ public class Power : MonoBehaviour
 	private int СonsumptionEnergy;
 	public float Capacity;
 	public float CurrentCharge;
-	
+	public Economics economics;
+
 	public void BuySolar()
     {
-		if(SolarCost <= station.Money)
-        {
 			for (int i = 0; i < Solars.Length; i++)
 			{
 				if (!Solars[i].Bought)
                 {
-					station.TakeMoney((uint)SolarCost);
+					economics.SubtractMoney(SolarCost);
 					Solars[i].Bought = true;
 					QuantitySolars++;
 					QuantitySolarsText.text = QuantitySolars.ToString();
 					break;
 				}
 	      	}
-		}
-		else
-		{
-			Debug.Log("Денег нет!");
-		}
 
 	}
 	public int ChargePercent()

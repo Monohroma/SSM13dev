@@ -8,26 +8,28 @@ public class NavPoint : MonoBehaviour
 
     private void Start()
     {
-        ThisCollider = GetComponent<GameObject>();
+        ThisCollider = gameObject;
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+      
         if (collision.gameObject.tag == "Crew")
-        {
+        {  Debug.Log("зашел в тригер как к себе домой");
+            AssistantScript Asistant = collision.gameObject.GetComponent<AssistantScript>();
             switch (ThisCollider.name)
             {
                 case "kitchen":
-                   AssistantScript Asistant = collision.gameObject.GetComponent<AssistantScript>();
- //                   Asistant.StartCoroutine(); ПОЧЕМУ ТО НЕ РАБОТАЕТ, ХОЧУ ЗАПУСТИТЬ IndicatorTimer, А не могу
+                    Asistant.StartCoroutine(Asistant.IndicatorTimerPlus(Asistant.food, 1));
                     break;
                 case "rest zone":
-                    
+                    Asistant.StartCoroutine(Asistant.IndicatorTimerPlus(Asistant.rest, 1));
                     break;
                 case "work zone":
-                    
+                    Asistant.StartCoroutine(Asistant.IndicatorTimer(Asistant.rest, 1, "усталость"));
+                    Debug.Log("test");
                     break;
                 case "hide zone":
-                    
+                    Debug.Log("Притаился, на крысичах");
                     break;
                 default:
                     Debug.LogError("эта точка не предусмотрена");

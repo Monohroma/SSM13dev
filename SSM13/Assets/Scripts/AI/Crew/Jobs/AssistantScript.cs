@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class AssistantScript : MonoBehaviour
+public class AssistantScript : Crew
 {
-    public  CrewData crewData;
     private GameObject[] NavPoints;
     private AIDestinationSetter setter;
 
@@ -44,7 +43,7 @@ public class AssistantScript : MonoBehaviour
         }
 
         // стартуем голод
-        StartCoroutine(IndicatorTimer(crewData.food, 5));
+        StartCoroutine(IndicatorTimer(food, 5, " еда"));
     }
     public void SetTask(string TaskName)
     {
@@ -63,29 +62,38 @@ public class AssistantScript : MonoBehaviour
                 setter.target = HideZone;
                 break;
             default:
-                Debug.LogError("Точки пути не существует");
+                Debug.LogError($"Точки {TaskName} не существует");
                 break;
         }
 
     }
 
-    private IEnumerator IndicatorTimer(int indicator, int timer)
+    public IEnumerator IndicatorTimer(int indicator, int timer, string debug)
     {
         while(indicator > 0)
         {
             indicator--;
-            Debug.Log(indicator);
+            Debug.Log(indicator + debug);
         yield return new WaitForSeconds(timer);
+        }
+    }
+    public IEnumerator IndicatorTimerPlus(int indicator, int timer)
+    {
+        while (indicator > 0)
+        {
+            indicator++;
+            Debug.Log(indicator);
+            yield return new WaitForSeconds(timer);
         }
     }
 
     public void Update()
     {
-        if(crewData.rest > 0 && crewData.food >= 30)
+        if(rest > 0 && food >= 30)
         {
             SetTask("Work");
         }
-        else if (crewData.food <= 30)
+        else if (food <= 30)
         {
             SetTask("Eat");
         }

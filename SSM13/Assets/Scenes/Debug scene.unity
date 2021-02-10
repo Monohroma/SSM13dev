@@ -1771,13 +1771,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Solars: []
   SolarCost: 1000
-  station: {fileID: 1856278223}
   QuantitySolarsText: {fileID: 1731483269}
   slider: {fileID: 1259593240}
   ChargeText: {fileID: 901361916}
   TotalLoadText: {fileID: 2028088380}
   Capacity: 10000
   CurrentCharge: 1
+  economics: {fileID: 1050210554}
 --- !u!4 &829478805
 Transform:
   m_ObjectHideFlags: 0
@@ -1845,7 +1845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoneyT: {fileID: 4765407}
   textComponent: {fileID: 846941831}
-  station: {fileID: 1856278223}
+  economics: {fileID: 1050210554}
 --- !u!114 &846941831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2515,7 +2515,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ebafc7f31eeb5479464847431c5fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crewData: {fileID: 11400000, guid: 24d1967bc8c28b148b44d3fc41676532, type: 2}
+  sprite: {fileID: 0}
+  speed: 1
+  rest: 100
+  hp: 100
+  food: 100
 --- !u!1 &1167576262
 GameObject:
   m_ObjectHideFlags: 0
@@ -11571,7 +11575,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: 
   _energy: 0
-  station: {fileID: 0}
   spawn: {fileID: 0}
   Assistent: {fileID: 0}
 --- !u!4 &3683480087194691542
