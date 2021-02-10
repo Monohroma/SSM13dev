@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Storage;
+[CreateAssetMenu(menuName = "Item/PlantItem", fileName = "New Plant")]
 public class Plants : GameItem
 {
-    [Header("not debug, you can change it")]
+    [Header("Not debug, you can change it")]
     [SerializeField] private float GrowingTime;
     [SerializeField] private int NumberOfGrowths;
     [SerializeField] private int HarvestAmount;
