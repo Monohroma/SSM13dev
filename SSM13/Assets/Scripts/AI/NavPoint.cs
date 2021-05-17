@@ -16,7 +16,7 @@ public class NavPoint : MonoBehaviour
         if (collision.gameObject.tag == "Crew")
         {  Debug.Log("зашел в тригер как к себе домой");
             AssistantScript Asistant = collision.gameObject.GetComponent<AssistantScript>();
-            switch (ThisCollider.name)
+            switch (ThisCollider.tag)
             {
                 case "kitchen":
                     Asistant.StartCoroutine(Asistant.IndicatorTimerPlus(Asistant.food, 1));

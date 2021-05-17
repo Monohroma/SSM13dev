@@ -6,6 +6,10 @@ TagManager:
   tags:
   - NavPoint
   - Crew
+  - EatPoint
+  - WorkPoint
+  - RestPoint
+  - HidePoint
   layers:
   - Default
   - TransparentFX
