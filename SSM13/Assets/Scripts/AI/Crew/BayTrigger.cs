@@ -11,10 +11,10 @@ public class BayTrigger : MonoBehaviour
     private DynamicBay bay;
     private bool Bought { get { return bay.Purchased; } set { value = bay.Purchased;} } //Комментарии излишни 
     private bool Active = true;
-    private BayTypes Type;
+    [HideInInspector]  public BayTypes Type;
     private void Start()
     {
         bay= GetComponent<DynamicBay>();
-        Type = bay.Type;
+        Type = ((Bay)bay).Type;
     }
 }
