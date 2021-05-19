@@ -2,21 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
-public abstract class Crew : MonoBehaviour
+namespace AI
 {
-    private AIDestinationSetter setter; // штука в которую надо передавать transform точки навигации
-    public Sprite sprite; // спрайт
-     public float speed = 1; // скорость
-     public int rest = 100; // усталость
-     public int hp = 100; // здоровье
-     public int food = 100; // сытость
-    public AImenedger aImenedger;
-    // листы с точками навигации
-    Dictionary<string, List<Transform>> NavPoints;
-
-    public Crew()
+    public class Crew : Human
     {
+        public void SetJobBehaviour(IWork behaviour) => _IWork = behaviour;
+        private IWork _IWork; //Члены экипажа могут работать! Исключение ассистент кроме что (но бомл гений сделает заглушку-класс без работы)
+        
+        private void Start()
+        {
+            InitBehaviors();
+        }
+        private void InitBehaviors()
+        {
+            SetWalkBehaviour(new CrewMovePattern(transform, 1f));
+            //SetJobBehaviour(new BotanicJobPattern());
+        }
+        private void Movement(Transform Point)
+        {
+            PerformWalkMove(Point);
+        }
+        private void RandomMovePoint()
+        {
+            if(rest > 5) 
+            {
 
+            }
+        }
     }
-
 }
+

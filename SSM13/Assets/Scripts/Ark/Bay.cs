@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum BayTypes { Cargo, MedBay, Security, Botanics, Kitchen, Research, Engineering }
 namespace Ark
 {
+
     public class Bay : MonoBehaviour
     {
-        
-        public string Name => _name;
         public int Energy => _energy;
-
         [Header("Bay options")]
+        public BayTypes Type;
         [SerializeField] protected string _name;
         [SerializeField] protected int _energy;
-        
+
         public void AddConsumptionEnergy(int value)
         {
             if (value >= 0)
@@ -29,7 +29,7 @@ namespace Ark
                 _energy = newEnergy;
             }
         }
-        
+
         public string GetEnergyFormat()
         {
             float kw = _energy / 1000;
@@ -44,13 +44,13 @@ namespace Ark
     public class DynamicBay : Bay
     {
         public int Cost => _cost;
-        public bool Purcased => _bought;
-        
+        public bool Purchased => _bought;
+
         [Header("Dynamic Bay options")]
         [SerializeField] protected int _cost;
         [SerializeField] protected bool _bought = false;
 
-        public void BuyBay() 
+        public void BuyBay()
         {
             _bought = true;
         }
@@ -63,4 +63,5 @@ namespace Ark
             }
         }
     }
+
 }
