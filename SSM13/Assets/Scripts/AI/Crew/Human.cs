@@ -14,19 +14,29 @@ namespace AI
         protected readonly int MaxHp = 100;
         protected int CurrentHp = 100; //В будущем заменить на свойство 
         protected int food = 100;
+        protected bool IsWork; //Люди могут работать, а могут и не работать.........
 
         protected IMovable _IMovable; // Человек умеет ходить
 
 
-        public void SetWalkBehaviour(IMovable behaviour) => _IMovable = behaviour; //Конструктор для выбранного варианта ходьбы
-        public void ChangeMovement(IMovable movementBehavior)
+        public void SetWalkBehaviour(IMovable behaviour)
+        {
+            _IMovable = behaviour; //Конструктор для выбранного варианта ходьбы
+        }
+        public void ChangeMovement(IMovable movementBehavior) //Сменить паттерн ходьбы
         {
             _IMovable = movementBehavior;
         }
 
-        public void PerformWalkSetSpeed(float speed) => _IMovable.SetMoveSpeed(speed); //Изменение скорости
+        public void PerformWalkSetSpeed(float speed)
+        {
+            _IMovable.SetMoveSpeed(speed);
+        }
 
-        public void PerformWalkMove(Transform point) => _IMovable.Move(transform); // Куда идти
+        public void PerformWalkMove(Transform point)
+        {
+            _IMovable.Move(transform);
+        }
 
         private void Start()
         {
@@ -41,7 +51,7 @@ namespace AI
                 yield return new WaitForSeconds(delay / WasteOfEnergyCoefficent);
 
             }
-            Debug.LogWarning("Устал");
+            Debug.LogWarning("Устал и помер");
             yield break;
         }
         IEnumerator HungerCoroutine(float delay)

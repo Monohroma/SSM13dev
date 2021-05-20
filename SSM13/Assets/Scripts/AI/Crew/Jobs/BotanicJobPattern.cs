@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BotanicJobPattern : IWork
 {
-    private bool IsWork;
     private GameObject BayGameObject;
     private float WorkEnergyConsumption;
 

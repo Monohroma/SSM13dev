@@ -8,25 +8,38 @@ namespace AI
     {
         public void SetJobBehaviour(IWork behaviour) => _IWork = behaviour;
         private IWork _IWork; //Члены экипажа могут работать! Исключение ассистент кроме что (но бомл гений сделает заглушку-класс без работы)
-        
+        public BayTypes AccessLevel;
+        private RandomPointGenerator randomPointGenerator;
+
+
+        //public Transform PerformRandomMove(Transform point) => _IMovable.
+
+        private void Awake()
+        {
+            randomPointGenerator = GameObject.FindObjectOfType<RandomPointGenerator>();
+        }
         private void Start()
         {
+           setter = GetComponent<AIDestinationSetter>();
             InitBehaviors();
         }
-        private void InitBehaviors()
+        protected void InitBehaviors()
         {
-            SetWalkBehaviour(new CrewMovePattern(transform, 1f));
-            //SetJobBehaviour(new BotanicJobPattern());
+            SetWalkBehaviour(new CrewMovePattern(transform, 1f,setter));
         }
-        private void Movement(Transform Point)
+        protected void Movement(Transform Point)
         {
             PerformWalkMove(Point);
         }
-        private void RandomMovePoint()
+        protected void RandomMovePoint()
         {
-            if(rest > 5) 
+           // if(rest > 5) 
             {
-
+               if(_IMovable is CrewMovePattern)
+                {
+                    Debug.Log("Повезло, повезло");
+                    ((CrewMovePattern)_IMovable).GoToRandomPoint(randomPointGenerator, AccessLevel);
+                }
             }
         }
     }

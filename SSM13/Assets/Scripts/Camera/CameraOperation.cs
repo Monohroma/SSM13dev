@@ -10,8 +10,7 @@ public class CameraOperation : MonoBehaviour
     private int screenHeight;
     public float speed;
 
-    public int XminCameraDistance; public int XmaxCameraDistance;
-    public int YminCameraDistance; public int YmaxCameraDistance;
+    public MapLimit MapLimits;
 
     public float minZoom; public float maxZoom;
     public float zoomSpeed; private float targetOrtho; public float smoothSpeed;
@@ -39,7 +38,7 @@ public class CameraOperation : MonoBehaviour
             mouseCurrentPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var distance = mouseCurrentPos - mouseClickPos;
 
-            transform.position += new Vector3(Mathf.Clamp(-distance.x, YminCameraDistance, YmaxCameraDistance), Mathf.Clamp(-distance.y, YminCameraDistance, YmaxCameraDistance), 0);
+            transform.position += new Vector3(Mathf.Clamp(-distance.x, MapLimits.YminCameraDistance, MapLimits.YmaxCameraDistance), Mathf.Clamp(-distance.y, MapLimits.YminCameraDistance, MapLimits.YmaxCameraDistance), 0);
            
         }
             // If LMB is released, stop moving the camera
@@ -66,7 +65,7 @@ public class CameraOperation : MonoBehaviour
             {
                 camPos.y += speed * Time.deltaTime * (Camera.main.orthographicSize >= 2.9 ? 2 : Camera.main.orthographicSize / 2);
             }
-            transform.position = new Vector3(Mathf.Clamp(camPos.x, XminCameraDistance, XmaxCameraDistance), Mathf.Clamp(camPos.y, YminCameraDistance, YmaxCameraDistance), camPos.z); // ограничение движения камеры
+            transform.position = new Vector3(Mathf.Clamp(camPos.x, MapLimits.XminCameraDistance, MapLimits.XmaxCameraDistance), Mathf.Clamp(camPos.y, MapLimits.YminCameraDistance, MapLimits.YmaxCameraDistance), camPos.z); // ограничение движения камеры
 
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             if (scroll != 0.0f) 
