@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AI;
 
 public enum BayTypes { Cargo, MedBay, Security, Botanics, Kitchen, Research, Engineering }
 namespace Ark
@@ -8,6 +9,7 @@ namespace Ark
 
     public class Bay : MonoBehaviour
     {
+        private List<Human> WorkersInBay = new List<Human>(); // Если рабочий заходит в свою work zone, он начинает дико работать пока не упадёт без сил
         public int Energy => _energy;
         [Header("Bay options")]
         public BayTypes Type;
