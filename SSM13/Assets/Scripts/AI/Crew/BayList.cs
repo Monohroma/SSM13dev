@@ -8,11 +8,12 @@ public class BayList : MonoBehaviour
    public ZoneStatus[] KitchenZone; //С помощью инспектора заполняем зоны.
    public ZoneStatus[] RestZone;
    [Header("Only debug")]
-   public List<Transform> FreeKitchenZone; //Лист обновляется и если точка из массива свободна, добавляется в лист (можно заменить на Queue)
-   public List<Transform> FreeRestZone;
+   public List<Transform> FreeKitchenZone = new List<Transform>(); //Лист обновляется и если точка из массива свободна, добавляется в лист (можно заменить на Queue)
+   public List<Transform> FreeRestZone = new List<Transform>();
 
     private void Awake()
     {
+
         int index = 0;
         foreach (Transform child in transform)
         {
@@ -55,13 +56,14 @@ public class BayList : MonoBehaviour
     }
     public void UpdateList()
     {
-        FreeKitchenZone = null;
-        FreeRestZone = null;
+        FreeKitchenZone = new List<Transform>();
+        FreeRestZone = new List<Transform>();
+        Debug.Log(KitchenZone.Length);
         foreach (var point in KitchenZone)
         {
             if (!point.PointIsBusy)
             {
-                FreeKitchenZone.Add(point.gameObject.transform); //ОТКУДА ЗДЕСЬ НУЛЛ РЕФЕРЕНС
+                FreeKitchenZone.Add(point.gameObject.transform); // Загадка от Жака Фреско Откуда null reference?
             }
         }
         foreach (var point in RestZone)
