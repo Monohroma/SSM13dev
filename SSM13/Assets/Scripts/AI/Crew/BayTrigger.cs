@@ -8,13 +8,13 @@ public class BayTrigger : MonoBehaviour
 {
 
     public int Index; // Для дебага
-    private DynamicBay bay;
-    private bool Bought { get { return bay.Purchased; } set { value = bay.Purchased;} } //Комментарии излишни 
+    private Bay bay;
+    private bool Bought { get { return ((DynamicBay)bay).Purchased; } set { value = ((DynamicBay)bay).Purchased;} } //Комментарии излишни 
     private bool Active = true;
     [HideInInspector]  public BayTypes Type;
     private void Start()
     {
-        bay= GetComponent<DynamicBay>();
-        Type = ((Bay)bay).Type;
+        bay = GetComponent<Bay>();
+        Type = bay.Type;
     }
 }

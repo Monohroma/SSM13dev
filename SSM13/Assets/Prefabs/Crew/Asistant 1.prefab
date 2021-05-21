@@ -46,6 +46,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -94,6 +95,7 @@ GameObject:
   - component: {fileID: 8291976528643897556}
   - component: {fileID: 8291976528643897557}
   - component: {fileID: 8291976528643897559}
+  - component: {fileID: 8291976529203369831}
   m_Layer: 0
   m_Name: Asistant 1
   m_TagString: Untagged
@@ -181,3 +183,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+--- !u!114 &8291976529203369831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8291976528643897547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3472a5364efa0d048a358608c2496798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rest: 100
+  CurrentHp: 100
+  food: 100
+  IsWork: 0
+  WorkZone:
+  - {fileID: 0}
+  AccessLevel: 3

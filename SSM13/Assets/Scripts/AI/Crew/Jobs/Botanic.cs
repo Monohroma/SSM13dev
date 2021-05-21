@@ -1,20 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Ark;
 
-public class Botanic : AI.Crew
+
+namespace AI 
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Botanic : Crew
     {
-        InitWork(BayTypes.Botanics);
-        RandomMovePoint();
-    }
-    private void InitWork(BayTypes Acces)
-    {
-        AccessLevel = Acces;
-        SetJobBehaviour(new BotanicJobPattern(1f,null)); //на место null засунуть геймобджект ботаники
-    }
+        
+        void Start()
+        {
+            InitWork(BayTypes.Botanics);
+            StartNeedCoroutine(true,true,bayList); // Из базовых классов почему-то не запускается  //Нужно вынести в класс crew
+            RandomMovePoint(); //Дебаг
+        }
+        private void InitWork(BayTypes Acces)
+        {
+            AccessLevel = Acces;
+            SetJobBehaviour(new BotanicJobPattern(1f, null)); //на место null засунуть геймобджект ботаники //Изменить скрипт, чтобы он шёл на пустое место работы
+        }
 
 
+    }
 }
+
+

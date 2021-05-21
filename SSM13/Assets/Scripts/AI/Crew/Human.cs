@@ -8,13 +8,14 @@ namespace AI
     {
         
         protected AIDestinationSetter setter;
+        protected BayList bayList;
         protected float speed = 1;
-        protected int rest = 100;
-        protected int WasteOfEnergyCoefficent; // Коэффицент расхода энергии. Т.е если работает - rest и food снижается быстре, если не работает - медленее.
+        public int rest = 100;
+        protected int WasteOfEnergyCoefficent = 1; // Коэффицент расхода энергии. Т.е если работает - rest и food снижается быстре, если не работает - медленее.
         protected readonly int MaxHp = 100;
-        protected int CurrentHp = 100; //В будущем заменить на свойство 
-        protected int food = 100;
-        protected bool IsWork; //Люди могут работать, а могут и не работать.........
+        public int CurrentHp = 100; //В будущем заменить на свойство 
+        public int food = 100;
+        public bool IsWork; //Люди могут работать, а могут и не работать.........
 
         protected IMovable _IMovable; // Человек умеет ходить
 
@@ -32,33 +33,57 @@ namespace AI
         {
             _IMovable.SetMoveSpeed(speed);
         }
-
         public void PerformWalkMove(Transform point)
         {
             _IMovable.Move(transform);
         }
-
-        private void Start()
+        protected void StartNeedCoroutine(bool HumanGoesToKitchen = false, bool HumanGoesToRest = false, BayList bayList = null)
         {
-            StartCoroutine(HungerCoroutine(5f));
-            StartCoroutine(FatigueCoroutine(7f));
+            StartCoroutine(HungerCoroutine(2.1f,HumanGoesToKitchen, bayList));
+            StartCoroutine(FatigueCoroutine(3.2f,HumanGoesToRest, bayList));
         }
-        IEnumerator FatigueCoroutine(float delay)
+        IEnumerator FatigueCoroutine(float delay, bool restInRestZone = false, BayList bayList = null)
         {
             while(CurrentHp > 0 && rest > 0)
             {
                 rest--;
-                yield return new WaitForSeconds(delay / WasteOfEnergyCoefficent);
+                if(rest <= 10 && restInRestZone)
+                {
+                    for (int i = 0; i < bayList.FreeRestZone.Count; i++)
+                    {
+                        if (bayList.FreeKitchenZone[i])
+                        {
+                            bayList.TakeRestPoint(i,gameObject);
+                            PerformWalkMove(bayList.FreeRestZone[i]); //Идёт кушать, если в вызове корутины бул true
+                            break;
+                        }
 
+                    }
+                }
+                yield return new WaitForSeconds(delay / WasteOfEnergyCoefficent);
             }
             Debug.LogWarning("Устал и помер");
             yield break;
         }
-        IEnumerator HungerCoroutine(float delay)
+        IEnumerator HungerCoroutine(float delay, bool isEatingInKitchen = false, BayList bayList = null)
         {
             while (CurrentHp >  0 && food > 0)
             {
                 food--;
+                if (rest <= 25 && isEatingInKitchen)
+                {
+                    for (int i = 0; i < bayList.FreeKitchenZone.Count; i++)
+                    {
+                        if (bayList.FreeKitchenZone[i])
+                        {
+                            bayList.TakeKitchenPoint(i,gameObject);
+                            PerformWalkMove(bayList.FreeKitchenZone[i]); //Идёт кушать, если в вызове корутины бул true
+                            break;
+                        }
+                        
+                    }
+                        
+                }
                 yield return new WaitForSeconds(delay/WasteOfEnergyCoefficent);
             }
             StartCoroutine(HungerStrike());
