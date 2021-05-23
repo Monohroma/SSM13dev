@@ -11,8 +11,7 @@ namespace AI
         public List<Transform> WorkZone = new List<Transform>();
         public void SetJobBehaviour(IWork behaviour) => _IWork = behaviour;
         private IWork _IWork; //Члены экипажа могут работать! Исключение ассистент кроме что (но бомл гений сделает заглушку-класс без работы)
-        public BayTypes AccessLevel;
-        public bool NPCIsEating;
+        public BayTypes AccessLevel; 
         private RandomPointGenerator randomPointGenerator;
         private void Awake()
         {
@@ -23,11 +22,17 @@ namespace AI
         }
         public void StartEating()
         {
+            Debug.Log("Ест");
             if (!NPCIsEating)
             {
+                Debug.Log("Есть есть ");
                 NPCIsEating = true;
                 StartCoroutine(Eating());
             }           
+        }
+        public void GoInWork()
+        {
+
         }
         public void StopEating()
         {
