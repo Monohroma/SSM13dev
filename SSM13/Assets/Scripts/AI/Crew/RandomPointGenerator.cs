@@ -17,7 +17,7 @@ public class RandomPointGenerator : MonoBehaviour
 
         for (int i = 0;i < bayList.Bays.Count; i++ )
         {
-            if (bayList.Bays[i].GetComponent<BayTrigger>().Type != levelAccess) //Временно
+            if (bayList.Bays[i].GetComponent<BayTrigger>().Type == BayTypes.GreyZone) //Временно
             {
                 var BayCollider = bayList.Bays[i].GetComponent<BoxCollider2D>();
                 RandomPoint.x = Random.Range(bayList.Bays[i].gameObject.transform.position.x - BayCollider.size.x/2, bayList.Bays[i].gameObject.transform.position.x + BayCollider.size.x/2);

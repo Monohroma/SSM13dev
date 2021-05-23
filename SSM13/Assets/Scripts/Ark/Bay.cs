@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using AI;
 
-public enum BayTypes { Cargo, MedBay, Security, Botanics, Kitchen, Research, Engineering }
+public enum BayTypes { Cargo, Med, Security, Botanics, Kitchen, Research, Engineering, GreyZone, Bridge }
 namespace Ark
 {
 
@@ -15,6 +15,15 @@ namespace Ark
         public BayTypes Type;
         [SerializeField] protected string _name;
         [SerializeField] protected int _energy;
+
+
+        public int Cost => _cost;
+        public bool Purchased => _bought;
+        public bool Active;
+
+        [Header("Dynamic Bay options")]
+        [SerializeField] protected int _cost;
+        [SerializeField] protected bool _bought = false;
 
         public void AddConsumptionEnergy(int value)
         {
@@ -41,16 +50,6 @@ namespace Ark
             else if (kw >= 1) return kw.ToString() + "KW";
             else return _energy.ToString() + "W";
         }
-    }
-
-    public class DynamicBay : Bay
-    {
-        public int Cost => _cost;
-        public bool Purchased => _bought;
-
-        [Header("Dynamic Bay options")]
-        [SerializeField] protected int _cost;
-        [SerializeField] protected bool _bought = false;
 
         public void BuyBay()
         {
@@ -64,6 +63,7 @@ namespace Ark
                 _cost = newCost;
             }
         }
-    }
 
+
+    }
 }

@@ -27,7 +27,6 @@ namespace AI
         }
         public void GoToRandomPoint(RandomPointGenerator randomPointGenerator, BayTypes LevelAccess)
         {
-            Debug.Log("Погнали, нпс идёт топ топ");
             Move(randomPointGenerator.RandomPointGenerate(LevelAccess));
         }
     }
