@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Ark;
 
 public class BayList : MonoBehaviour
 {
    public List<GameObject> Bays = new List<GameObject>();
+   public BayTrigger Kitchen;
    public ZoneStatus[] KitchenZone; //С помощью инспектора заполняем зоны.
    public ZoneStatus[] RestZone;
    [Header("Only debug")]

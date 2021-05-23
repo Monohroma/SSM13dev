@@ -5,8 +5,7 @@ using Pathfinding;
 namespace AI
 {
     public abstract class Human : MonoBehaviour
-    {
-        
+    {        
         protected AIDestinationSetter setter;
         protected BayList bayList;
         protected float speed = 1;
@@ -16,9 +15,7 @@ namespace AI
         public int CurrentHp = 100; //В будущем заменить на свойство 
         public int food = 100;
         public bool IsWork; //Люди могут работать, а могут и не работать.........
-
         protected IMovable _IMovable; // Человек умеет ходить
-
 
         public void SetWalkBehaviour(IMovable behaviour)
         {
@@ -28,13 +25,13 @@ namespace AI
         {
             _IMovable = movementBehavior;
         }
-
         public void PerformWalkSetSpeed(float speed)
         {
             _IMovable.SetMoveSpeed(speed);
         }
         public void PerformWalkMove(Transform point)
         {
+            Debug.Log("Идёт");
             _IMovable.Move(transform);
         }
         protected void StartNeedCoroutine(bool HumanGoesToKitchen = false, bool HumanGoesToRest = false, BayList bayList = null)
@@ -44,21 +41,20 @@ namespace AI
         }
         IEnumerator FatigueCoroutine(float delay, bool restInRestZone = false, BayList bayList = null)
         {
-            while(CurrentHp > 0 && rest > 0)
+           while(CurrentHp > 0 && rest > 0)
             {
                 rest--;
                 if(rest <= 10 && restInRestZone)
                 {
-                    for (int i = 0; i < bayList.FreeRestZone.Count; i++)
-                    {
-                        if (bayList.FreeKitchenZone[i])
+                        for (int i = 0; i < bayList.FreeRestZone.Count; i++)
                         {
-                            bayList.TakeRestPoint(i,gameObject);
-                            PerformWalkMove(bayList.FreeRestZone[i]); //Идёт кушать, если в вызове корутины бул true
-                            break;
-                        }
-
-                    }
+                            if (bayList.FreeRestZone[i])
+                            {
+                                bayList.TakeRestPoint(i, gameObject);
+                                PerformWalkMove(bayList.FreeRestZone[i]); //Идёт кушать, если в вызове корутины бул true
+                                break;
+                            }
+                        }                    
                 }
                 yield return new WaitForSeconds(delay / WasteOfEnergyCoefficent);
             }
@@ -70,19 +66,22 @@ namespace AI
             while (CurrentHp >  0 && food > 0)
             {
                 food--;
-                if (rest <= 25 && isEatingInKitchen)
+                if (food <= 25 && isEatingInKitchen)
                 {
-                    for (int i = 0; i < bayList.FreeKitchenZone.Count; i++)
+                    if (bayList.Kitchen.Bought && bayList.Kitchen.Active)
                     {
-                        if (bayList.FreeKitchenZone[i])
+                        Debug.Log("Пора поесть");
+                        for (int i = 0; i < bayList.FreeKitchenZone.Count; i++)
                         {
-                            bayList.TakeKitchenPoint(i,gameObject);
-                            PerformWalkMove(bayList.FreeKitchenZone[i]); //Идёт кушать, если в вызове корутины бул true
-                            break;
+                            if (bayList.FreeKitchenZone[i])
+                            {
+                                bayList.TakeKitchenPoint(i, gameObject);
+                                PerformWalkMove(bayList.FreeKitchenZone[i]); //Идёт кушать, если в вызове корутины бул true
+                                break;
+                            }
+
                         }
-                        
                     }
-                        
                 }
                 yield return new WaitForSeconds(delay/WasteOfEnergyCoefficent);
             }

@@ -9,8 +9,8 @@ public class BayTrigger : MonoBehaviour
 
     public int Index; // Для дебага
     private Bay bay;
-    private bool Bought { get { return ((DynamicBay)bay).Purchased; } set { value = ((DynamicBay)bay).Purchased;} } //Комментарии излишни 
-    private bool Active = true;
+    public bool Bought { get { return bay.Purchased; } set { value = bay.Purchased;} } //Комментарии излишни 
+    public bool Active { get { return bay.Active; } set { value = bay.Active; } }
     [HideInInspector]  public BayTypes Type;
     private void Start()
     {
