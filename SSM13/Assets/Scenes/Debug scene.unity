@@ -13368,6 +13368,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8291976529203369831, guid: 039b025c61ed2e34abbe8ce597a6d04d,
         type: 3}
+      propertyPath: WorkBay
+      value: 
+      objectReference: {fileID: 2118491084}
+    - target: {fileID: 8291976529203369831, guid: 039b025c61ed2e34abbe8ce597a6d04d,
+        type: 3}
       propertyPath: WorkZone.Array.data[0]
       value: 
       objectReference: {fileID: 1589349733}

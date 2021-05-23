@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class BotanicJobPattern : IWork
 {
-    private GameObject BayGameObject;
     private float WorkEnergyConsumption;
 
-    public BotanicJobPattern(float energyConsumption, GameObject bay)
+    public BotanicJobPattern(float energyConsumption, List<Transform> Zone)
     {
+
         WorkEnergyConsumption = energyConsumption;
-        BayGameObject = bay;
     }
     public void StartWork()
     {
