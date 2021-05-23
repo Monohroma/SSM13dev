@@ -6,21 +6,20 @@ namespace AI
 {
     public class Crew : Human
     {
+        public List<Transform> WorkZone = new List<Transform>();
         public void SetJobBehaviour(IWork behaviour) => _IWork = behaviour;
         private IWork _IWork; //Члены экипажа могут работать! Исключение ассистент кроме что (но бомл гений сделает заглушку-класс без работы)
         public BayTypes AccessLevel;
         private RandomPointGenerator randomPointGenerator;
 
 
-        //public Transform PerformRandomMove(Transform point) => _IMovable.
+
 
         private void Awake()
         {
             randomPointGenerator = GameObject.FindObjectOfType<RandomPointGenerator>();
-        }
-        private void Start()
-        {
-           setter = GetComponent<AIDestinationSetter>();
+            setter = GetComponent<AIDestinationSetter>();
+            bayList = GameObject.FindObjectOfType<BayList>();
             InitBehaviors();
         }
         protected void InitBehaviors()
@@ -34,12 +33,10 @@ namespace AI
         protected void RandomMovePoint()
         {
            // if(rest > 5) 
+           if(_IMovable is CrewMovePattern)
             {
-               if(_IMovable is CrewMovePattern)
-                {
                     Debug.Log("Повезло, повезло");
                     ((CrewMovePattern)_IMovable).GoToRandomPoint(randomPointGenerator, AccessLevel);
-                }
             }
         }
     }
