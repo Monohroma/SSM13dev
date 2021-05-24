@@ -15,6 +15,8 @@ namespace AI
         public int CurrentHp = 100; //В будущем заменить на свойство 
         public int food = 100;
         public bool IsWork; //Люди могут работать, а могут и не работать.........
+        public bool NPCIsEating;
+        public bool GoesToEat;
         protected IMovable _IMovable; // Человек умеет ходить
 
         public void SetWalkBehaviour(IMovable behaviour)
@@ -31,8 +33,7 @@ namespace AI
         }
         public void PerformWalkMove(Transform point)
         {
-            Debug.Log("Идёт");
-            _IMovable.Move(transform);
+            _IMovable.Move(point);
         }
         protected void StartNeedCoroutine(bool HumanGoesToKitchen = false, bool HumanGoesToRest = false, BayList bayList = null)
         {
@@ -68,14 +69,14 @@ namespace AI
                 food--;
                 if (food <= 25 && isEatingInKitchen)
                 {
-                    if (bayList.Kitchen.Bought && bayList.Kitchen.Active)
+                    if (bayList.Kitchen.Bought && bayList.Kitchen.Active && !NPCIsEating && !GoesToEat)
                     {
-                        Debug.Log("Пора поесть");
                         for (int i = 0; i < bayList.FreeKitchenZone.Count; i++)
                         {
                             if (bayList.FreeKitchenZone[i])
                             {
                                 bayList.TakeKitchenPoint(i, gameObject);
+                                GoesToEat = true;
                                 PerformWalkMove(bayList.FreeKitchenZone[i]); //Идёт кушать, если в вызове корутины бул true
                                 break;
                             }
@@ -85,14 +86,31 @@ namespace AI
                 }
                 yield return new WaitForSeconds(delay/WasteOfEnergyCoefficent);
             }
-            StartCoroutine(HungerStrike());
+            StartCoroutine(HungerStrike(isEatingInKitchen));
             Debug.LogWarning("Голодовка!!");
             yield break;
         }
-        IEnumerator HungerStrike()
+        IEnumerator HungerStrike(bool isEatingInKitchen = false)
         {
             while(CurrentHp > 0 && food <= 0)
             {
+                if (food <= 25 && isEatingInKitchen)
+                {
+                    if (bayList.Kitchen.Bought && bayList.Kitchen.Active && !NPCIsEating && !GoesToEat)
+                    {
+                        for (int i = 0; i < bayList.FreeKitchenZone.Count; i++)
+                        {
+                            if (bayList.FreeKitchenZone[i])
+                            {
+                                bayList.TakeKitchenPoint(i, gameObject);
+                                GoesToEat = true;
+                                PerformWalkMove(bayList.FreeKitchenZone[i]); //Идёт кушать, если в вызове корутины бул true
+                                break;
+                            }
+
+                        }
+                    }
+                }
                 CurrentHp--;
                 yield return new WaitForSeconds(0.3f);
             }

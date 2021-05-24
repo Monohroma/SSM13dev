@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IWork 
+public class RestZone : Zone
 {
-    void StartWork();
-    void GoInWork();
+   
 }
