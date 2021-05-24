@@ -317,6 +317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PointIsBusy: 0
   NPCInPoint: {fileID: 0}
+  bayList: {fileID: 0}
 --- !u!1 &146796184
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,6 +622,7 @@ RectTransform:
   - {fileID: 1259593239}
   - {fileID: 901361914}
   - {fileID: 2028088382}
+  - {fileID: 974278510}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -712,10 +714,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: DebugAddPotato
-        m_Mode: 3
+      - m_Target: {fileID: 1485879562516845725}
+        m_TargetAssemblyTypeName: Cargo, Assembly-CSharp
+        m_MethodName: TestAddPotato
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1292,6 +1294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PointIsBusy: 0
   NPCInPoint: {fileID: 0}
+  bayList: {fileID: 0}
 --- !u!1 &577579363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,6 +1875,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PointIsBusy: 0
   NPCInPoint: {fileID: 0}
+  bayList: {fileID: 0}
 --- !u!1 &706599309
 GameObject:
   m_ObjectHideFlags: 0
@@ -2012,7 +2016,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd220836890259743ac318fbc3e2d94d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Solars: []
+  Solars:
+  - {fileID: 1554196987}
   SolarCost: 1000
   QuantitySolarsText: {fileID: 1731483269}
   slider: {fileID: 1259593240}
@@ -2617,6 +2622,151 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: New Text
+--- !u!1 &955652168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 955652171}
+  - component: {fileID: 955652170}
+  - component: {fileID: 955652169}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &955652169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955652168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &955652170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955652168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &955652171
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955652168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &974278509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 974278510}
+  - component: {fileID: 974278512}
+  - component: {fileID: 974278511}
+  m_Layer: 5
+  m_Name: MoneyText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &974278510
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974278509}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 283069577}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -10, y: -10}
+  m_SizeDelta: {x: 200, y: 35}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &974278511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974278509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &974278512
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974278509}
+  m_CullTransparentMesh: 1
 --- !u!1 &1048064233
 GameObject:
   m_ObjectHideFlags: 0
@@ -2676,6 +2826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PointIsBusy: 0
   NPCInPoint: {fileID: 0}
+  bayList: {fileID: 0}
 --- !u!1 &1050210553
 GameObject:
   m_ObjectHideFlags: 0
@@ -2747,6 +2898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521d4170cd0a4aa2b3f36fca4f9b1da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _items: []
 --- !u!1 &1091641283
 GameObject:
   m_ObjectHideFlags: 0
@@ -9294,14 +9446,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cells:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  Tomato: {fileID: 0}
-  Potato: {fileID: 0}
+  - {fileID: 425067696}
+  - {fileID: 159569116}
+  - {fileID: 577579365}
+  - {fileID: 1550725987}
+  - {fileID: 146796186}
+  - {fileID: 1167576264}
+  Tomato: {fileID: 11400000, guid: ac8db2ce5d593934a95590fa54c7aa5f, type: 2}
+  Potato: {fileID: 11400000, guid: b831f31ec6d35c5488b4971e3477d4d2, type: 2}
 --- !u!4 &1347859169
 Transform:
   m_ObjectHideFlags: 0
@@ -10094,6 +10246,9 @@ MonoBehaviour:
   Type: 4
   _name: Kitchen
   _energy: 228
+  Active: 0
+  _cost: 0
+  _bought: 0
 --- !u!114 &1673850932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10538,6 +10693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bays: []
+  Kitchen: {fileID: 0}
   KitchenZone:
   - {fileID: 565010421}
   - {fileID: 19524569}
@@ -10596,6 +10752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PointIsBusy: 0
   NPCInPoint: {fileID: 0}
+  bayList: {fileID: 0}
 --- !u!61 &1794726139
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11273,6 +11430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PointIsBusy: 0
   NPCInPoint: {fileID: 0}
+  bayList: {fileID: 0}
 --- !u!1 &2006462997
 GameObject:
   m_ObjectHideFlags: 0
@@ -11550,6 +11708,9 @@ MonoBehaviour:
   Type: 3
   _name: Botanics
   _energy: 228
+  Active: 0
+  _cost: 0
+  _bought: 0
 --- !u!114 &2118491088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13282,7 +13443,10 @@ MonoBehaviour:
   Type: 0
   _name: 
   _energy: 0
-  spawn: {fileID: 0}
+  Active: 0
+  _cost: 0
+  _bought: 0
+  spawn: {fileID: 1327613291}
   Assistent: {fileID: 0}
 --- !u!4 &3683480087194691542
 Transform:

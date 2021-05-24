@@ -9,7 +9,7 @@ namespace Storage
     public class Inventory : MonoBehaviour
     {
         private static Inventory _instance;
-        private List<GameItem> _items = new List<GameItem>();
+        public List<GameItem> _items = new List<GameItem>();
 
         public static Inventory Instance
         {
@@ -30,12 +30,17 @@ namespace Storage
             _items?.Clear();
         }
 
+        private void Start()
+        {
+            ValidateInventory();
+        }
+
         /// <summary>
         /// Only DEBUG!
         /// </summary>
         public void dev_ClearCountItems()
         {
-            ValidateInventory();
+            //ValidateInventory();
             foreach (var item in _items)
             {
                 item.SetCount(0);
@@ -44,36 +49,36 @@ namespace Storage
 
         public GameItem[] GetItems()
         {
-            ValidateInventory();
+            //ValidateInventory();
             return _items.ToArray();
         }
         
         public GameItem GetItem(int itemId)
         {
-            ValidateInventory();
+            //ValidateInventory();
             return _items.Find(item => item.ItemID == itemId);
         }
         
         public GameItem GetItem(string itemName)
         {
-            ValidateInventory();
+            //ValidateInventory();
             return _items.Find(item => item.ItemName == itemName);
         }
 
         public GameItem GetItem(GameItem item)
         {
             if (item == null) throw new ArgumentNullException(nameof(item));
-            ValidateInventory();
+            //ValidateInventory();
             return _items.Find(element => element.ItemID == item.ItemID);
         }
         
         public void AddItem(GameItem item)
         {
             if (item == null) throw new ArgumentNullException(nameof(item));
-            ValidateInventory();
+            //ValidateInventory();
             if (_items.Count != 0)
             {
-                GetItem(item).AddCount(item.ItemCount);
+                GetItem(item).AddCount(1);
                 return;
             }
             else throw new ArgumentNullException(nameof(_items));
@@ -81,10 +86,12 @@ namespace Storage
 
         public void AddItem(int id, int count)
         {
-            ValidateInventory();
+            //ValidateInventory();
             if (_items.Count != 0)
             {
-                GetItem(id).AddCount(count);
+                var i = GetItem(id);
+                i.AddCount(count);
+                Debug.Log(i.GetCount());
             }
             else throw new ArgumentNullException(nameof(_items));
         }
@@ -92,19 +99,19 @@ namespace Storage
         public void SubtractItem(GameItem item)
         {
             if (item == null) throw new ArgumentNullException(nameof(item));
-            ValidateInventory();
+            //ValidateInventory();
             GetItem(item).RemoveCount(item.ItemCount);
         }
         
         public void SubtractItem(int id, int count)
         {
-            ValidateInventory();
+            //ValidateInventory();
             GetItem(id).RemoveCount(count);
         }
 
         public string dev_ShowInfo()
         {
-            ValidateInventory();
+            //ValidateInventory();
             string data = "";
             foreach (var item in _items)
             {

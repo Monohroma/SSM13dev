@@ -45,4 +45,33 @@ public class Cargo : Ark.Bay
         else Debug.Log("Денег нет!");
     }
 
+    public void Sell(int s)
+    {
+        GameItem gameItem = _inventory.GetItem(s);
+        if (gameItem != null)
+        {
+            try
+            {
+                Debug.Log(gameItem.ItemCount);
+                _inventory.SubtractItem(s, 1);
+                _economics.AddMoney(gameItem.ItemPrice);
+            }
+            catch(Exception e)
+            {
+                Debug.Log(e);
+            }
+        }
+    }
+
+    public void Buy(int s)
+    {
+        GameItem gameItem = _inventory.GetItem(s);
+        BuyItem(gameItem.ItemName, gameItem.ItemPrice);
+    }
+
+    public void TestAddPotato()
+    {
+        _inventory.AddItem(0, 100);
+    }
+
 }
