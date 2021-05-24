@@ -18,7 +18,7 @@ namespace AI
         private void InitWork(BayTypes Acces)
         {
             AccessLevel = Acces;
-            SetJobBehaviour(new BotanicJobPattern(1f, WorkZone)); //на место null засунуть геймобджект ботаники //Изменить скрипт, чтобы он шёл на пустое место работы
+            SetJobBehaviour(new DefaultWorkPattern(1f, WorkZone)); //на место null засунуть геймобджект ботаники //Изменить скрипт, чтобы он шёл на пустое место работы
         }
 
 

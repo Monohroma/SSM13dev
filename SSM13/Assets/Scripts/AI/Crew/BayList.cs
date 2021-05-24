@@ -7,8 +7,8 @@ public class BayList : MonoBehaviour
 {
    public List<GameObject> Bays = new List<GameObject>();
    public BayTrigger Kitchen;
-   public ZoneStatus[] KitchenZone; //С помощью инспектора заполняем зоны.
-   public ZoneStatus[] RestZone;
+   public KitchenZone[] KitchenZone; //С помощью инспектора заполняем зоны.
+   public KitchenZone[] RestZone;
    [Header("Only debug")]
    public List<Transform> FreeKitchenZone = new List<Transform>(); //Лист обновляется и если точка из массива свободна, добавляется в лист (можно заменить на Queue)
    public List<Transform> FreeRestZone = new List<Transform>();
@@ -31,8 +31,8 @@ public class BayList : MonoBehaviour
         if (FreeKitchenZone[index])
         {
             FreeKitchenZone.Remove(FreeKitchenZone[index]);
-            FreeKitchenZone[index].gameObject.GetComponent<ZoneStatus>().PointIsBusy = true;
-            FreeKitchenZone[index].gameObject.GetComponent<ZoneStatus>().NPCInPoint = NPC;
+            FreeKitchenZone[index].gameObject.GetComponent<KitchenZone>().PointIsBusy = true;
+            FreeKitchenZone[index].gameObject.GetComponent<KitchenZone>().NPCInPoint = NPC;
             UpdateList();
         }
         else
@@ -46,8 +46,8 @@ public class BayList : MonoBehaviour
         if (FreeKitchenZone[index])
         {
             FreeRestZone.Remove(FreeKitchenZone[index]);
-            FreeRestZone[index].gameObject.GetComponent<ZoneStatus>().PointIsBusy = true;
-            FreeRestZone[index].gameObject.GetComponent<ZoneStatus>().NPCInPoint = NPC;
+            FreeRestZone[index].gameObject.GetComponent<KitchenZone>().PointIsBusy = true;
+            FreeRestZone[index].gameObject.GetComponent<KitchenZone>().NPCInPoint = NPC;
             UpdateList();
         }
         else
@@ -60,7 +60,6 @@ public class BayList : MonoBehaviour
     {
         FreeKitchenZone = new List<Transform>();
         FreeRestZone = new List<Transform>();
-        Debug.Log(KitchenZone.Length);
         foreach (var point in KitchenZone)
         {
             if (!point.PointIsBusy)
