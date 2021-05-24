@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Ark // код арса. особо токсичен, без перчаток не трогать
+namespace Ark
 {
     public class Economics : MonoBehaviour
     {
