@@ -28,7 +28,7 @@ namespace Storage
         public int ItemPrice => Price;
         public string ItemDescription => Description;
         public int ItemCount => _count;
-        public bool IsEmpty => _count == 0 ? true : false;
+        //public bool IsEmpty => real_count == 0 ? true : false;
         public Sprite ItemSprite => Sprite;
 
         public void SetCount(int value)
@@ -54,6 +54,10 @@ namespace Storage
             _count -= value;
         }
 
+        public int GetCount()
+        {
+            return _count;
+        }
 
     }
 }

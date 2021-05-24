@@ -45,7 +45,7 @@ public class Power : MonoBehaviour
 	}
 	void Start()
 	{
-		Solars = GetComponentsInChildren<Solar>();
+		//Solars = GetComponentsInChildren<Solar>();
 		StartCoroutine(PowerOut());
 
 
