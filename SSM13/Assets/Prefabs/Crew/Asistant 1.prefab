@@ -201,9 +201,9 @@ MonoBehaviour:
   food: 100
   IsWork: 0
   NPCIsEating: 0
-  GoesToEat: 0
-  WorkZone:
-  - {fileID: 0}
+  NPCIsRest: 0
+  Goes: 0
+  WorkZone: []
   AccessLevel: 3
 --- !u!50 &1998919750
 Rigidbody2D:

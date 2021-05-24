@@ -13,18 +13,21 @@ private void OnTriggerEnter2D(Collider2D other)
                         if (other.gameObject.GetComponent<AI.Crew>())
                         {
                             var ai = other.gameObject.GetComponent<AI.Crew>();
-                            ai.StartEating();
-                            ai.GoesToEat = false;
+                            ai.StartEating(this);
+                            ai.Goes = false;
                         }
                         else
                         {
-                            other.gameObject.GetComponent<AI.Crew>().GoesToEat = false;
                             PointIsBusy = false;
                             NPCInPoint = null;
-                            Debug.LogError("Это не персонал, почему эта тварь здесь жрёт?");
+                            Debug.LogWarning("Это не персонал, почему эта тварь здесь жрёт?");
                         }
                     }
             }                         
+    }
+    public bool BayAvailable()
+    {
+        return (bayList.Kitchen.Active && bayList.Kitchen.Bought);
     }
     private void OnCollisionExit(Collision collision)
     {
