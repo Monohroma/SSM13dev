@@ -13,12 +13,12 @@ public class Generator : MonoBehaviour
 
     private void Start()
     {
-        Energetics.AddGenerator(this);
+        GameManager.Instance.AddGenerator(this);
     }
 
     private void OnDestroy()
     {
-        Energetics.RemoveGenerator(this);
+        GameManager.Instance.RemoveGenerator(this);
     }
 
     public virtual void Generate()

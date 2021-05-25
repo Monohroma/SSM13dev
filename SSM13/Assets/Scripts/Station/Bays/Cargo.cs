@@ -63,10 +63,37 @@ public class Cargo : Ark.Bay
         }
     }
 
+    public void Sell(string s)
+    {
+        GameItem gameItem = _inventory.GetItem(s);
+        if (gameItem != null)
+        {
+            try
+            {
+                Debug.Log(gameItem.ItemCount);
+                _inventory.SubtractItem(gameItem.ItemID, 1);
+                _economics.AddMoney(gameItem.ItemPrice);
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
+            }
+        }
+    }
+
     public void Buy(int s)
     {
         GameItem gameItem = _inventory.GetItem(s);
         BuyItem(gameItem.ItemName, gameItem.ItemPrice);
+    }
+
+    public void BuyCrew(int cost)
+    {
+        if(_economics.SubtractMoney(cost))
+        {
+            Instantiate(Assistent, spawn.position, Quaternion.identity);
+        }
+        else Debug.Log("Денег нет!");
     }
 
     public void TestAddPotato()

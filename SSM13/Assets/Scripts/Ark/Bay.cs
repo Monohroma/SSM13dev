@@ -25,6 +25,11 @@ namespace Ark
         [SerializeField] protected int _cost;
         [SerializeField] protected bool _bought = false;
 
+        private void Start()
+        {
+            GameManager.Instance.AddBay(this);
+        }
+
         public void AddConsumptionEnergy(int value)
         {
             if (value >= 0)
@@ -64,6 +69,9 @@ namespace Ark
             }
         }
 
-
+        private void OnDestroy()
+        {
+            GameManager.Instance.RemoveBay(this);
+        }
     }
 }

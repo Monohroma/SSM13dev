@@ -17,8 +17,6 @@ namespace Ark
 
         public float UpdateGeneratersDelay => _updateGeneratorsDelay;
 
-        public List<Generator> workingGenerators = new List<Generator>();
-
         private UnityEngine.Coroutine _generatorUpdater;
 
         // ===================== instance ======================
@@ -38,12 +36,15 @@ namespace Ark
         {
             _generatorUpdater = StartCoroutine(GeneratorsUpdater());
         }
-        public void SubtractEnergy(int value)
+        public bool SubtractEnergy(int value)
         {
             if ((_storedEnergy - value) < 0)
-                throw new ArgumentOutOfRangeException(nameof(StoredEnergy),
-                    $"The {nameof(StoredEnergy)} value cannot become negative.");
+            {
+                _storedEnergy = 0;
+                return false;
+            }
             _storedEnergy -= value;
+            return true;
         }
 
         public void AddEnergy(int value)
@@ -58,35 +59,37 @@ namespace Ark
 
         private IEnumerator GeneratorsUpdater()
         {
+            List<Generator> generators;
+            List<Bay> bays;
+            int i;
             while (true)
             {
-                for (int i = 0; i < workingGenerators.Count; i++)
+                generators = GameManager.Instance.currentGenerators;
+                for (i = 0; i < generators.Count; i++)
                 {
-                    if (workingGenerators[i] != null)
+                    if (generators[i] != null)
                     {
-                        workingGenerators[i].Generate();
+                        generators[i].Generate();
                     }
                     else
                     {
-                        workingGenerators.RemoveAt(i);
-                        i--;
+                        GameManager.Instance.RemoveGenerator(generators[i]);
                     }
                 }
-
+                bays = GameManager.Instance.currentBays;
+                for(i = 0; i < bays.Count; i++)
+                {
+                    if(bays[i] != null)
+                    {
+                        SubtractEnergy(bays[i].Energy);
+                    }
+                    else
+                    {
+                        GameManager.Instance.RemoveBay(bays[i]);
+                    }
+                }
                 yield return new WaitForSeconds(_updateGeneratorsDelay);
             }
         }
-
-        public static void AddGenerator(Generator generator)
-        {
-            if(!Instance.workingGenerators.Contains(generator))
-                Instance.workingGenerators.Add(generator);
-        }
-
-        public static void RemoveGenerator(Generator generator)
-        {
-            Instance.workingGenerators.Remove(generator);
-        }
-        
     }
 }
