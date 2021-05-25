@@ -3,60 +3,123 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MEC;
+using Ark;
+using Storage;
+using Recipes;
 
-public class Food
+public class Kitchen : Bay
 {
-    public string Name { get; private set; }
-    public float CookingTime { get; private set; }
-    public int Cost { get; private set; }
-
-    public Food(string Name, float CookingTime, int Cost)
+    public int cookingMaximum = 5;
+    public bool autoCook = false;
+    private Recipe[] recipes;
+    private List<CookingRecipe> cookingRecipes = new List<CookingRecipe>();
+    protected override void Start()
     {
-        this.Name = Name;
-        this.CookingTime = CookingTime;
-        this.Cost = Cost;
+        base.Start();
+        recipes = GameItemDatabase.GetRecipes();
     }
-}
 
-struct Coroutine
-{
-    public bool Completed;
-    public float Progress;
-}
-public class Kitchen : MonoBehaviour
-{
-     Food fried_potatoes = new Food("Fried potatoes", 1,10);
-     Food puree = new Food("Puree", 3,15);
-     Food potato_pie = new Food("Potato pie", 5,20);
-     Food baked_potatoes = new Food("Baked potatoes", 8,30);
-     Food potato_stew = new Food("Potato stew", 10,50);
+    private void FixedUpdate()
+    {
+        if (Energetics.Instance.IsPower)
+        {
+            Powered = true;
+        }
+        else
+            Powered = false;
+        if (WorkersInBay.Count > 0)
+        {
+            Active = true;
+            if (Energetics.Instance.IsPower)
+            {
+                if (cookingRecipes.Count < cookingMaximum && autoCook)
+                {
+                    foreach (Recipe item in recipes)
+                    {
+                        if (cookingRecipes.Count < cookingMaximum)
+                        {
+                            if (CheckIngredientsContain(item))
+                            {
+                                StartCook(item);
+                            }
+                        }
+                    }
+                }
+                for (int i = 0; i < cookingRecipes.Count; i++)
+                {
+                    if (cookingRecipes[i].Update(Time.fixedDeltaTime))
+                    {
+                        EndCook(cookingRecipes[i].Recipe);
+                        cookingRecipes.RemoveAt(i);
+                        i--;
+                    }
+                }
+            }
+        }
+        else
+            Active = false;
+    }
 
+    private bool CheckIngredientsContain(Recipe recipe, bool remove = true)
+    {
+        Dictionary<int, int> dictinory = new Dictionary<int, int>();
+        foreach (GameItem item in recipe.RecipeIngredients)
+        {
+            if(dictinory.ContainsKey(item.ItemID))
+            {
+                dictinory[item.ItemID]++;
+            }
+            else
+            {
+                dictinory.Add(item.ItemID, 1);
+            }
+        }
+        foreach (var item in dictinory)
+        {
+            if(!Inventory.Instance.ContainItem(item.Key, item.Value))
+            {
+                return false;
+            }
+        }
+        if(remove)
+        {
+            foreach (var item in dictinory)
+            {
+                Inventory.Instance.GetItem(item.Key).RemoveCount(item.Value);
+            }
+        }
+        return true;
+    }
 
-     private void Start()
-     {
-         Coroutine c;
-     }
+    private void StartCook(Recipe recipe)
+    {
+        AddConsumptionEnergy(recipe.RecipeEnergyNeed);
+        cookingRecipes.Add(new CookingRecipe(recipe));
+    }
 
+    public void EndCook(Recipe recipe)
+    {
+        Debug.Log($"Done coocking {recipe.RecipeName}");
+        Inventory.Instance.AddItem(recipe.RecipeResult);
+        RemoveConsumptionEnergy(recipe.RecipeEnergyNeed);
+    }
 
-     IEnumerator<float> Slot(Food f, Coroutine c)
-     {
-         c.Completed = false;
-         var timer = f.CookingTime;
-         while (timer >= 0)
-         {
-             yield return Timing.WaitForSeconds(1);
-             c.Progress = timer--;
-         }
-         c.Completed = true;
-     }
-    
-     
-     
+    public void StartCook(string result)
+    {
+        foreach (Recipe item in recipes)
+        {
+            if(item.RecipeName == result)
+            {
+                StartCook(item);
+                return;
+            }
+        }
+    }
 
-
-         // Bay.Bay Kitchen = new Bay.Bay("Kitchen", false, 2000, 4500);
-
-
+    public void Cook(string result)
+    {
+        StartCook(result);
+    }
 }
 
 

@@ -91,7 +91,6 @@ namespace Storage
             {
                 var i = GetItem(id);
                 i.AddCount(count);
-                Debug.Log(i.GetCount());
             }
             else throw new ArgumentNullException(nameof(_items));
         }
@@ -107,6 +106,38 @@ namespace Storage
         {
             //ValidateInventory();
             GetItem(id).RemoveCount(count);
+        }
+
+        public bool ContainItem(int id)
+        {
+            if (GetItem(id).ItemCount > 0)
+                return true;
+            else
+                return false;
+        }
+
+        public bool ContainItem(string itemName)
+        {
+            if (GetItem(itemName).ItemCount > 0)
+                return true;
+            else
+                return false;
+        }
+
+        public bool ContainItem(int id, int count)
+        {
+            if (GetItem(id).ItemCount >= count)
+                return true;
+            else
+                return false;
+        }
+
+        public bool ContainItem(string itemName, int count)
+        {
+            if (GetItem(itemName).ItemCount >= count)
+                return true;
+            else
+                return false;
         }
 
         public string dev_ShowInfo()
