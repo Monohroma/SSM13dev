@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public interface IWork 
 {
     void StartWork();
-    void GoInWork();
+    Transform GoInWork(List<Transform> workZone);
 }

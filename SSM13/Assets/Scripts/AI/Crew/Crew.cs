@@ -20,33 +20,83 @@ namespace AI
             bayList = GameObject.FindObjectOfType<BayList>();
             InitBehaviors();
         }
-        public void StartEating()
+        public void StartWork()
         {
-            Debug.Log("Ест");
-            if (!NPCIsEating)
-            {
-                Debug.Log("Есть есть ");
-                NPCIsEating = true;
-                StartCoroutine(Eating());
-            }           
+            _IWork.StartWork();
+            IsWork = true;
         }
         public void GoInWork()
         {
-
+            if(rest >= 10 && food >= 15)
+            {
+                if (_IWork.GoInWork(WorkZone))
+                {
+                    PerformWalkMove(_IWork.GoInWork(WorkZone));
+                }
+                else
+                {
+                    RandomMovePoint();
+                }
+                
+            }
         }
-        public void StopEating()
+        public void StartEating(KitchenZone KitchenZone)
         {
-            StopCoroutine(Eating());
-            NPCIsEating = false;
+            if (!NPCIsEating)
+            {
+                Debug.Log(gameObject.name + " ест в кухне");
+                NPCIsEating = true;
+                StartCoroutine(Eating(KitchenZone));
+            }           
         }
-        IEnumerator Eating()
+        public void StopEating(KitchenZone KitchenZone)
+        {
+            StopCoroutine("Eating");
+            NPCIsEating = false;
+            KitchenZone.PointIsBusy = false;
+            KitchenZone.NPCInPoint = null;
+        }
+        public void StartRest(RestZone RestZone)
+        {
+            if (!NPCIsRest)
+            {
+                Debug.Log(gameObject.name + " отдыхает");
+                NPCIsRest = true;
+                StartCoroutine(Rest(RestZone));
+            }
+        }
+        public void StopRest(RestZone RestZone)
+        {
+            StopCoroutine("Rest");
+            NPCIsRest = false;
+            RestZone.PointIsBusy = false;
+            RestZone.NPCInPoint = null;
+        }
+       IEnumerator Rest(RestZone restZone) 
+        {
+            while (NPCIsRest && rest < 100)
+            {
+                rest++;
+                yield return new WaitForSeconds(0.5f);
+            }
+            restZone.PointIsBusy = false;
+            restZone.NPCInPoint = null;
+            NPCIsRest = false;
+        }
+        IEnumerator Eating(KitchenZone KitchenZone)
         {
             while(NPCIsEating && food < 100)
             {
-                Debug.Log("Нпсишка ест");
                 food++;
+                if (!KitchenZone.BayAvailable())
+                {
+                    StopEating(KitchenZone);
+                    yield break;
+                }
                 yield return new WaitForSeconds(0.3f);
             }
+            KitchenZone.PointIsBusy = false;
+            KitchenZone.NPCInPoint = null;
             NPCIsEating = false;
         }
         protected void InitBehaviors()
@@ -57,12 +107,15 @@ namespace AI
         {
             PerformWalkMove(Point);
         }
-        protected void RandomMovePoint()
+        public void RandomMovePoint()
         {
-           // if(rest > 5) 
-           if(_IMovable is CrewMovePattern)
+            if (rest >= 10 && food >= 15)
             {
+                if (_IMovable is CrewMovePattern)
+                {
                     ((CrewMovePattern)_IMovable).GoToRandomPoint(randomPointGenerator, AccessLevel);
+                    IsWork = false;
+                }
             }
         }
     }
