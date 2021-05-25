@@ -9,7 +9,7 @@ namespace Ark
 
     public class Bay : MonoBehaviour
     {
-        private List<Human> WorkersInBay = new List<Human>(); // Если рабочий заходит в свою work zone, он начинает дико работать пока не упадёт без сил
+        protected List<Human> WorkersInBay = new List<Human>(); // Если рабочий заходит в свою work zone, он начинает дико работать пока не упадёт без сил
         public int Energy => _energy;
         [Header("Bay options")]
         public BayTypes Type;
@@ -20,17 +20,18 @@ namespace Ark
         public int Cost => _cost;
         public bool Purchased => _bought;
         public bool Active;
+        public bool Powered;
 
         [Header("Dynamic Bay options")]
         [SerializeField] protected int _cost;
         [SerializeField] protected bool _bought = false;
 
-        private void Start()
+        protected virtual void Start()
         {
             GameManager.Instance.AddBay(this);
         }
 
-        public void AddConsumptionEnergy(int value)
+        public virtual void AddConsumptionEnergy(int value)
         {
             if (value >= 0)
             {
@@ -38,7 +39,19 @@ namespace Ark
             }
         }
 
-        public void SetConsumptionEnergy(int newEnergy)
+        public virtual void RemoveConsumptionEnergy(int value)
+        {
+            if (_energy - value >= 0)
+            {
+                _energy -= value;
+            }
+            else
+            {
+                _energy = 0;
+            }
+        }
+
+        public virtual void SetConsumptionEnergy(int newEnergy)
         {
             if (newEnergy >= 0)
             {
@@ -46,7 +59,7 @@ namespace Ark
             }
         }
 
-        public string GetEnergyFormat()
+        public virtual string GetEnergyFormat()
         {
             float kw = _energy / 1000;
             float mw = kw / 1000;
@@ -56,12 +69,12 @@ namespace Ark
             else return _energy.ToString() + "W";
         }
 
-        public void BuyBay()
+        public virtual void BuyBay()
         {
             _bought = true;
         }
 
-        public void SetCost(int newCost)
+        public virtual void SetCost(int newCost)
         {
             if (newCost >= 0)
             {
@@ -69,7 +82,23 @@ namespace Ark
             }
         }
 
-        private void OnDestroy()
+        public virtual void DoEveryTick()
+        {
+
+        }
+
+        public virtual void OnCrewEnter(Human human)
+        {
+            if (!WorkersInBay.Contains(human))
+                WorkersInBay.Add(human);
+        }
+
+        public virtual void OnCrewExit(Human human)
+        {
+            WorkersInBay.Remove(human);
+        }
+
+        protected virtual void OnDestroy()
         {
             GameManager.Instance.RemoveBay(this);
         }

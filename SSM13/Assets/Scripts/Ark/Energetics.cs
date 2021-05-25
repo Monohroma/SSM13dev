@@ -15,9 +15,12 @@ namespace Ark
         public int StoredEnergy => _storedEnergy;
         public bool IsEmpty => _storedEnergy == 0 ? true : false;
 
+        public bool IsPower => _powered;
+
         public float UpdateGeneratersDelay => _updateGeneratorsDelay;
 
         private UnityEngine.Coroutine _generatorUpdater;
+        private bool _powered = false;
 
         // ===================== instance ======================
         private static Energetics _instance;
@@ -62,8 +65,10 @@ namespace Ark
             List<Generator> generators;
             List<Bay> bays;
             int i;
+            bool trig = false;
             while (true)
             {
+                _powered = false;
                 generators = GameManager.Instance.currentGenerators;
                 for (i = 0; i < generators.Count; i++)
                 {
@@ -76,12 +81,14 @@ namespace Ark
                         GameManager.Instance.RemoveGenerator(generators[i]);
                     }
                 }
+                if (_storedEnergy > 0)
+                    _powered = true;
                 bays = GameManager.Instance.currentBays;
                 for(i = 0; i < bays.Count; i++)
                 {
                     if(bays[i] != null)
                     {
-                        SubtractEnergy(bays[i].Energy);
+                        _powered = SubtractEnergy(bays[i].Energy);
                     }
                     else
                     {

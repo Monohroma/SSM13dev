@@ -2947,6 +2947,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974278509}
   m_CullTransparentMesh: 1
+--- !u!1 &1026402571 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8291976528643897547, guid: 039b025c61ed2e34abbe8ce597a6d04d,
+    type: 3}
+  m_PrefabInstance: {fileID: 8291976529203369829}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1026402572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026402571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fe11004d319ebc4a9a30c65c780134e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rest: 100
+  CurrentHp: 100
+  food: 100
+  IsWork: 0
+  NPCIsEating: 0
+  NPCIsRest: 0
+  Goes: 0
+  WorkZone: []
+  AccessLevel: 0
 --- !u!1 &1048064233
 GameObject:
   m_ObjectHideFlags: 0
@@ -10068,7 +10095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAoIew3hft9cwIAABgFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z4jAM/SuMz0vGgRDC3nYppXvox5Tu9JKLSRTiwbEztlOgHf77yk4gKXtCSE/S05OcL8KlqSGzSq81zx9VDuTniDib/Bj1wQc4sp2SG/4JF8w7z23pQMxjXpnlCv2hSzOqAqt59kvuhANTdDaSF0pXq3wHS2WsQXfBhAEMaWVdtkTX14gc8We8cCkntCZzZ32itaCjM5oZSAt6AA2jgCYdOqTBfNLh42CW0GmcrMZ07jMbmQlW1ZC7MfoCYRLM4kv+LKCRB0scs8PRYOpqZkoIbjqaxJ5qL8MrOzkRcs5wZM/LKVAC35XW0R8mPheFAdvpodnpjmtUrq1IfqtWzoqZfUvug4nG9ZjQKPGc2qqP/wHGoQ8XWlUPl8YhdU1sybM9UsyYsQPBh+6778wbeWBiz7YC3kuQT2qtVSNzDFrduNTGwOSu/3udbVlCtu/9LdUbZ1P3ql/3G0yTKEziaez21K3ODXT2WhyXgldbv4SodWyE8sr7CwGNa/qD7P39mK4ueh2lvwbe2G54aF3gnmtjMdSNLB3XrWq0g5J7NNwessYulZbgvd0ANUgm7OkFq9jbfd7EBl1vIvfMvaiudxe7PJSbFO/u8ZTehF7U4bo4U6rDI5jyubGCS+hJu8ATyrRUUrbnNpTkkrZpdMGyQdqu4fn3MyPbOMwWdDafQ0RjmEfjRQIRm7MpjSbhFBJK/B1yiXMy8dIS7eTBpcm+uMSbu3xoRmvNan/6uWaHNf+s1EByLgu1yTSAfG4rXImDxib4QvNVzlGgDVjLpV83+UqJUNke8vRaKPWTro5Ws7SvkpKafyjrPClZ+i9LSs7k/A9QSwMEFAAACAgAACgh7AI6/gVtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTVUVBKL0osyCgGihiCOKWZKSB2tFKSmWGypYGpuXmqiYFZqrmJrqVFqkmieaKxgYmRoXGqhYFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAACgh7DeF+31zAgAAGAUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAACgh7AI6/gVtAAAAeAAAAAkAJAAAAAAAAAAAAAAAwAIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAB4AwAAAAA=
+    dataString: UEsDBBQAAAgIAAAgIew3hft9cwIAABgFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z4jAM/SuMz0vGgRDC3nYppXvox5Tu9JKLSRTiwbEztlOgHf77yk4gKXtCSE/S05OcL8KlqSGzSq81zx9VDuTniDib/Bj1wQc4sp2SG/4JF8w7z23pQMxjXpnlCv2hSzOqAqt59kvuhANTdDaSF0pXq3wHS2WsQXfBhAEMaWVdtkTX14gc8We8cCkntCZzZ32itaCjM5oZSAt6AA2jgCYdOqTBfNLh42CW0GmcrMZ07jMbmQlW1ZC7MfoCYRLM4kv+LKCRB0scs8PRYOpqZkoIbjqaxJ5qL8MrOzkRcs5wZM/LKVAC35XW0R8mPheFAdvpodnpjmtUrq1IfqtWzoqZfUvug4nG9ZjQKPGc2qqP/wHGoQ8XWlUPl8YhdU1sybM9UsyYsQPBh+6778wbeWBiz7YC3kuQT2qtVSNzDFrduNTGwOSu/3udbVlCtu/9LdUbZ1P3ql/3G0yTKEziaez21K3ODXT2WhyXgldbv4SodWyE8sr7CwGNa/qD7P39mK4ueh2lvwbe2G54aF3gnmtjMdSNLB3XrWq0g5J7NNwessYulZbgvd0ANUgm7OkFq9jbfd7EBl1vIvfMvaiudxe7PJSbFO/u8ZTehF7U4bo4U6rDI5jyubGCS+hJu8ATyrRUUrbnNpTkkrZpdMGyQdqu4fn3MyPbOMwWdDafQ0RjmEfjRQIRm7MpjSbhFBJK/B1yiXMy8dIS7eTBpcm+uMSbu3xoRmvNan/6uWaHNf+s1EByLgu1yTSAfG4rXImDxib4QvNVzlGgDVjLpV83+UqJUNke8vRaKPWTro5Ws7SvkpKafyjrPClZ+i9LSs7k/A9QSwMEFAAACAgAACAh7AI6/gVtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTVUVBKL0osyCgGihiCOKWZKSB2tFKSmWGypYGpuXmqiYFZqrmJrqVFqkmieaKxgYmRoXGqhYFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAACAh7DeF+31zAgAAGAUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAACAh7AI6/gVtAAAAeAAAAAkAJAAAAAAAAAAAAAAAwAIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAB4AwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -10557,15 +10584,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1673850928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1d3b6d34075a5542827d89e560d7335, type: 3}
+  m_Script: {fileID: 11500000, guid: e0f1b178cfd441ac9a7ec9b47206e62a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 4
   _name: Kitchen
-  _energy: 228
+  _energy: 0
   Active: 0
+  Powered: 0
   _cost: 0
   _bought: 0
+  cookingMaximum: 5
+  autoCook: 0
 --- !u!114 &1673850932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12024,8 +12054,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 3
   _name: Botanics
-  _energy: 228
+  _energy: 0
   Active: 0
+  Powered: 0
   _cost: 0
   _bought: 0
 --- !u!114 &2118491088
@@ -13761,6 +13792,7 @@ MonoBehaviour:
   _name: 
   _energy: 0
   Active: 0
+  Powered: 0
   _cost: 0
   _bought: 0
   spawn: {fileID: 1327613291}
@@ -13847,6 +13879,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Asistant 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291976528643897559, guid: 039b025c61ed2e34abbe8ce597a6d04d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8291976529203369831, guid: 039b025c61ed2e34abbe8ce597a6d04d,
         type: 3}

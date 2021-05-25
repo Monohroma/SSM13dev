@@ -52,7 +52,6 @@ public class Cargo : Ark.Bay
         {
             try
             {
-                Debug.Log(gameItem.ItemCount);
                 _inventory.SubtractItem(s, 1);
                 _economics.AddMoney(gameItem.ItemPrice);
             }
@@ -70,7 +69,6 @@ public class Cargo : Ark.Bay
         {
             try
             {
-                Debug.Log(gameItem.ItemCount);
                 _inventory.SubtractItem(gameItem.ItemID, 1);
                 _economics.AddMoney(gameItem.ItemPrice);
             }

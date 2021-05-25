@@ -3,16 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Storage;
+using Recipes;
 
 public class GameItemDatabase
 {
    private static List<GameItem> _items;
+   private static List<Recipe> _recipes;
 
    private static bool _isDatabaseLoaded = false;
 
    private static void ValidateDatabase()
    {
       if (_items == null) _items = new List<GameItem>();
+      if (_recipes == null) _recipes = new List<Recipe>();
       if (!_isDatabaseLoaded) LoadDatabase();
    }
 
@@ -25,15 +28,23 @@ public class GameItemDatabase
 
    private static void LoadDatabaseForce()
    {
-      ValidateDatabase();
-      GameItem[] resources = Resources.LoadAll<GameItem>(@"GameItems");
-      foreach (GameItem item in resources)
-      {
-         if (!_items.Contains(item))
-         {
+        ValidateDatabase();
+        GameItem[] resources = Resources.LoadAll<GameItem>(@"GameItems");
+        foreach (GameItem item in resources)
+        {
+            if (!_items.Contains(item))
+            {
             _items.Add(item);
-         }
-      }
+            }
+        }
+        Recipe[] recipes = Resources.LoadAll<Recipe>(@"Recipes");
+        foreach (Recipe item in recipes)
+        {
+            if(!_recipes.Contains(item))
+            {
+                _recipes.Add(item);
+            }
+        }
    }
 
    public static void ClearDatabase()
@@ -91,6 +102,12 @@ public class GameItemDatabase
       }
       return items;
    }
+
+    public static Recipe[] GetRecipes()
+    {
+        ValidateDatabase();
+        return _recipes.ToArray();
+    }
    
    public static GameItem[] GetItems()
    {
