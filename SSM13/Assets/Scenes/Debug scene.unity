@@ -406,6 +406,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508a893baacbaee4a9986bc442f41b36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &167499192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 167499193}
+  - component: {fileID: 167499194}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &167499193
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167499192}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -18.324224, y: 15.088501, z: -1.1292471}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &167499194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167499192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83b9701abd5200b458b0bcb42827d390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentGenerators: []
+  currentBays: []
 --- !u!1 &211416841
 GameObject:
   m_ObjectHideFlags: 0
@@ -2873,7 +2918,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _storedEnergy: 0
   _updateGeneratorsDelay: 1
-  workingGenerators: []
 --- !u!4 &1050210556
 Transform:
   m_ObjectHideFlags: 0
@@ -9918,9 +9962,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _working: 0
-  _power: 100
+  _power: 1000
   dirt: 0
-  dirting_speed: 0.01
+  dirting_speed: 0.001
 --- !u!212 &1554196988
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10704,9 +10748,9 @@ MonoBehaviour:
   - {fileID: 19524569}
   - {fileID: 1048064236}
   RestZone:
-  - {fileID: 1995487918}
-  - {fileID: 687087032}
-  - {fileID: 1794726138}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   FreeKitchenZone: []
   FreeRestZone: []
 --- !u!4 &1790424175
