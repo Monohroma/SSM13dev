@@ -315,9 +315,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18fb27d75d382aa44a5b5471954fcb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bayList: {fileID: 0}
   PointIsBusy: 0
   NPCInPoint: {fileID: 0}
-  bayList: {fileID: 0}
 --- !u!1 &146796184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,9 +1292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18fb27d75d382aa44a5b5471954fcb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bayList: {fileID: 0}
   PointIsBusy: 0
   NPCInPoint: {fileID: 0}
-  bayList: {fileID: 0}
 --- !u!1 &577579363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,9 +1873,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18fb27d75d382aa44a5b5471954fcb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bayList: {fileID: 0}
   PointIsBusy: 0
   NPCInPoint: {fileID: 0}
-  bayList: {fileID: 0}
 --- !u!1 &706599309
 GameObject:
   m_ObjectHideFlags: 0
@@ -2824,9 +2824,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18fb27d75d382aa44a5b5471954fcb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bayList: {fileID: 0}
   PointIsBusy: 0
   NPCInPoint: {fileID: 0}
-  bayList: {fileID: 0}
 --- !u!1 &1050210553
 GameObject:
   m_ObjectHideFlags: 0
@@ -2872,6 +2872,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _storedEnergy: 0
+  _updateGeneratorsDelay: 1
+  workingGenerators: []
 --- !u!4 &1050210556
 Transform:
   m_ObjectHideFlags: 0
@@ -9915,7 +9917,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 566a3c40d500d31438d89cae5f6e0bae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bought: 0
+  _working: 0
+  _power: 100
+  dirt: 0
+  dirting_speed: 0.01
 --- !u!212 &1554196988
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10750,9 +10755,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18fb27d75d382aa44a5b5471954fcb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bayList: {fileID: 0}
   PointIsBusy: 0
   NPCInPoint: {fileID: 0}
-  bayList: {fileID: 0}
 --- !u!61 &1794726139
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11428,9 +11433,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18fb27d75d382aa44a5b5471954fcb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bayList: {fileID: 0}
   PointIsBusy: 0
   NPCInPoint: {fileID: 0}
-  bayList: {fileID: 0}
 --- !u!1 &2006462997
 GameObject:
   m_ObjectHideFlags: 0

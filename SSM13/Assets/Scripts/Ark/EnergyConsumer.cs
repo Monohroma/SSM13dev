@@ -9,7 +9,7 @@ namespace Ark
     {
         // ====================== fields =======================
         private Energetics _energeticsInstance;
-        private float _timer;
+        private float _timer = 0;
         private UnityEvent OnEmptyEnergy = new UnityEvent();
         
         [Header("Energetics option")]
@@ -22,14 +22,13 @@ namespace Ark
         // ================ event MonoBehavior =================
         private void Awake() => _energeticsInstance = Energetics.Instance;
         private void Start() => _timer = TimerTimeValue;
-        private void Update()
+        private void FixedUpdate()
         {
             if (IsEnable)
             {
-                _timer -= Time.deltaTime;
-                if (_timer <= 0)
+                if (Time.time >= _timer)
                 {
-                    _timer = TimerTimeValue;
+                    _timer = Time.time + TimerTimeValue;
                     if (_energeticsInstance.IsEmpty) OnEmptyEnergy?.Invoke();
                     else
                     {

@@ -24,10 +24,10 @@ public class Power : MonoBehaviour
     {
 			for (int i = 0; i < Solars.Length; i++)
 			{
-				if (!Solars[i].Bought)
+				if (!Solars[i].working)
                 {
 					economics.SubtractMoney(SolarCost);
-					Solars[i].Bought = true;
+					Solars[i].working = true;
 					QuantitySolars++;
 					QuantitySolarsText.text = QuantitySolars.ToString();
 					break;
@@ -106,7 +106,8 @@ public class Power : MonoBehaviour
 	{
 		
 		СonsumptionEnergy /= 60; //Вт в час переводим в секунды
-		CurrentCharge += ProduceEnergy();
+								 //CurrentCharge += ProduceEnergy();
+		CurrentCharge = Energetics.Instance.StoredEnergy;
 
 
 
