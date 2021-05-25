@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class DefaultWorkPattern : IWork 
 {
@@ -13,9 +14,16 @@ public class DefaultWorkPattern : IWork
         WorkZone = Zone;
     }
 
-    public void GoInWork()
+    public Transform GoInWork(List<Transform> workZone)
     {
-       
+        foreach (var zone in WorkZone)
+        {
+            if(!zone.GetComponent<WorkZone>().PointIsBusy && zone.GetComponent<WorkZone>().NPCInPoint == null)
+            {
+                return zone;
+            }
+        }
+        return null;
     }
 
     public void StartWork()
