@@ -87,15 +87,15 @@ namespace Ark
 
         }
 
-        public virtual void OnCrewEnter(Human human)
+        public virtual void OnCrewEnter(Crew crew)
         {
-            if (!WorkersInBay.Contains(human))
-                WorkersInBay.Add(human);
+            if (!WorkersInBay.Contains(crew))
+                WorkersInBay.Add(crew);
         }
 
-        public virtual void OnCrewExit(Human human)
+        public virtual void OnCrewExit(Crew crew)
         {
-            WorkersInBay.Remove(human);
+            WorkersInBay.Remove(crew);
         }
 
         protected virtual void OnDestroy()
