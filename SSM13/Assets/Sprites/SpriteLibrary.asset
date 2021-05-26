@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: SpriteLibrary
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: Doors
+    m_Hash: -1617274578
+    m_CategoryList:
+    - m_Name: DoorGreen
+      m_Hash: -2133765556
+      m_Sprite: {fileID: 28160004362472815, guid: c40d38d0d4b499549b38080e9fe621a5,
+        type: 3}
+    - m_Name: DoorSience
+      m_Hash: -1497575167
+      m_Sprite: {fileID: -3695878288005329659, guid: c40d38d0d4b499549b38080e9fe621a5,
+        type: 3}
+    - m_Name: DoorTeh
+      m_Hash: 1049119732
+      m_Sprite: {fileID: -8248209629422171935, guid: c40d38d0d4b499549b38080e9fe621a5,
+        type: 3}
+    - m_Name: DoorBrige
+      m_Hash: -456155310
+      m_Sprite: {fileID: -1788634822718187497, guid: c40d38d0d4b499549b38080e9fe621a5,
+        type: 3}
+    - m_Name: DoorCargo
+      m_Hash: 1806035740
+      m_Sprite: {fileID: -6811971311704811778, guid: c40d38d0d4b499549b38080e9fe621a5,
+        type: 3}
+    - m_Name: DoorFrezer
+      m_Hash: 741461335
+      m_Sprite: {fileID: 5534666778466648931, guid: c40d38d0d4b499549b38080e9fe621a5,
+        type: 3}
+    - m_Name: DoorEnge
+      m_Hash: 912000960
+      m_Sprite: {fileID: -3939433873074900320, guid: c40d38d0d4b499549b38080e9fe621a5,
+        type: 3}
+    - m_Name: DoorComand
+      m_Hash: 644548403
+      m_Sprite: {fileID: -1190906438757172538, guid: c40d38d0d4b499549b38080e9fe621a5,
+        type: 3}
+    - m_Name: DoorAtmos
+      m_Hash: -1124061733
+      m_Sprite: {fileID: -1680917863884296266, guid: c40d38d0d4b499549b38080e9fe621a5,
+        type: 3}
+    - m_Name: DoorGlass
+      m_Hash: 1216348978
+      m_Sprite: {fileID: -8885502577536585588, guid: c40d38d0d4b499549b38080e9fe621a5,
+        type: 3}
+    - m_Name: DoorUltrasec
+      m_Hash: 776491668
+      m_Sprite: {fileID: 7066982503896876028, guid: c40d38d0d4b499549b38080e9fe621a5,
+        type: 3}
+    - m_Name: DoorSec
+      m_Hash: -1407875847
+      m_Sprite: {fileID: 2372102015180455219, guid: c40d38d0d4b499549b38080e9fe621a5,
+        type: 3}
+    - m_Name: Hatch
+      m_Hash: 1937401201
+      m_Sprite: {fileID: 2802729761765741094, guid: c40d38d0d4b499549b38080e9fe621a5,
+        type: 3}
+    - m_Name: DoorMed
+      m_Hash: 617193248
+      m_Sprite: {fileID: -24037113768566079, guid: c40d38d0d4b499549b38080e9fe621a5,
+        type: 3}
