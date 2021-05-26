@@ -17,7 +17,7 @@ namespace AI
         private void InitWork(BayTypes Acces)
         {
             AccessLevel = Acces;
-            SetJobBehaviour(new DefaultWorkPattern(1.5f, WorkZone)); 
+            SetJobBehaviour(new DefaultWorkPattern(1.5f, WorkBay.WorkZone)); 
         }
 
     }

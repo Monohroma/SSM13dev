@@ -10039,6 +10039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d3b6d34075a5542827d89e560d7335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WorkZone: []
   Type: 0
   _name: Cargo
   _energy: 0
@@ -10266,6 +10267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d3b6d34075a5542827d89e560d7335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WorkZone: []
   Type: 3
   _name: Botanics
   _energy: 228
@@ -10612,6 +10614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d3b6d34075a5542827d89e560d7335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WorkZone: []
   Type: 0
   _name: Cargo
   _energy: 0
@@ -10705,6 +10708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d3b6d34075a5542827d89e560d7335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WorkZone: []
   Type: 2
   _name: Security
   _energy: 228
@@ -11153,8 +11157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -531.1629, y: -45.852173}
-  m_SizeDelta: {x: -1062.32, y: -91.7109}
+  m_AnchoredPosition: {x: -909.89685, y: -45.852173}
+  m_SizeDelta: {x: -1819.7878, y: -91.7109}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &986255269
 MonoBehaviour:
@@ -11338,6 +11342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d3b6d34075a5542827d89e560d7335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WorkZone: []
   Type: 2
   _name: Security
   _energy: 0
@@ -11551,6 +11556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d3b6d34075a5542827d89e560d7335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WorkZone: []
   Type: 0
   _name: Cargo
   _energy: 0
@@ -11643,6 +11649,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d3b6d34075a5542827d89e560d7335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WorkZone:
+  - {fileID: 1333883087}
+  - {fileID: 1765997502}
+  - {fileID: 1557186287}
+  - {fileID: 1110306379}
   Type: 3
   _name: Botanics
   _energy: 228
@@ -11866,6 +11877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d3b6d34075a5542827d89e560d7335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WorkZone: []
   Type: 4
   _name: Kitchen
   _energy: 228
@@ -27409,7 +27421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -27.7, y: 143}
+  m_AnchoredPosition: {x: -27.7, y: 406}
   m_SizeDelta: {x: 32.2944, y: 74.6791}
   m_Pivot: {x: 0.25414574, y: 0.70865405}
 --- !u!114 &1749514911
@@ -27777,6 +27789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d3b6d34075a5542827d89e560d7335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WorkZone: []
   Type: 0
   _name: Cargo
   _energy: 228
@@ -27832,7 +27845,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 75.347, y: 189.76}
+  m_AnchoredPosition: {x: 75.347, y: 452.76}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1907565610
@@ -28535,6 +28548,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Botanist
       objectReference: {fileID: 0}
+    - target: {fileID: 1286701508738382063, guid: 039b025c61ed2e34abbe8ce597a6d04d,
+        type: 3}
+      propertyPath: WorkBay
+      value: 
+      objectReference: {fileID: 1090612343}
     - target: {fileID: 1286701508738382063, guid: 039b025c61ed2e34abbe8ce597a6d04d,
         type: 3}
       propertyPath: WorkZone.Array.data[0]
