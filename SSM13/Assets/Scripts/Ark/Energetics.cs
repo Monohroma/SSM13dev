@@ -11,6 +11,7 @@ namespace Ark
         [Header("Energetics value")]
         [SerializeField] private int _storedEnergy;
         [SerializeField] private float _updateGeneratorsDelay = 1;
+        [SerializeField] private int _maxEnergy = 100000;
 
         public int StoredEnergy => _storedEnergy;
         public bool IsEmpty => _storedEnergy == 0 ? true : false;
@@ -19,8 +20,15 @@ namespace Ark
 
         public float UpdateGeneratersDelay => _updateGeneratorsDelay;
 
+        public int InEnergy => _in_energy;
+        public int OutEnergy => _out_energy;
+
+        public int MaxEnergy { get { return _maxEnergy; } set { _maxEnergy = value; } }
+
         private UnityEngine.Coroutine _generatorUpdater;
         private bool _powered = false;
+        private int _in_energy = 0;
+        private int _out_energy = 0;
 
         // ===================== instance ======================
         private static Energetics _instance;
@@ -70,25 +78,29 @@ namespace Ark
             {
                 _powered = false;
                 generators = GameManager.Instance.currentGenerators;
+                _in_energy = 0;
                 for (i = 0; i < generators.Count; i++)
                 {
                     if (generators[i] != null)
                     {
-                        generators[i].Generate();
+                        _in_energy += generators[i].Generate();
                     }
                     else
                     {
                         GameManager.Instance.RemoveGenerator(generators[i]);
                     }
                 }
+                AddEnergy(_in_energy);
                 if (_storedEnergy > 0)
                     _powered = true;
                 bays = GameManager.Instance.currentBays;
+                _out_energy = 0;
                 for(i = 0; i < bays.Count; i++)
                 {
                     if(bays[i] != null)
                     {
                         _powered = SubtractEnergy(bays[i].Energy);
+                        _out_energy += bays[i].Energy;
                     }
                     else
                     {

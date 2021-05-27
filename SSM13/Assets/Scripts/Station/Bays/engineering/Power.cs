@@ -81,7 +81,7 @@ public class Power : MonoBehaviour
 			yield return new WaitForSeconds(1f);
 		}
 	}
-	public string WattText(int input)
+	public static string WattText(int input)
 	{
 		string output = "";
 		if (input >= 1000000)
