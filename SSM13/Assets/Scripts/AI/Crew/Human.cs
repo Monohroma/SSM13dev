@@ -19,7 +19,65 @@ namespace AI
         public bool NPCIsRest;
         public bool Goes;
         protected IMovable _IMovable; // Человек умеет ходить
-
+        public void StartEating(KitchenZone KitchenZone)
+        {
+            if (!NPCIsEating)
+            {
+                Debug.Log(gameObject.name + " ест в кухне");
+                NPCIsEating = true;
+                StartCoroutine(Eating(KitchenZone));
+            }
+        }
+        public void StopEating(KitchenZone KitchenZone)
+        {
+            StopCoroutine("Eating");
+            NPCIsEating = false;
+            KitchenZone.PointIsBusy = false;
+            KitchenZone.NPCInPoint = null;
+        }
+        public void StartRest(RestZone RestZone)
+        {
+            if (!NPCIsRest)
+            {
+                Debug.Log(gameObject.name + " отдыхает");
+                NPCIsRest = true;
+                StartCoroutine(Rest(RestZone));
+            }
+        }
+        public void StopRest(RestZone RestZone)
+        {
+            StopCoroutine("Rest");
+            NPCIsRest = false;
+            RestZone.PointIsBusy = false;
+            RestZone.NPCInPoint = null;
+        }
+        IEnumerator Rest(RestZone restZone)
+        {
+            while (NPCIsRest && rest < 100)
+            {
+                rest++;
+                yield return new WaitForSeconds(0.5f);
+            }
+            restZone.PointIsBusy = false;
+            restZone.NPCInPoint = null;
+            NPCIsRest = false;
+        }
+        IEnumerator Eating(KitchenZone KitchenZone)
+        {
+            while (NPCIsEating && food < 100)
+            {
+                food++;
+                if (!KitchenZone.BayAvailable())
+                {
+                    StopEating(KitchenZone);
+                    yield break;
+                }
+                yield return new WaitForSeconds(0.3f);
+            }
+            KitchenZone.PointIsBusy = false;
+            KitchenZone.NPCInPoint = null;
+            NPCIsEating = false;
+        }
         public void SetWalkBehaviour(IMovable behaviour)
         {
             _IMovable = behaviour; //Конструктор для выбранного варианта ходьбы

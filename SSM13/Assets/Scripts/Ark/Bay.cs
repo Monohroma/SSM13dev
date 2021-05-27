@@ -88,22 +88,6 @@ namespace Ark
 
         }
 
-        public virtual void OpenMenu()
-        {
-
-        }
-
-        public virtual void OnCrewEnter(Crew human)
-        {
-            if (!WorkersInBay.Contains(human))
-                WorkersInBay.Add(human);
-        }
-
-        public virtual void OnCrewExit(Crew human)
-        {
-            WorkersInBay.Remove(human);
-        }
-
         protected virtual void OnDestroy()
         {
             GameManager.Instance.RemoveBay(this);
