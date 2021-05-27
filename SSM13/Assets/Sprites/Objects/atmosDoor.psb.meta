@@ -46,7 +46,7 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 0
@@ -104,12 +104,61 @@ ScriptedImporter:
       height: 32
     spriteID: 324c9e98e55fdf0498ba43dfae2d3b33
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_3
+      position: {x: 10.400452, y: 0.45435905, z: 0}
+      rotation: {x: 0, y: 0, z: 0.7065786, w: 0.70763457}
+      length: 31.364561
+      parentId: -1
     spriteOutline: []
-    vertices: []
+    vertices:
+    - position: {x: 17, y: 32}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    - position: {x: 0, y: 32}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    - position: {x: 0.05167961, y: 0}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    - position: {x: 17, y: 0}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
     spritePhysicsOutline: []
-    indices: 
-    edges: []
+    indices: 000000000200000001000000020000000000000003000000
+    edges:
+    - {x: 0, y: 3}
+    - {x: 1, y: 0}
+    - {x: 2, y: 1}
+    - {x: 3, y: 2}
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 15, y: 4}
@@ -126,16 +175,87 @@ ScriptedImporter:
       height: 32
     spriteID: 308427f5d6e659441aac45a67cae8e8b
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_1
+      position: {x: 9.599433, y: 0.40302372, z: 0}
+      rotation: {x: 0, y: 0, z: 0.70735925, w: 0.7068542}
+      length: 31.495977
+      parentId: -1
     spriteOutline: []
-    vertices: []
+    vertices:
+    - position: {x: 18, y: 32}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    - position: {x: 0, y: 32}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    - position: {x: 0, y: 0}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    - position: {x: 18, y: 0}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
     spritePhysicsOutline: []
-    indices: 
-    edges: []
+    indices: 030000000200000001000000010000000000000003000000
+    edges:
+    - {x: 1, y: 0}
+    - {x: 3, y: 0}
+    - {x: 2, y: 1}
+    - {x: 3, y: 2}
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: 4}
-  platformSettings: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   mosaicLayers: 1
   documentPivot: {x: 0, y: 0}
   documentAlignment: 7
@@ -169,8 +289,41 @@ ScriptedImporter:
     layerID: -7500616
     mosaicPosition: {x: 4, y: 4}
   characterData:
-    bones: []
-    parts: []
+    bones:
+    - name: bone_1
+      position: {x: 9.599433, y: 0.40302354, z: 0}
+      rotation: {x: 0, y: 0, z: 0.70735925, w: 0.7068542}
+      length: 31.495977
+      parentId: -1
+    - name: bone_2
+      position: {x: 25.400454, y: 0.4543592, z: 0}
+      rotation: {x: 0, y: 0, z: 0.7065786, w: 0.70763457}
+      length: 31.364561
+      parentId: -1
+    - name: bone_3
+      position: {x: 25.400454, y: 0.4543592, z: 0}
+      rotation: {x: 0, y: 0, z: 0.7065786, w: 0.70763457}
+      length: 31.364561
+      parentId: -1
+    parts:
+    - spritePosition:
+        x: 15
+        y: 0
+        width: 17
+        height: 32
+      spriteId: 324c9e98e55fdf0498ba43dfae2d3b33
+      bones: 02000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 0
+        y: 0
+        width: 18
+        height: 32
+      spriteId: 308427f5d6e659441aac45a67cae8e8b
+      bones: 00000000
+      parentGroup: 0
+      order: 0
     dimension: {x: 0, y: 0}
     characterGroups: []
   generateGOHierarchy: 0
