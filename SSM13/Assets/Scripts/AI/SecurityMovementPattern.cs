@@ -20,10 +20,6 @@ public class SecurityMovementPattern : IMovable
     }
 
     public float SetMoveSpeed(float speed) => this.speed = speed;
-    public Vector3 GetMoveDirection()
-    {
-        throw new System.NotImplementedException();
-    }
 
     public void Move(Transform point)
     {
@@ -35,4 +31,5 @@ public class SecurityMovementPattern : IMovable
         targetPoint.transform.position = pos;
         Move(targetPoint.transform);
     }
+
 }

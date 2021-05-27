@@ -22,11 +22,13 @@ public class BayTrigger : MonoBehaviour
     {    
         if(collision.tag == "NPC")
         {
-            if(collision.gameObject.GetComponent<Crew>().AccessLevel == Type)
+            if (collision.gameObject.GetComponent<Crew>())
             {
-                bay.OnCrewEnter(collision.GetComponent<Crew>());
-            }
-            
+                if (collision.gameObject.GetComponent<Crew>().AccessLevel == Type)
+                {
+                    bay.OnCrewEnter(collision.GetComponent<Crew>());
+                }
+            }            
         }
     }
 
@@ -34,9 +36,12 @@ public class BayTrigger : MonoBehaviour
     {
         if (collision.tag == "NPC")
         {
-            if (collision.gameObject.GetComponent<Crew>().AccessLevel == Type)
+            if (collision.gameObject.GetComponent<Crew>())
             {
-                bay.OnCrewExit(collision.GetComponent<Crew>());
+                if (collision.gameObject.GetComponent<Crew>().AccessLevel == Type)
+                {
+                    bay.OnCrewExit(collision.GetComponent<Crew>());
+                }
             }
         }
     }
