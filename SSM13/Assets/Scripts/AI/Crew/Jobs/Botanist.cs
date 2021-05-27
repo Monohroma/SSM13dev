@@ -10,9 +10,9 @@ namespace AI
     {      
         void Start()
         {
-            HumanStartMethod();
-            CrewStartMethod();
-            InitWork(BayTypes.Botanics);            
+            InitWork(BayTypes.Botanics);
+            StartNeedCoroutine(true,true,bayList); // Из базовых классов почему-то не запускается  //Нужно вынести в класс crew
+            RandomMovePoint(); //Дебаг
         }
         private void InitWork(BayTypes Acces)
         {
