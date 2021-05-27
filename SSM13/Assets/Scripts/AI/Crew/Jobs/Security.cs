@@ -12,8 +12,8 @@ namespace AI
         {
             setter = GetComponent<AIDestinationSetter>();
             bayList = GameObject.FindObjectOfType<BayList>();
-            
-            InitBehaviors();
+            HumanStartMethod();
+            InitBehaviors();     
         }
         void Start()
         {
@@ -25,6 +25,8 @@ namespace AI
             if (Input.GetMouseButtonDown(1))
             {
                 ((SecurityMovementPattern)_IMovable).MoveToClick();
+                StopCoroutine(SpriteDirection());
+                StartCoroutine(SpriteDirection());        //Кодить будет Толик, поэтому пофикси, корутина работает while Goes, значит нужно сделать условие перехода Goes в Security 
             }
         }
         private void InitBehaviors()
