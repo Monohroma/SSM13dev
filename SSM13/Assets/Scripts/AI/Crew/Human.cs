@@ -5,7 +5,10 @@ using Pathfinding;
 namespace AI
 {
     public abstract class Human : MonoBehaviour
-    {        
+    {
+        protected delegate void Action();
+        protected event Action NextAction;
+
         protected AIDestinationSetter setter;
         protected BayList bayList;
         protected float speed = 1;
@@ -19,6 +22,7 @@ namespace AI
         public bool NPCIsRest;
         public bool Goes;
         protected IMovable _IMovable; // „еловек умеет ходить
+        protected IWork _IWork; //„лены экипажа могут работать! »сключение ассистент кроме что (но бомл гений сделает заглушку-класс без работы)
         public void StartEating(KitchenZone KitchenZone)
         {
             if (!NPCIsEating)
@@ -77,6 +81,10 @@ namespace AI
             KitchenZone.PointIsBusy = false;
             KitchenZone.NPCInPoint = null;
             NPCIsEating = false;
+            if (_IWork != null) 
+            {
+                NextAction?.Invoke();
+            }
         }
         public void SetWalkBehaviour(IMovable behaviour)
         {
