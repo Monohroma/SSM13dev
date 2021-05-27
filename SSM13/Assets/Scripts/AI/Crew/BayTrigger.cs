@@ -24,6 +24,7 @@ public class BayTrigger : MonoBehaviour
     {    
         if(collision.tag == "NPC")
         {
+            bay.OnCrewEnter(collision.GetComponent<Crew>());
         }
     }
 
@@ -31,6 +32,7 @@ public class BayTrigger : MonoBehaviour
     {
         if (collision.tag == "NPC")
         {
+            bay.OnCrewExit(collision.GetComponent<Crew>());
         }
     }
 
