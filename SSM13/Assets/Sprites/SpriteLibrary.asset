@@ -20,9 +20,53 @@ MonoBehaviour:
       m_Hash: -2133765556
       m_Sprite: {fileID: 3449295673167865526, guid: 3303bd94ecb756b4ba2b080fe3f08633,
         type: 3}
-    - m_Name: DoorTech
-      m_Hash: -932093598
+    - m_Name: DoorTeh
+      m_Hash: 1049119732
       m_Sprite: {fileID: -6920088522473001963, guid: e67d369ab7c42774d973a7b0afb58411,
+        type: 3}
+    - m_Name: DoorSience
+      m_Hash: -1497575167
+      m_Sprite: {fileID: -5721926626801017350, guid: 7fe864691850cce468aa5950c87a1e21,
+        type: 3}
+    - m_Name: DoorEngi
+      m_Hash: 1072319467
+      m_Sprite: {fileID: -4765232611436856747, guid: 43944d85c1d68be43a00d222bea93ba4,
+        type: 3}
+    - m_Name: DoorFrezer
+      m_Hash: 741461335
+      m_Sprite: {fileID: -5145803938863133711, guid: 6a546f208930bbc43bc26d470b8f2b0e,
+        type: 3}
+    - m_Name: DoorGlass
+      m_Hash: 1216348978
+      m_Sprite: {fileID: 7942320460177792694, guid: b60b6d6e6465df446a0eebb0a0cab637,
+        type: 3}
+    - m_Name: DoorMed
+      m_Hash: 617193248
+      m_Sprite: {fileID: -6938806899266244382, guid: e9d211c90a63da848b4d01f0139a7c3b,
+        type: 3}
+    - m_Name: DoorBrig
+      m_Hash: -835049009
+      m_Sprite: {fileID: -4599801536223755941, guid: 05b642e9071e3bd47a9f33d4e14ef70d,
+        type: 3}
+    - m_Name: DoorAtmos
+      m_Hash: -1124061733
+      m_Sprite: {fileID: 404799740577948332, guid: fd881ec0faca48b47afacfcef2c2e00c,
+        type: 3}
+    - m_Name: DoorCargo
+      m_Hash: 1806035740
+      m_Sprite: {fileID: 5241377650001044959, guid: e9cad3b584425b448afee1835e6bf04d,
+        type: 3}
+    - m_Name: DoorComand
+      m_Hash: 644548403
+      m_Sprite: {fileID: -6390059308381395202, guid: 73cacc7783379a64fa8bbd7840adbced,
+        type: 3}
+    - m_Name: DoorArmor
+      m_Hash: -278117743
+      m_Sprite: {fileID: 1159359267755539251, guid: 076cf9be779db034ebf827c4ded6c02a,
+        type: 3}
+    - m_Name: DoorVault
+      m_Hash: -1350830772
+      m_Sprite: {fileID: 3275804972813652112, guid: 33732bc25a9c31b48ac8877d94bc9c45,
         type: 3}
   - m_Name: DoorRight
     m_Hash: -461256327
@@ -31,7 +75,51 @@ MonoBehaviour:
       m_Hash: -2133765556
       m_Sprite: {fileID: -2248023441887899094, guid: 3303bd94ecb756b4ba2b080fe3f08633,
         type: 3}
-    - m_Name: DoorTech
-      m_Hash: -932093598
+    - m_Name: DoorTeh
+      m_Hash: 1049119732
       m_Sprite: {fileID: -9036295919805724161, guid: e67d369ab7c42774d973a7b0afb58411,
+        type: 3}
+    - m_Name: DoorSience
+      m_Hash: -1497575167
+      m_Sprite: {fileID: 5738331106829364514, guid: 7fe864691850cce468aa5950c87a1e21,
+        type: 3}
+    - m_Name: DoorEngi
+      m_Hash: 1072319467
+      m_Sprite: {fileID: -3824364719090710023, guid: 43944d85c1d68be43a00d222bea93ba4,
+        type: 3}
+    - m_Name: DoorFrezer
+      m_Hash: 741461335
+      m_Sprite: {fileID: 6213550649728732556, guid: 6a546f208930bbc43bc26d470b8f2b0e,
+        type: 3}
+    - m_Name: DoorGlass
+      m_Hash: 1216348978
+      m_Sprite: {fileID: -6798769964215650513, guid: b60b6d6e6465df446a0eebb0a0cab637,
+        type: 3}
+    - m_Name: DoorMed
+      m_Hash: 617193248
+      m_Sprite: {fileID: -1577196357060494434, guid: e9d211c90a63da848b4d01f0139a7c3b,
+        type: 3}
+    - m_Name: DoorBrig
+      m_Hash: -835049009
+      m_Sprite: {fileID: -5032869671608334232, guid: 05b642e9071e3bd47a9f33d4e14ef70d,
+        type: 3}
+    - m_Name: DoorAtmos
+      m_Hash: -1124061733
+      m_Sprite: {fileID: 8494786143855079831, guid: fd881ec0faca48b47afacfcef2c2e00c,
+        type: 3}
+    - m_Name: DoorCargo
+      m_Hash: 1806035740
+      m_Sprite: {fileID: 6220010495004733503, guid: e9cad3b584425b448afee1835e6bf04d,
+        type: 3}
+    - m_Name: DoorComand
+      m_Hash: 644548403
+      m_Sprite: {fileID: -630593539896401265, guid: 73cacc7783379a64fa8bbd7840adbced,
+        type: 3}
+    - m_Name: DoorArmor
+      m_Hash: -278117743
+      m_Sprite: {fileID: 337093729933469313, guid: 076cf9be779db034ebf827c4ded6c02a,
+        type: 3}
+    - m_Name: DoorVault
+      m_Hash: -1350830772
+      m_Sprite: {fileID: 9135228625907414201, guid: 33732bc25a9c31b48ac8877d94bc9c45,
         type: 3}
