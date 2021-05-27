@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using System;
+using Ark;
 
 namespace AI
 {
     public class Crew : Human
     {
-        public List<Transform> WorkZone = new List<Transform>();
+        public Bay WorkBay;
         public void SetJobBehaviour(IWork behaviour) => _IWork = behaviour;
-        private IWork _IWork; //Члены экипажа могут работать! Исключение ассистент кроме что (но бомл гений сделает заглушку-класс без работы)
+        
         public BayTypes AccessLevel; 
         private RandomPointGenerator randomPointGenerator;
         private void Awake()
@@ -20,6 +21,32 @@ namespace AI
             bayList = GameObject.FindObjectOfType<BayList>();
             InitBehaviors();
         }
+        private void Start()
+        {
+            NextAction += NextActions;
+        }
+        private void OnEnable()
+        {
+            NextAction += NextActions;
+        }
+        private void OnDisable()
+        {
+            NextAction -= NextActions;
+        }
+        private void NextActions()
+        {
+            if (rest >= 10 && food >= 15)
+            {
+                if (WorkBay.Active && WorkBay.Purchased)
+                {
+                    GoInWork();
+                }
+                else
+                {
+                    RandomMovePoint();
+                }
+            }
+        }
         public void StartWork()
         {
             _IWork.StartWork();
@@ -27,18 +54,7 @@ namespace AI
         }
         public void GoInWork()
         {
-            if(rest >= 10 && food >= 15)
-            {
-                if (_IWork.GoInWork(WorkZone))
-                {
-                    PerformWalkMove(_IWork.GoInWork(WorkZone));
-                }
-                else
-                {
-                    RandomMovePoint();
-                }
-                
-            }
+            PerformWalkMove(_IWork.GoInWork(WorkBay.WorkZone));
         }
 
         protected void InitBehaviors()
