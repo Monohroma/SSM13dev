@@ -2,14 +2,17 @@
 using System.Timers;
 using UnityEngine;
 using Ark;
+using System;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
 	public List<Generator> currentGenerators = new List<Generator>();
 	public List<Bay> currentBays = new List<Bay>();
+	public Action<Bay> OnBayAdd;
+	public Action<Bay> OnBayRemove;
 
-    private void Awake()
+    private GameManager()
     {
 		_instance = this;
     }
@@ -36,11 +39,18 @@ public class GameManager : MonoBehaviour
 	public void AddBay(Bay bay)
     {
 		if (!currentBays.Contains(bay))
+		{
 			currentBays.Add(bay);
+			OnBayAdd(bay);
+		}
     }
 
 	public void RemoveBay(Bay bay)
     {
-		currentBays.Remove(bay);
+		if (currentBays.Contains(bay))
+		{
+			currentBays.Remove(bay);
+			OnBayRemove(bay);
+		}
     }
 }

@@ -21,10 +21,13 @@ public class Generator : MonoBehaviour
         GameManager.Instance.RemoveGenerator(this);
     }
 
-    public virtual void Generate()
+    public virtual int Generate()
     {
-        if(_working)
-            Energetics.Instance.AddEnergy(_power);
+        if (_working)
+        {
+            return _power;
+        }
+        return 0;
     }
 
     public virtual void SetWorking(bool work)

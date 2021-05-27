@@ -22,6 +22,7 @@ namespace Ark
         public bool Purchased => _bought;
         public bool Active;
         public bool Powered;
+        public string BayName => _name;
 
         [Header("Dynamic Bay options")]
         [SerializeField] protected int _cost;
