@@ -14,16 +14,19 @@ namespace AI
         
         public BayTypes AccessLevel; 
         private RandomPointGenerator randomPointGenerator;
-        private void Awake()
+        protected void CrewStartMethod()
         {
             randomPointGenerator = GameObject.FindObjectOfType<RandomPointGenerator>();
             setter = GetComponent<AIDestinationSetter>();
             bayList = GameObject.FindObjectOfType<BayList>();
+            StartNeedCoroutine(true, true, bayList);
             InitBehaviors();
-        }
-        private void Start()
-        {
             NextAction += NextActions;
+        }
+        private void Start() //Вызывается только в том случае, если на NPC весит скрипт Crew 
+        {
+            HumanStartMethod(); 
+            CrewStartMethod();
         }
         private void OnEnable()
         {

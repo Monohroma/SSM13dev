@@ -10,10 +10,6 @@ namespace AI
         private Transform humanTransform;
         private AIDestinationSetter settDestination;
         private float speed;
-        public Vector3 GetMoveDirection()
-        {
-            throw new System.NotImplementedException();
-        }
         public CrewMovePattern(Transform humanTransform, float speed, AIDestinationSetter aIDestinationSetter)
         {
             this.humanTransform = humanTransform;
