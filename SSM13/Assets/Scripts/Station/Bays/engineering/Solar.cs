@@ -17,9 +17,12 @@ public class Solar : Generator
             dirt = 1;
     }
 
-    public override void Generate()
+    public override int Generate()
     {
         if (_working)
-            Energetics.Instance.AddEnergy(Mathf.RoundToInt(_power * (1 - dirt)));
+        {
+            return Mathf.RoundToInt(_power * (1 - dirt));
+        }
+        return 0;
     }
 }
