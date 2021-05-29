@@ -123,3 +123,81 @@ MonoBehaviour:
       m_Hash: -1350830772
       m_Sprite: {fileID: 9135228625907414201, guid: 33732bc25a9c31b48ac8877d94bc9c45,
         type: 3}
+  - m_Name: DoorsLeftClose
+    m_Hash: -1925113457
+    m_CategoryList:
+    - m_Name: DoorGreen
+      m_Hash: -2133765556
+      m_Sprite: {fileID: 3197752365821429305, guid: d6ad8e90b8ca3c44483c9eb7001a398c,
+        type: 3}
+    - m_Name: DoorTeh
+      m_Hash: 1049119732
+      m_Sprite: {fileID: 1623157321547742925, guid: 15926e9e656e682439864d8a96e61ead,
+        type: 3}
+    - m_Name: DoorSience
+      m_Hash: -1497575167
+      m_Sprite: {fileID: 7743306468941402160, guid: 286e6dc703144c444a7fcd442d95fbfb,
+        type: 3}
+    - m_Name: DoorEngi
+      m_Hash: 1072319467
+      m_Sprite: {fileID: 5786174949597876443, guid: d420908353ff7b8498ba34d0f2685335,
+        type: 3}
+    - m_Name: DoorComand
+      m_Hash: 644548403
+      m_Sprite: {fileID: -6179029178500385095, guid: 17dd91f10106ea24b8129a5c34e28277,
+        type: 3}
+    - m_Name: DoorCargo
+      m_Hash: 1806035740
+      m_Sprite: {fileID: 4530571830964164468, guid: e38590a34bc9cd842829515e875d6925,
+        type: 3}
+    - m_Name: DoorMed
+      m_Hash: 617193248
+      m_Sprite: {fileID: 9165284485697156143, guid: d669a9903161bfc499321ebf0727b6c0,
+        type: 3}
+    - m_Name: DoorBrig
+      m_Hash: -835049009
+      m_Sprite: {fileID: 1252439923227465339, guid: d776f147a7ff54d4a864bd7834cdb878,
+        type: 3}
+    - m_Name: DoorAtmos
+      m_Hash: -1124061733
+      m_Sprite: {fileID: -7740797005994505722, guid: 84fed61b05eb0de4ab6f50a255adbff3,
+        type: 3}
+  - m_Name: DoorsRaightClose
+    m_Hash: 1533433660
+    m_CategoryList:
+    - m_Name: DoorGreen
+      m_Hash: -2133765556
+      m_Sprite: {fileID: -5323218122875258457, guid: d6ad8e90b8ca3c44483c9eb7001a398c,
+        type: 3}
+    - m_Name: DoorTeh
+      m_Hash: 1049119732
+      m_Sprite: {fileID: 4459896583823811064, guid: 15926e9e656e682439864d8a96e61ead,
+        type: 3}
+    - m_Name: DoorSience
+      m_Hash: -1497575167
+      m_Sprite: {fileID: -5718053072979474076, guid: 286e6dc703144c444a7fcd442d95fbfb,
+        type: 3}
+    - m_Name: DoorEngi
+      m_Hash: 1072319467
+      m_Sprite: {fileID: -1665528350506565820, guid: d420908353ff7b8498ba34d0f2685335,
+        type: 3}
+    - m_Name: DoorComand
+      m_Hash: 644548403
+      m_Sprite: {fileID: -2153408052328477041, guid: 17dd91f10106ea24b8129a5c34e28277,
+        type: 3}
+    - m_Name: DoorCargo
+      m_Hash: 1806035740
+      m_Sprite: {fileID: -535733488131787268, guid: e38590a34bc9cd842829515e875d6925,
+        type: 3}
+    - m_Name: DoorMed
+      m_Hash: 617193248
+      m_Sprite: {fileID: 5955345868647633429, guid: d669a9903161bfc499321ebf0727b6c0,
+        type: 3}
+    - m_Name: DoorBrig
+      m_Hash: -835049009
+      m_Sprite: {fileID: 2266378584792252943, guid: d776f147a7ff54d4a864bd7834cdb878,
+        type: 3}
+    - m_Name: DoorAtmos
+      m_Hash: -1124061733
+      m_Sprite: {fileID: 8070512052689217193, guid: 84fed61b05eb0de4ab6f50a255adbff3,
+        type: 3}
