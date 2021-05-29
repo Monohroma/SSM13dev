@@ -21,18 +21,24 @@ public class BayTrigger : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {    
-        if(collision.tag == "NPC")
+    {
+        if (collision.gameObject.GetComponent<Crew>())
         {
-            bay.OnCrewEnter(collision.GetComponent<Crew>());
+            if (collision.gameObject.GetComponent<Crew>().AccessLevel == Type)
+            {
+                bay.OnCrewEnter(collision.GetComponent<Crew>());
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "NPC")
+        if (collision.gameObject.GetComponent<Crew>())
         {
-            bay.OnCrewExit(collision.GetComponent<Crew>());
+            if (collision.gameObject.GetComponent<Crew>().AccessLevel == Type)
+            {
+                bay.OnCrewExit(collision.GetComponent<Crew>());
+            }
         }
     }
 

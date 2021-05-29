@@ -26,7 +26,7 @@ namespace Recipes
 
         public float GetProcent()
         {
-            return ((_recipe.RecipeCookingTime - timer) / _recipe.RecipeCookingTime) * 100;
+            return ((_recipe.RecipeCookingTime - timer) / _recipe.RecipeCookingTime);
         }
     }
 }
