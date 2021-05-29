@@ -4,22 +4,25 @@ using UnityEngine;
 using UnityEngine.UI;
 using Ark;
 
-public class UIEngineeringPanel : MonoBehaviour
+namespace UI
 {
-    public Bay bay_orig;
-    public Text name_text;
-    public Text num_text;
-
-    public void Setup(Bay bay)
+    public class UIEngineeringPanel : MonoBehaviour
     {
-        bay_orig = bay;
-        name_text.text = bay.BayName;
-        num_text.text = bay.Energy.ToString();
-    }
+        public Bay bay_orig;
+        public Text name_text;
+        public Text num_text;
 
-    public void UpdateParametrs()
-    {
-        name_text.text = bay_orig.BayName;
-        num_text.text = bay_orig.Energy.ToString();
+        public void Setup(Bay bay)
+        {
+            bay_orig = bay;
+            name_text.text = bay.BayName;
+            num_text.text = Power.WattText(bay.Energy);
+        }
+
+        public void UpdateParametrs()
+        {
+            name_text.text = bay_orig.BayName;
+            num_text.text = Power.WattText(bay_orig.Energy);
+        }
     }
 }
