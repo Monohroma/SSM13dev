@@ -1,42 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Ark;
+using Storage;
+using UI;
 
-public class Botanics : MonoBehaviour
+public class Botanics : Bay
 {   [SerializeField]
-    Cell[] Cells;
-  public Plants Tomato;
-  public Plants Potato; 
+    public Cell[] Cells;
+    public Plants Tomato;
+    public Plants Potato; 
     
-    void Start()
+    private void FixedUpdate()
     {
-        Cells =  GetComponentsInChildren<Cell>();
-    }
-
-    void Update()
-    {
-       
-    }
-    public void TomatoButton()
-    {
-        for (int i = 0; i < Cells.Length; i++)
+        foreach (var item in Cells)
         {
-           if(Cells[i].Completed)
+            if(item.CurrentPlant != null)
             {
-                Cells[i].SetPlant(Tomato);
-                break;
-            }  
-        }
-    }
-    public void PotatoButton()
-    {
-        for (int i = 0; i < Cells.Length; i++)
-        {
-            if (Cells[i].Completed)
-            {
-                Cells[i].SetPlant(Potato);
-                break;
+                if(item.UpdatePlant(Time.fixedDeltaTime))
+                {
+                    Inventory.Instance.AddItem(item.CurrentPlant);
+                    item.SetPlant(item.CurrentPlant);
+                }
             }
         }
+    }
+
+    public void ShowMenu()
+    {
+        UIManager.ShowBotanicsMenu(this);
     }
 }
