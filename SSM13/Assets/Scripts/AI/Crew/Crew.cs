@@ -36,11 +36,15 @@ namespace AI
         {
             NextAction -= NextActions;
         }
-        private void NextActions()
+        public void NextActions()
         {
             if (rest >= 10 && food >= 15)
             {
-                if (WorkBay.Active && WorkBay.Purchased)
+                if(this is Assistant)
+                {
+                    RandomMovePoint();
+                }
+                else if (WorkBay.Active && WorkBay.Purchased)
                 {
                     GoInWork();
                 }
