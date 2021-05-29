@@ -4,8 +4,14 @@ using UnityEngine;
 using Pathfinding;
 namespace AI
 {
-    public abstract class Human : MonoBehaviour
+    public class Human : MonoBehaviour 
     {
+        public Sprite Up;
+        public Sprite Down;
+        public Sprite Right;
+        public Sprite Left;
+        private SpriteRenderer spriteRenderer;
+             
         protected delegate void Action();
         protected event Action NextAction;
 
@@ -23,6 +29,10 @@ namespace AI
         public bool Goes;
         protected IMovable _IMovable; // Человек умеет ходить
         protected IWork _IWork; //Члены экипажа могут работать! Исключение ассистент кроме что (но бомл гений сделает заглушку-класс без работы)
+        protected void HumanStartMethod()
+        {
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        }
         public void StartEating(KitchenZone KitchenZone)
         {
             if (!NPCIsEating)
@@ -101,6 +111,34 @@ namespace AI
         public void PerformWalkMove(Transform point)
         {
             _IMovable.Move(point);
+            StopCoroutine(SpriteDirection());
+            StartCoroutine(SpriteDirection());
+        }
+        protected IEnumerator SpriteDirection()
+        {
+            while (Goes)
+            {
+                Vector3 temp = transform.position;
+                yield return new WaitForSeconds(0.003f); //Частота опроса изменения вектора
+               if(temp.x < transform.position.x) 
+                {
+                    spriteRenderer.sprite = Right;        //Тернарный оператор нынче не в моде
+                }
+               else if(temp.x > transform.position.x)
+                {
+                    spriteRenderer.sprite = Left;
+                }
+               else if(temp.y < transform.position.y)
+                {
+                    spriteRenderer.sprite = Up;
+                }
+               else if(temp.y > transform.position.y)
+                {
+                    spriteRenderer.sprite = Down;
+                }
+            }
+            yield break;
+            
         }
         protected void StartNeedCoroutine(bool HumanGoesToKitchen = false, bool HumanGoesToRest = false, BayList bayList = null)
         {
