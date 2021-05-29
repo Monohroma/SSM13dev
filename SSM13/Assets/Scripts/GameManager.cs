@@ -3,11 +3,13 @@ using System.Timers;
 using UnityEngine;
 using Ark;
 using System;
+using AI;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
 	public List<Generator> currentGenerators = new List<Generator>();
+	public List<Crew> FreeAssistant = new List<Crew>();
 	public List<Bay> currentBays = new List<Bay>();
 	public Action<Bay> OnBayAdd;
 	public Action<Bay> OnBayRemove;
@@ -16,7 +18,16 @@ public class GameManager : MonoBehaviour
     {
 		_instance = this;
     }
-
+    private void Awake()
+    {
+        foreach (var crew in GameObject.FindObjectsOfType<Crew>())
+        {
+			if(crew is Assistant)
+            {
+				FreeAssistant.Add(crew);
+            }
+        }
+    }
     public static GameManager Instance
 	{
 		get
@@ -41,7 +52,7 @@ public class GameManager : MonoBehaviour
 		if (!currentBays.Contains(bay))
 		{
 			currentBays.Add(bay);
-			OnBayAdd(bay);
+			OnBayAdd?.Invoke(bay);
 		}
     }
 
@@ -50,7 +61,7 @@ public class GameManager : MonoBehaviour
 		if (currentBays.Contains(bay))
 		{
 			currentBays.Remove(bay);
-			OnBayRemove(bay);
+			OnBayRemove?.Invoke(bay);
 		}
     }
 }
