@@ -7,6 +7,7 @@ using Unity.Collections;
 
 namespace Storage
 {
+    [CreateAssetMenu(menuName = "Item/StandartItem", fileName = "New Item")]
     public class GameItem : ScriptableObject
     {
         [Header("Item values")]

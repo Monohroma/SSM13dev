@@ -6,67 +6,29 @@ using UnityEngine.UI;
 
 public class Cell : MonoBehaviour
 {
-    Plants currentPlant;
-    public bool Completed { get; private set; } = true;
-    public float Progress { get; private set; }
-    
-
-    IEnumerator Tray()
-    {
-        
-        int NumberOfGrowths=0;
-    point:
-        var timer = currentPlant._GrowingTime;
-        while (timer > 0)
-        {
-            timer--;
-            yield return new WaitForSeconds(1);
-            Progress++;
-        }
-        var amount = Random.Range(0,currentPlant._HarvestAmount);
-       // InventoryManager.Instance.CreateItem(currentPlant.ItemName, ITEMTYPE.FOOD, (uint)amount, 100);
-        NumberOfGrowths++;
-        Progress = 0;
-                              
-        if(NumberOfGrowths <= currentPlant._NumberOfGrowths)
-        {
-            goto point;
-        }
-        Completed = true;
-        gameObject.name = "inactive";
-
-    }       
+    public Plants CurrentPlant => currentPlant;
+    Plants currentPlant = null;
+    private float timer = 0;
+       
     public void SetPlant(Plants p)
     {
-        gameObject.name = "active";
-        Completed = false;
         currentPlant = p;
-        StartCoroutine(Tray());
+        timer = p._GrowingTime;
     }
-    public string GetProgress()
+    public float GetProgress()
     {
-
-        int progress = 0;
-        try
+        if(currentPlant != null)
+            return ((currentPlant._GrowingTime - timer) / currentPlant._GrowingTime);
+        return 0;
+    }
+    public bool UpdatePlant(float t)
+    {
+        timer -= t;
+        if(timer <= 0)
         {
-             progress = (int)(Progress * 100 / currentPlant._GrowingTime);
-        }   
-        catch
-        {
-            progress = 0;
+            timer = 0;
+            return true;
         }
-            return progress.ToString();
-
+        return false;
     }
-    public void Start()
-    {
-       
-    }
-   
-    public void FixedUpdate()
-    {
-        var getText = GetComponentInChildren<TMP_Text>();
-        getText.text =GetProgress();
-    }
-
 }

@@ -18,6 +18,7 @@ namespace UI
         public GameObject DebugInterfaceMenu;
         public UIEngineering EngeneerBayMenu;
         public UIKitchen KitchenBayMenu;
+        public UIBotanics BotanicsBayMenu;
 
         public static void ShowDebugMenu()
         {
@@ -47,6 +48,16 @@ namespace UI
         public static void HideKitchenBayMenu()
         {
             _instance.KitchenBayMenu.Hide();
+        }
+
+        public static void ShowBotanicsMenu(Botanics botanics)
+        {
+            _instance.BotanicsBayMenu.Show(botanics);
+        }
+
+        public static void HideBotanicsMenu()
+        {
+            _instance.BotanicsBayMenu.Hide();
         }
     }
 }
