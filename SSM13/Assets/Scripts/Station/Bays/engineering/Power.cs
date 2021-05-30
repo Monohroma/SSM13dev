@@ -10,11 +10,9 @@ public class Power : MonoBehaviour
     Solar[] Solars;
 	public int SolarCost = 1000;
 	private byte QuantitySolars = 0;
-	public TextMeshProUGUI QuantitySolarsText;
 
 	private int ProduceEnergy() =>(20000/60)* QuantitySolars;
 	public Slider slider;
-	public Text ChargeText;public Text TotalLoadText;
 	private int СonsumptionEnergy;
 	public float Capacity;
 	public float CurrentCharge;
@@ -29,7 +27,6 @@ public class Power : MonoBehaviour
 					economics.SubtractMoney(SolarCost);
 					Solars[i].working = true;
 					QuantitySolars++;
-					QuantitySolarsText.text = QuantitySolars.ToString();
 					break;
 				}
 	      	}
@@ -54,7 +51,6 @@ public class Power : MonoBehaviour
 	{ // ПЕРЕНЕСИ СЛАЙДЕР В ОТДЕЛЬНЫЙ СКРИПТ SHOWPOWER и всё что касается показа энергии в отдельный скрипт, тут должна быть только логика энергии
 		int chargePercent = ChargePercent();
 	//	slider.value = chargePercent;
-		ChargeText.text = chargePercent + "%";
 
 	/*	if (chargePercent >= 60)
 		{
