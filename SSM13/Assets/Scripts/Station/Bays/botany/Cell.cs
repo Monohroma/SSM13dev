@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Cell : MonoBehaviour
+public class Cell : ScriptableObject
 {
     public Plant CurrentPlant => currentPlant;
 

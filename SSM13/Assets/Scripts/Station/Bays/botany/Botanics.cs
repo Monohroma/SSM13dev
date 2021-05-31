@@ -6,13 +6,25 @@ using Storage;
 using UI;
 
 public class Botanics : Bay
-{   [SerializeField]
-    public Cell[] Cells;
+{
+    [SerializeField]
+    private int cellsCount;
+
+    public List<Cell> Cells;
     // Вы серьёзно хотите вот так прописывать каждое растение?
     public Plant Tomato;
-    public Plant Potato; 
-    
-    private void FixedUpdate()
+    public Plant Potato;
+
+	protected override void Start()
+	{
+        Cells = new List<Cell>(cellsCount);
+        for (int i = 0; i < cellsCount; i++)
+		{
+            Cells.Add(new Cell());
+		}
+	}
+
+	private void FixedUpdate()
     {
         foreach (Cell cell in Cells)
         {
