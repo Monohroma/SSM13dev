@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class Cell : MonoBehaviour
 {
     public Plant CurrentPlant => currentPlant;
-    Plant currentPlant = null;
+
+    private Plant currentPlant = null;
     private float timer = 0;
        
     public void SetPlant(Plant p)
@@ -21,9 +22,9 @@ public class Cell : MonoBehaviour
             return ((currentPlant._GrowingTime - timer) / currentPlant._GrowingTime);
         return 0;
     }
-    public bool UpdatePlant(float t)
+    public bool UpdatePlant(float fixedDeltaTime)
     {
-        timer -= t;
+        timer -= fixedDeltaTime;
         if(timer <= 0)
         {
             timer = 0;

@@ -8,20 +8,20 @@ using UI;
 public class Botanics : Bay
 {   [SerializeField]
     public Cell[] Cells;
-    // Вы серъёзно хотите вот так прописывать каждое растение?
+    // Вы серьёзно хотите вот так прописывать каждое растение?
     public Plant Tomato;
     public Plant Potato; 
     
     private void FixedUpdate()
     {
-        foreach (var item in Cells)
+        foreach (Cell cell in Cells)
         {
-            if(item.CurrentPlant != null)
+            if(cell.CurrentPlant != null)
             {
-                if(item.UpdatePlant(Time.fixedDeltaTime))
+                if(cell.UpdatePlant(Time.fixedDeltaTime))
                 {
-                    Inventory.Instance.AddItem(item.CurrentPlant);
-                    item.SetPlant(item.CurrentPlant);
+                    Inventory.Instance.AddItem(cell.CurrentPlant, cell.CurrentPlant._HarvestAmount);
+                    cell.SetPlant(cell.CurrentPlant);
                 }
             }
         }

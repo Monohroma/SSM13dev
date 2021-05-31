@@ -1145,6 +1145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentGenerators: []
+  FreeAssistant: []
   currentBays: []
 --- !u!1 &211416841
 GameObject:
@@ -4381,10 +4382,7 @@ MonoBehaviour:
   Solars:
   - {fileID: 1554196987}
   SolarCost: 1000
-  QuantitySolarsText: {fileID: 1731483269}
   slider: {fileID: 1259593240}
-  ChargeText: {fileID: 901361916}
-  TotalLoadText: {fileID: 2028088380}
   Capacity: 10000
   CurrentCharge: 1
   economics: {fileID: 1050210554}
@@ -13059,6 +13057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc03fa671f789d54ab75d6d10a2446cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WorkersInBay: []
   WorkZone: []
   Type: 0
   _name: 
@@ -13628,6 +13627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d554155dc3887314bbe92eefb7e0ac65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WorkersInBay: []
   WorkZone: []
   Type: 6
   _name: Engineering
@@ -14905,6 +14905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f1b178cfd441ac9a7ec9b47206e62a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WorkersInBay: []
   WorkZone: []
   Type: 4
   _name: Kitchen
@@ -17023,6 +17024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc03fa671f789d54ab75d6d10a2446cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WorkersInBay: []
   WorkZone: []
   Type: 3
   _name: Botanics
@@ -17034,8 +17036,8 @@ MonoBehaviour:
   Cells:
   - {fileID: 2118491089}
   - {fileID: 2118491087}
-  Tomato: {fileID: 0}
-  Potato: {fileID: 0}
+  Tomato: {fileID: 11400000, guid: ac8db2ce5d593934a95590fa54c7aa5f, type: 2}
+  Potato: {fileID: 11400000, guid: b831f31ec6d35c5488b4971e3477d4d2, type: 2}
 --- !u!212 &2118491091
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19119,6 +19121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586a0b2a235e8e24dac0a02691654782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WorkersInBay: []
   WorkZone: []
   Type: 0
   _name: 
