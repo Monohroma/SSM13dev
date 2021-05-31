@@ -27,7 +27,10 @@ namespace Storage
 
         public void ClearInventory()
         {
-            _items?.Clear();
+            foreach(GameItem item in _items)
+			{
+                item.SetCount(0);
+			}
         }
 
         private void Start()
