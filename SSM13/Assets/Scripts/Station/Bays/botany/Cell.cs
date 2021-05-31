@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class Cell : MonoBehaviour
 {
-    public Plants CurrentPlant => currentPlant;
-    Plants currentPlant = null;
+    public Plant CurrentPlant => currentPlant;
+    Plant currentPlant = null;
     private float timer = 0;
        
-    public void SetPlant(Plants p)
+    public void SetPlant(Plant p)
     {
         currentPlant = p;
         timer = p._GrowingTime;

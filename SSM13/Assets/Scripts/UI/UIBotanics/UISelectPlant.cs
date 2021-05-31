@@ -7,11 +7,11 @@ namespace UI
 {
     public class UISelectPlant : MonoBehaviour
     {
-        public Plants plant;
+        public Plant plant;
         public Text plantName;
         public Image image;
         private UISelectBar _uisb;
-        public void Setup(Plants currentPlant, UISelectBar uisb)
+        public void Setup(Plant currentPlant, UISelectBar uisb)
         {
             plant = currentPlant;
             plantName.text = currentPlant.ItemName;

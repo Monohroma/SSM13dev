@@ -8,8 +8,9 @@ using UI;
 public class Botanics : Bay
 {   [SerializeField]
     public Cell[] Cells;
-    public Plants Tomato;
-    public Plants Potato; 
+    // Вы серъёзно хотите вот так прописывать каждое растение?
+    public Plant Tomato;
+    public Plant Potato; 
     
     private void FixedUpdate()
     {
