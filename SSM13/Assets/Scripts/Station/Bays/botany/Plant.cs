@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Storage;
 [CreateAssetMenu(menuName = "Item/PlantItem", fileName = "New Plant")]
-public class Plants : GameItem
+public class Plant : GameItem
 {
     [Header("Not debug, you can change it")]
     [SerializeField] private float GrowingTime;

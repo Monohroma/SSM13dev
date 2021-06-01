@@ -13,7 +13,7 @@ namespace UI
         public HorizontalLayoutGroup horizontalLayout;
         public RectTransform contentTransform;
         public GameObject panelPrefab;
-        private List<Plants> plants = new List<Plants>();
+        private List<Plant> plants = new List<Plant>();
         private RectTransform rectTransform;
         private UICell _currentCell;
         public void Setup()
@@ -22,11 +22,11 @@ namespace UI
             GameItem[] gi = GameItemDatabase.GetItems();
             foreach (var item in gi)
             {
-                if (item is Plants)
+                if (item is Plant)
                 {
-                    plants.Add((Plants)item);
+                    plants.Add((Plant)item);
                     GameObject o = Instantiate(panelPrefab, contentTransform) as GameObject;
-                    o.GetComponent<UISelectPlant>().Setup((Plants)item, this);
+                    o.GetComponent<UISelectPlant>().Setup((Plant)item, this);
                     selectPlantsUI.Add(o.GetComponent<UISelectPlant>());
                 }
             }
