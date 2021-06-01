@@ -27,7 +27,7 @@ namespace UI
                 }
             }
             _botanics = botanics;
-            for(int i=0;i<_botanics.Cells.Length && i<cells.Count;i++)
+            for(int i=0;i<_botanics.Cells.Count && i<cells.Count;i++)
             {
                 cells[i].Setup(_botanics.Cells[i]);
             }
