@@ -7,6 +7,8 @@ namespace Ark
 {
     public class Energetics : MonoBehaviour
     {
+        public delegate void EnergyBool();
+        public event EnergyBool EnergyChangedBool;
         // ====================== fields =======================
         [Header("Energetics value")]
         [SerializeField] private int _storedEnergy;
@@ -16,9 +18,21 @@ namespace Ark
         public int StoredEnergy => _storedEnergy;
         public bool IsEmpty => _storedEnergy == 0 ? true : false;
 
-        public bool IsPower => _powered;
+        public bool IsPower
+        {
+            get
+            { 
+                return _powered;
+            }
 
-        public float UpdateGeneratersDelay => _updateGeneratorsDelay;
+            set
+            {
+                _powered = value;
+                EnergyChangedBool?.Invoke();
+            }                        
+}
+
+public float UpdateGeneratersDelay => _updateGeneratorsDelay;
 
         public int InEnergy => _in_energy;
         public int OutEnergy => _out_energy;
@@ -73,10 +87,9 @@ namespace Ark
             List<Generator> generators;
             List<Bay> bays;
             int i;
-            bool trig = false;
             while (true)
             {
-                _powered = false;
+                IsPower = false;
                 generators = GameManager.Instance.currentGenerators;
                 _in_energy = 0;
                 for (i = 0; i < generators.Count; i++)
@@ -92,7 +105,7 @@ namespace Ark
                 }
                 AddEnergy(_in_energy);
                 if (_storedEnergy > 0)
-                    _powered = true;
+                    IsPower = true;
                 bays = GameManager.Instance.currentBays;
                 _out_energy = 0;
                 for(i = 0; i < bays.Count; i++)

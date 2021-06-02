@@ -161,10 +161,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c31ab95daee58f4eabc179d46dbcf59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Up: {fileID: 0}
-  Down: {fileID: 0}
-  Right: {fileID: 0}
-  Left: {fileID: 0}
+  Up: {fileID: -7102572537394114508, guid: ae47c9e46af5144419b9dbedb5d31e6c, type: 3}
+  Down: {fileID: -9170676271271082056, guid: ae47c9e46af5144419b9dbedb5d31e6c, type: 3}
+  Right: {fileID: -5061391117312504275, guid: ae47c9e46af5144419b9dbedb5d31e6c, type: 3}
+  Left: {fileID: -2251286169667279369, guid: ae47c9e46af5144419b9dbedb5d31e6c, type: 3}
   rest: 100
   CurrentHp: 100
   food: 100
@@ -173,7 +173,7 @@ MonoBehaviour:
   NPCIsRest: 0
   Goes: 0
   WorkBay: {fileID: 0}
-  AccessLevel: 0
+  AccessLevel: 7
 --- !u!1 &5638249281748093195
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,7 +245,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 428769192662469898, guid: ae47c9e46af5144419b9dbedb5d31e6c, type: 3}
+  m_Sprite: {fileID: -9170676271271082056, guid: ae47c9e46af5144419b9dbedb5d31e6c,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

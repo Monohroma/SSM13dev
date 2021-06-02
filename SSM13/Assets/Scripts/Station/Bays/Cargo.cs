@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UI;
 
-public class Cargo : Ark.Bay
+public class Cargo : Bay
 {
     // ================ fields ================
     [Header("System setup")]
@@ -29,12 +29,12 @@ public class Cargo : Ark.Bay
         _economics = Economics.Instance;
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         string a = _inventory.dev_ShowInfo();
         print(a);
     }
-
     // ================ methods ================
     public void BuyItem(string nameItem, int cost)
     {
@@ -103,5 +103,4 @@ public class Cargo : Ark.Bay
     {
         UIManager.ShowInventoryMenu();
     }
-
 }

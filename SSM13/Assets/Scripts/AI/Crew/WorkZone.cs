@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Ark;
 
 public class WorkZone : Zone
 {
-    public Ark.Bay bay;
+    public Bay bay;
     private BayTypes bayTypes;
-    private void Start()
+    private void Awake()
     {
+        bay = GetComponentInParent<Bay>();
         bayTypes = bay.Type;
     }
     private void OnTriggerEnter2D(Collider2D other)
