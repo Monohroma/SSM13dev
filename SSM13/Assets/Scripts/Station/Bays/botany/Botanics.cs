@@ -38,8 +38,15 @@ public class Botanics : Bay
             {
                 if(cell.UpdatePlant(Time.fixedDeltaTime))
                 {
-                    Inventory.Instance.AddItem(cell.CurrentPlant, cell.CurrentPlant._HarvestAmount);
-                    cell.SetPlant(cell.CurrentPlant);
+                    if (cell.CurrentHarvestNumber < cell.CurrentPlant._NumberOfGrowths)
+                    {
+                        Inventory.Instance.AddItem(cell.CurrentPlant, cell.CurrentPlant._HarvestAmount);
+                        cell.SetPlant(cell.CurrentPlant);
+                    }
+                    else
+					{
+                        cell.ClearCell();
+					}
                 }
             }
         }
