@@ -9,7 +9,10 @@ public class Botanics : Bay
 {
     [SerializeField]
     private int cellsCount;
+    [SerializeField]
+    private Cell cellPrefab;
 
+    [HideInInspector]
     public List<Cell> Cells;
     // Вы серьёзно хотите вот так прописывать каждое растение?
     public Plant Tomato;
@@ -18,6 +21,13 @@ public class Botanics : Bay
 	protected override void Start()
 	{
         base.Start();
+        Cells = new List<Cell>(cellsCount);
+        for (int i = 0; i < cellsCount; i++)
+		{
+            Cell cell = Instantiate(cellPrefab);
+            cell.transform.parent = this.gameObject.transform;
+            Cells.Add(cell);
+		}
 	}
 
 	private void FixedUpdate()
