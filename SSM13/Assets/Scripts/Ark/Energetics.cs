@@ -99,7 +99,6 @@ namespace Ark
                 {
                     if(bays[i] != null)
                     {
-                        _powered = SubtractEnergy(bays[i].Energy);
                         _out_energy += bays[i].Energy;
                     }
                     else
@@ -107,6 +106,7 @@ namespace Ark
                         GameManager.Instance.RemoveBay(bays[i]);
                     }
                 }
+                _powered = SubtractEnergy(_out_energy);
                 yield return new WaitForSeconds(_updateGeneratorsDelay);
             }
         }

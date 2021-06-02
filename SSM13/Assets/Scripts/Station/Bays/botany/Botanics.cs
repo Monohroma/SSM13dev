@@ -22,6 +22,7 @@ public class Botanics : Bay
 		{
             Cells.Add(new Cell());
 		}
+        base.Start();
 	}
 
 	private void FixedUpdate()

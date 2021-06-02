@@ -16,6 +16,7 @@ namespace UI
         public RectTransform kitchenCurrentPanelTransform;
         public List<UIKitchenRecipePanel> recipesPanels;
         public List<UIKitchenCurrentPanel> currentPanels;
+        public MovingPanel movingPanel;
 
         private void Start()
         {
@@ -94,6 +95,7 @@ namespace UI
         {
             Setup(kitchen);
             UIKitchenPanelObj.SetActive(true);
+            movingPanel.ResetPosition();
         }
 
         public void Hide()

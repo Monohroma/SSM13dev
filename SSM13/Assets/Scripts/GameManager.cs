@@ -64,4 +64,9 @@ public class GameManager : MonoBehaviour
 			OnBayRemove?.Invoke(bay);
 		}
     }
+
+	public static Vector3 Vector2To3(Vector2 vec)
+    {
+		return new Vector3(vec.x, vec.y, 0);
+    }
 }
