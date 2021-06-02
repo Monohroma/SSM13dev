@@ -27,7 +27,10 @@ namespace Storage
 
         public void ClearInventory()
         {
-            _items?.Clear();
+            foreach(GameItem item in _items)
+			{
+                item.SetCount(0);
+			}
         }
 
         private void Start()
@@ -84,7 +87,19 @@ namespace Storage
             else throw new ArgumentNullException(nameof(_items));
         }
 
-        public void AddItem(int id, int count)
+        public void AddItem(GameItem item, int count)
+        {
+            if (item == null) throw new ArgumentNullException(nameof(item));
+            //ValidateInventory();
+            if (_items.Count != 0)
+            {
+                GetItem(item).AddCount(count);
+                return;
+            }
+            else throw new ArgumentNullException(nameof(_items));
+        }
+
+        public void AddItem(int id, int count) // OBSOLETE?
         {
             //ValidateInventory();
             if (_items.Count != 0)
