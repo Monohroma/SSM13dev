@@ -36,6 +36,10 @@ public class GameItemDatabase
             {
             _items.Add(item);
             }
+            else
+			{
+                throw new ArgumentException($"Item {item.ItemName} have ID {item.ItemID} that already loaded!");
+			}
         }
         Recipe[] recipes = Resources.LoadAll<Recipe>(@"Recipes");
         foreach (Recipe item in recipes)
