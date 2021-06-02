@@ -104,7 +104,6 @@ public class BayTrigger : MonoBehaviour
         if (coliderTileMap != null)
         {
             BoundsInt b = coliderTileMap.cellBounds;
-            Debug.Log(b.min + "  " + b.max);
             TileBase[] allTiles = coliderTileMap.GetTilesBlock(b);
             List<BoundsInt> colliders = new List<BoundsInt>();
             List<Vector2Int> allredyUsed = new List<Vector2Int>();
@@ -141,14 +140,10 @@ public class BayTrigger : MonoBehaviour
         TileBase tb;
         for(i = x; i < bi.xMax; i++)
         {
-            for(j = y; j < bi.yMax &&y < maxj; j++)
+            for(j = y; j < bi.yMax &&j < maxj; j++)
             {
                 tb = coliderTileMap.GetTile(new Vector3Int(i, j, 0));
-                if(tb != null)
-                {
-                    usedP.Add(new Vector2Int(i, j));
-                }
-                else
+                if(tb == null || usedP.Contains(new Vector2Int(i, j)))
                 {
                     break;
                 }
@@ -158,6 +153,10 @@ public class BayTrigger : MonoBehaviour
             else if(j != maxj)
             {
                 return new BoundsInt(x, y, 0, i - x, maxj - y, 0);
+            }
+            for(j=y; j < bi.yMax && j<maxj;j++)
+            {
+                usedP.Add(new Vector2Int(i, j));
             }
         }
         return new BoundsInt(x, y, 0, i - x, maxj - y, 0);
