@@ -9,7 +9,7 @@ namespace Storage
     public class Inventory : MonoBehaviour
     {
         private static Inventory _instance;
-        public List<GameItem> _items = new List<GameItem>();
+        private List<GameItem> _items = new List<GameItem>();
 
         public static Inventory Instance
         {
@@ -164,6 +164,11 @@ namespace Storage
                 data += $"Name >> {item.ItemName}; ID >> {item.ItemID.ToString()}; Count >> {item.ItemCount.ToString()}; Price >> {item.ItemPrice.ToString()}; \n";
             }
             return data;
+        }
+
+        public GameItem[] GetAllItems()
+        {
+            return _items.ToArray();
         }
     }
 }

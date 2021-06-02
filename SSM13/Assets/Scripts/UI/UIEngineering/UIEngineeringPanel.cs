@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Ark;
+using TMPro;
 
 namespace UI
 {
     public class UIEngineeringPanel : MonoBehaviour
     {
         public Bay bay_orig;
-        public Text name_text;
-        public Text num_text;
+        public TMP_Text name_text;
+        public TMP_Text num_text;
 
         public void Setup(Bay bay)
         {

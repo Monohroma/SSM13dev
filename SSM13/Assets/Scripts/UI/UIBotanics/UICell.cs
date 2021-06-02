@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace UI
 {
@@ -9,7 +10,7 @@ namespace UI
     {
         private Cell _cell;
         private Sprite standartSprite;
-        public Text plantNameTitle;
+        public TMP_Text plantNameTitle;
         public Image plantImage;
         public Slider growingBar;
         public GameObject onSelectBackground;

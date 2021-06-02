@@ -7,8 +7,12 @@ namespace UI
     public class UIBotanics : MonoBehaviour
     {
         public GameObject UIBotanicsPanelObj;
+        public GameObject UIPlant2PanelPrefab;
+        public RectTransform plantsTransform;
         public List<UICell> cells;
+        public List<UIPlant2Panel> uip2p;
         public UISelectBar SelectBar;
+        public MovingPanel movingPanel;
         private Botanics _botanics;
 
         private void Start()
@@ -18,19 +22,31 @@ namespace UI
 
         public void Show(Botanics botanics)
         {
+            foreach (var item in uip2p)
+            {
+                Destroy(item.gameObject);
+            }
+            uip2p.Clear();
+            cells.Clear();
+            plantsTransform.sizeDelta = new Vector2(plantsTransform.sizeDelta.x, 0);
             UIBotanicsPanelObj.SetActive(true);
-            if (_botanics != null)
-            {
-                foreach (var item in cells)
-                {
-                    item.Clear();
-                }
-            }
             _botanics = botanics;
-            for(int i=0;i<_botanics.Cells.Count && i<cells.Count;i++)
+            int i = 0;
+            for (i=0;i<_botanics.Cells.Count;i+=2)
             {
-                cells[i].Setup(_botanics.Cells[i]);
+                GameObject o = Instantiate(UIPlant2PanelPrefab, plantsTransform) as GameObject;
+                if (i + 1 < botanics.Cells.Count)
+                {
+                    o.GetComponent<UIPlant2Panel>().SetupCells(this, _botanics.Cells[i], _botanics.Cells[i + 1]);
+                }
+                else
+                {
+                    o.GetComponent<UIPlant2Panel>().SetupCells(this, _botanics.Cells[i]);
+                }
+                uip2p.Add(o.GetComponent<UIPlant2Panel>());
+                plantsTransform.sizeDelta += new Vector2(0, o.GetComponent<RectTransform>().sizeDelta.y);
             }
+            movingPanel.ResetPosition();
         }
 
         private void FixedUpdate()

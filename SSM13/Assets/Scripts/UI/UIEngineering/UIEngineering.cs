@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Ark;
+using TMPro;
 namespace UI
 {
     public class UIEngineering : MonoBehaviour
@@ -12,9 +13,10 @@ namespace UI
         public GameObject panel_prefab;
         public List<UIEngineeringPanel> engineeringPanels;
         public Slider battery;
-        public Text in_power;
-        public Text out_power;
+        public TMP_Text in_power;
+        public TMP_Text out_power;
         public Power power;
+        public MovingPanel movingPanel;
 
         private void Awake()
         {
@@ -57,6 +59,7 @@ namespace UI
         public void Show()
         {
             UIEngineeringPanelObj.SetActive(true);
+            movingPanel.ResetPosition();
         }
 
         public void Hide()

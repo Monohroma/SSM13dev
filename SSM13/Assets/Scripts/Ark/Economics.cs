@@ -13,14 +13,6 @@ namespace Ark
         public int StoredMoney => _storedMoney;
         public bool IsEmpty => _storedMoney == 0 ? true : false;
 
-        private Text moneyText;
-
-        private void Start()
-        {
-            moneyText = GameObject.Find("MoneyText").GetComponent<Text>();
-            moneyText.text = StoredMoney.ToString();
-        }
-
         // ============= instance =============
         private static Economics _instance;
         /// <summary>
@@ -54,7 +46,6 @@ namespace Ark
         {
             if ((_storedMoney - value) < 0) return false;
             _storedMoney -= value;
-            moneyText.text = StoredMoney.ToString();
             return true;
         }
 
@@ -63,7 +54,6 @@ namespace Ark
             if (value >= 0)
             {
                 _storedMoney += value;
-                moneyText.text = StoredMoney.ToString();
             }
             else throw new ArgumentOutOfRangeException(nameof(value),
                 $"The {nameof(value)} value cannot be negative.");

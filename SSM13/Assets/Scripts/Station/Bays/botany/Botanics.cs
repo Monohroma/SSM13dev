@@ -17,11 +17,7 @@ public class Botanics : Bay
 
 	protected override void Start()
 	{
-        Cells = new List<Cell>(cellsCount);
-        for (int i = 0; i < cellsCount; i++)
-		{
-            Cells.Add(new Cell());
-		}
+        base.Start();
 	}
 
 	private void FixedUpdate()
