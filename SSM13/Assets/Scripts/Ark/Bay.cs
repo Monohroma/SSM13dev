@@ -11,6 +11,7 @@ namespace Ark
     {
         public List<Crew> WorkersInBay = new List<Crew>(); // Если рабочий заходит в свою work zone, он начинает дико работать пока не упадёт без сил
         public List<Transform> WorkZone = new List<Transform>();
+        public GameObject WorkerPrefab;
         public int Energy => _energy;
         [Header("Bay options")]
         public BayTypes Type;

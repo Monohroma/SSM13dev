@@ -40,6 +40,7 @@ public class WorkManager : MonoBehaviour
         if(GameManager.Instance.FreeAssistant.Count > 0 && Bay.WorkersInBay.Count < Bay.WorkZone.Count)
         {
             Bay.WorkersInBay.Add(GameManager.Instance.FreeAssistant[0]);
+
             Bay.WorkersInBay[Bay.WorkersInBay.Count - 1].NextActions();
             GameManager.Instance.FreeAssistant.RemoveAt(0);
         }
