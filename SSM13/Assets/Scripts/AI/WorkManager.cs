@@ -18,10 +18,11 @@ public class WorkManager : MonoBehaviour
     private void UpdateText()
     {
         HumanInBay.text = Bay.WorkersInBay.Count.ToString() + $" /{Bay.WorkZone.Count}";
+
         if(Bay.WorkersInBay.Count >= Bay.WorkZone.Count)
-        {
-            PlusButton.gameObject.SetActive(false);
+        {           
             MinusButton.gameObject.SetActive(true);
+            PlusButton.gameObject.SetActive(false);
         }
         else if(Bay.WorkersInBay.Count <= 0)
         {
@@ -30,8 +31,12 @@ public class WorkManager : MonoBehaviour
         }
         else
         {
-            PlusButton.gameObject.SetActive(true);
             MinusButton.gameObject.SetActive(true);
+            PlusButton.gameObject.SetActive(true);
+        }
+        if(GameManager.Instance.FreeAssistant.Count == 0)
+        {
+            PlusButton.gameObject.SetActive(false);
         }
     }
     public void AddWorkerInBay()
