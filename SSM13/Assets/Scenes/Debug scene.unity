@@ -18626,6 +18626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WorkersInBay: []
   WorkZone: []
+  WorkerPrefab: {fileID: 0}
   Type: 0
   _name: 
   _energy: 0
@@ -18634,6 +18635,7 @@ MonoBehaviour:
   _cost: 0
   _bought: 0
   cellsCount: 0
+  cellPrefab: {fileID: 0}
   Cells: []
   Tomato: {fileID: 11400000, guid: ac8db2ce5d593934a95590fa54c7aa5f, type: 2}
   Potato: {fileID: 11400000, guid: b831f31ec6d35c5488b4971e3477d4d2, type: 2}
@@ -19912,6 +19914,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WorkersInBay: []
   WorkZone: []
+  WorkerPrefab: {fileID: 0}
   Type: 6
   _name: Engineering
   _energy: 0
@@ -19934,6 +19937,7 @@ MonoBehaviour:
   coliderTileMap: {fileID: 897601062}
   selectOutline: {fileID: 915794828}
   disabledOutline: {fileID: 897601059}
+  buymess: {fileID: 0}
   Index: 0
   Type: 0
   OnClick:
@@ -21671,6 +21675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WorkersInBay: []
   WorkZone: []
+  WorkerPrefab: {fileID: 0}
   Type: 4
   _name: Kitchen
   _energy: 0
@@ -21695,6 +21700,7 @@ MonoBehaviour:
   coliderTileMap: {fileID: 708264038}
   selectOutline: {fileID: 870178540}
   disabledOutline: {fileID: 708264035}
+  buymess: {fileID: 0}
   Index: 0
   Type: 0
   OnClick:
@@ -24588,6 +24594,7 @@ MonoBehaviour:
   coliderTileMap: {fileID: 990959159}
   selectOutline: {fileID: 672777863}
   disabledOutline: {fileID: 990959156}
+  buymess: {fileID: 0}
   Index: 0
   Type: 0
   OnClick:
@@ -24619,6 +24626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WorkersInBay: []
   WorkZone: []
+  WorkerPrefab: {fileID: 0}
   Type: 3
   _name: Botanics
   _energy: 0
@@ -24627,7 +24635,10 @@ MonoBehaviour:
   _cost: 0
   _bought: 1
   cellsCount: 3
-  Cells: []
+  cellPrefab: {fileID: -1921230466078439196, guid: 553d1ad4c8adaf0448062a86bd1fbc60,
+    type: 3}
+  Cells:
+  - {fileID: 0}
   Tomato: {fileID: 11400000, guid: ac8db2ce5d593934a95590fa54c7aa5f, type: 2}
   Potato: {fileID: 11400000, guid: 84614137bc3211b4aa559b9f2c5c937a, type: 2}
 --- !u!1 &2135268087
@@ -26600,6 +26611,7 @@ MonoBehaviour:
   coliderTileMap: {fileID: 937773027}
   selectOutline: {fileID: 475315943}
   disabledOutline: {fileID: 937773024}
+  buymess: {fileID: 0}
   Index: 0
   Type: 0
   OnClick:
@@ -26631,6 +26643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WorkersInBay: []
   WorkZone: []
+  WorkerPrefab: {fileID: 0}
   Type: 0
   _name: Cargo
   _energy: 0
