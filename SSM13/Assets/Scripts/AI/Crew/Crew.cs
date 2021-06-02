@@ -10,8 +10,10 @@ namespace AI
     public class Crew : Human
     {
         public Bay WorkBay;
-        public void SetJobBehaviour(IWork behaviour) => _IWork = behaviour;
-        
+        public void SetJobBehaviour(IWork behaviour)
+        {
+            _IWork = behaviour;
+        }
         public BayTypes AccessLevel; 
         private RandomPointGenerator randomPointGenerator;
         protected void CrewStartMethod()
