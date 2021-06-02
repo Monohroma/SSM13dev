@@ -27,7 +27,12 @@ namespace AI
                 ((SecurityMovementPattern)_IMovable).MoveToClick();
                 StopCoroutine(SpriteDirection());
                 StartCoroutine(SpriteDirection());        //Кодить будет Толик, поэтому пофикси, корутина работает while Goes, значит нужно сделать условие перехода Goes в Security 
+                Goes = true;
             }
+        }
+        public void FinishedMovement()
+        {
+            Goes = false;
         }
         private void InitBehaviors()
         {
