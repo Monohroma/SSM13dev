@@ -48,6 +48,10 @@ public class GameItemDatabase
             {
                 _recipes.Add(item);
             }
+            else
+			{
+                throw new ArgumentException($"Recipe {item.RecipeName} have ID {item.RecipeID} that already loaded!");
+			}
         }
    }
 
