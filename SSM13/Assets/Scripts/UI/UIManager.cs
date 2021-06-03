@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace UI
@@ -19,6 +20,7 @@ namespace UI
         public UIEngineering EngeneerBayMenu;
         public UIKitchen KitchenBayMenu;
         public UIBotanics BotanicsBayMenu;
+        public UIInventory InventoryBayMenu;
 
         public static void ShowDebugMenu()
         {
@@ -58,6 +60,16 @@ namespace UI
         public static void HideBotanicsMenu()
         {
             _instance.BotanicsBayMenu.Hide();
+        }
+
+        public static void ShowInventoryMenu()
+        {
+            _instance.InventoryBayMenu.Show();
+        }
+
+        public static void HideInventoryMenu()
+        {
+            _instance.InventoryBayMenu.Hide();
         }
     }
 }

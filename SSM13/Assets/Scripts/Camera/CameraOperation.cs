@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 
 public class CameraOperation : MonoBehaviour
 {
@@ -28,7 +28,7 @@ public class CameraOperation : MonoBehaviour
    
     void Update()
     { 
-        if (Input.GetKey(KeyCode.Mouse2) )
+        if (Input.GetKey(KeyCode.Mouse2) && !EventSystem.current.IsPointerOverGameObject())
         {
             if (mouseClickPos == default)
             {
@@ -42,7 +42,7 @@ public class CameraOperation : MonoBehaviour
            
         }
             // If LMB is released, stop moving the camera
-            if (Input.GetKeyUp(KeyCode.Mouse2))
+            if (Input.GetKeyUp(KeyCode.Mouse2) && !EventSystem.current.IsPointerOverGameObject())
             {
                 mouseClickPos = default;
             }
@@ -68,7 +68,7 @@ public class CameraOperation : MonoBehaviour
             transform.position = new Vector3(Mathf.Clamp(camPos.x, MapLimits.XminCameraDistance, MapLimits.XmaxCameraDistance), Mathf.Clamp(camPos.y, MapLimits.YminCameraDistance, MapLimits.YmaxCameraDistance), camPos.z); // ограничение движения камеры
 
             float scroll = Input.GetAxis("Mouse ScrollWheel");
-            if (scroll != 0.0f) 
+            if (scroll != 0.0f && !EventSystem.current.IsPointerOverGameObject()) 
             {
                 targetOrtho -= scroll * zoomSpeed;
                 targetOrtho = Mathf.Clamp(targetOrtho, minZoom, maxZoom);

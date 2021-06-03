@@ -15,7 +15,7 @@ namespace UI
         public GameObject panelPrefab;
         private List<Plant> plants = new List<Plant>();
         private RectTransform rectTransform;
-        private UICell _currentCell;
+        [SerializeField] private UICell _currentCell;
         public void Setup()
         {
             rectTransform = GetComponent<RectTransform>();
@@ -40,7 +40,7 @@ namespace UI
             rectTransform.anchoredPosition = _currentCell.rectTransform.anchoredPosition;
             if (cell.CurentCell.CurrentPlant != null)
             {
-                selectPlantsUI.ForEach(x => x.gameObject.SetActive(!(x.plant.ItemID==cell.CurentCell.CurrentPlant.ItemID))); //Скрыть уже использующийся UICell
+                selectPlantsUI.ForEach(x => x.gameObject.SetActive(!(x.plant.ItemID == cell.CurentCell.CurrentPlant.ItemID))); //Скрыть уже использующийся UICell
                 contentTransform.sizeDelta = new Vector2(horizontalLayout.padding.left + horizontalLayout.padding.right + Mathf.Max(plants.Count - 2, 0) * horizontalLayout.spacing + panelPrefab.GetComponent<RectTransform>().sizeDelta.x * (plants.Count - 1), contentTransform.sizeDelta.y);
             }
             else
@@ -60,9 +60,9 @@ namespace UI
 
         private void LateUpdate()
         {
-            if(_currentCell != null)
+            if (_currentCell != null)
             {
-                rectTransform.anchoredPosition = _currentCell.rectTransform.anchoredPosition;
+                rectTransform.position = _currentCell.rectTransform.position;
             }
         }
 

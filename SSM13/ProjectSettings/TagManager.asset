@@ -11,6 +11,7 @@ TagManager:
   - RestPoint
   - HidePoint
   - NPC
+  - CargoShuttle
   layers:
   - Default
   - TransparentFX

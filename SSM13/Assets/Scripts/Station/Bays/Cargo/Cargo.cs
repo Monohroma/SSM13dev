@@ -5,7 +5,7 @@ using Ark;
 using Storage;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UI;
 
 public class Cargo : Bay
 {
@@ -99,5 +99,8 @@ public class Cargo : Bay
         _inventory.AddItem(0, 100);
     }
 
-   
+    public void ShowMenu()
+    {
+        UIManager.ShowInventoryMenu();
+    }
 }
