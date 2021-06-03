@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class CargoShuttle : MonoBehaviour // код ниже был написан Ukiwuki и благополучно скопирован Толиком
+public class CargoShuttle : MonoBehaviour
 {
-    public Tilemap tileMap = null;
+    public Tilemap tileMap;
 
     public List<Vector3> availablePlaces; // Трансформы тайлов на тайлмапе
 
@@ -18,7 +18,7 @@ public class CargoShuttle : MonoBehaviour // код ниже был написан Ukiwuki и благ
         {
             for (int p = tileMap.cellBounds.yMin; p < tileMap.cellBounds.yMax; p++)
             {
-                Vector3Int localPlace = (new Vector3Int(n, p, (int)tileMap.transform.position.y));
+                Vector3Int localPlace = new Vector3Int(n, p, (int)tileMap.transform.position.z);
                 Vector3 place = tileMap.CellToWorld(localPlace);
                 if (tileMap.HasTile(localPlace))
                 {

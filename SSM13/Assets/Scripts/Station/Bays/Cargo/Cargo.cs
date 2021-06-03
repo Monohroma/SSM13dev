@@ -11,8 +11,9 @@ public class Cargo : Bay
 {
     // ================ fields ================
     [Header("System setup")]
-    public Transform spawn;
-    public GameObject Assistent;
+    public List<string> ShopList = new List<string>();
+   // public Transform spawn; легаси код
+   // public GameObject Assistent; легаси код
 
 
     // DON'T use GameItem from assets!!!
@@ -89,7 +90,7 @@ public class Cargo : Bay
     {
         if(_economics.SubtractMoney(cost))
         {
-            Instantiate(Assistent, spawn.position, Quaternion.identity);
+           // Instantiate(Assistent, spawn.position, Quaternion.identity); легаси код
         }
         else Debug.Log("Денег нет!");
     }

@@ -24749,6 +24749,7 @@ GameObject:
   - component: {fileID: 1008565164}
   - component: {fileID: 1008565166}
   - component: {fileID: 1008565165}
+  - component: {fileID: 1008565167}
   m_Layer: 0
   m_Name: CargoShittleFloor
   m_TagString: Untagged
@@ -24909,16 +24910,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -92, y: 59, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 1
-      m_TileSpriteIndex: 1
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: -96, y: 60, z: 0}
     second:
       serializedVersion: 2
@@ -24994,16 +24985,6 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 0
       m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -92, y: 61, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 1
-      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -25093,16 +25074,16 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 24
     m_Data: {fileID: 11400000, guid: 5eed856e398f3cb40bd45a108be1c0e1, type: 2}
-  - m_RefCount: 2
-    m_Data: {fileID: 11400000, guid: bb4d6936a3208ac42af27b96f02fa84e, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
   - m_RefCount: 24
     m_Data: {fileID: -4059647627184845333, guid: 20cffff23b2131840b90d32e362aaddd,
       type: 3}
-  - m_RefCount: 2
-    m_Data: {fileID: 494074725696756741, guid: 2aba48e57243034419abbccabcb1067e, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
-  - m_RefCount: 26
+  - m_RefCount: 24
     m_Data:
       e00: 1
       e01: 0
@@ -25121,7 +25102,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 26
+  - m_RefCount: 24
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -25147,6 +25128,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1008565167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008565163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc5db9ee8caea84cbcb4908819e562e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileMap: {fileID: 0}
+  availablePlaces: []
 --- !u!1001 &1011225703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33704,7 +33699,6 @@ GameObject:
   - component: {fileID: 1388099633}
   - component: {fileID: 1388099632}
   - component: {fileID: 1388099631}
-  - component: {fileID: 1388099630}
   m_Layer: 0
   m_Name: CargoShuttle
   m_TagString: Untagged
@@ -33727,20 +33721,6 @@ Transform:
   m_Father: {fileID: 1679212668}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1388099630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1388099628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fc5db9ee8caea84cbcb4908819e562e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileMap: {fileID: 0}
-  availablePlaces: []
 --- !u!19719996 &1388099631
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -55378,9 +55358,7 @@ MonoBehaviour:
   Powered: 0
   _cost: 0
   _bought: 1
-  spawn: {fileID: 1865798056}
-  Assistent: {fileID: 5638249280449402010, guid: 3f72f32bb56e69741855d0a3866aad7a,
-    type: 3}
+  ShopList: []
 --- !u!114 &1865798059
 MonoBehaviour:
   m_ObjectHideFlags: 0
