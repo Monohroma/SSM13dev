@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767974770261926239}
   m_LocalRotation: {x: 0, y: 0, z: 0.70735925, w: 0.7068542}
-  m_LocalPosition: {x: -0.066, y: 0.0016, z: 0}
+  m_LocalPosition: {x: -0.066, y: 0.0022, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 767974771937205138}
@@ -57,7 +57,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767974770380251911}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.075, y: 0.16, z: 0}
+  m_LocalPosition: {x: 0.075, y: 0.16059986, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 767974771937205138}
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 767974771378421720}
   m_Bounds:
-    m_Center: {x: -0.0000019073486, y: -0.002120018, z: 0}
+    m_Center: {x: -0.0019054413, y: -0.0027189255, z: 0}
     m_Extent: {x: 0.08500001, y: 0.16000001, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -282,7 +282,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767974771378421727}
   m_LocalRotation: {x: 0, y: 0, z: 0.7065786, w: 0.70763457}
-  m_LocalPosition: {x: 0.09400368, y: 0.0024237633, z: 0}
+  m_LocalPosition: {x: 0.0921, y: 0.0024237633, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 767974771937205138}
@@ -315,7 +315,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767974771389240291}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.06999999, y: 0.16, z: 0}
+  m_LocalPosition: {x: -0.07190353, y: 0.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 767974771937205138}
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 767974770261926232}
   m_Bounds:
-    m_Center: {x: -0.0019950867, y: -0.0024309158, z: 0}
+    m_Center: {x: -0.000091552734, y: -0.001830101, z: 0}
     m_Extent: {x: 0.09, y: 0.16, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1

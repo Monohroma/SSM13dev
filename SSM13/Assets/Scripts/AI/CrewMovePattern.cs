@@ -5,7 +5,10 @@ using Pathfinding;
 
 namespace AI
 {
-    public class CrewMovePattern : IMovable
+    //      (Паттерн стратегия)
+    //Один из паттернов ходьбы для NPC, назначается в crew приравниванием переменной IMovable нужному паттерну ходьбы (класс с патерном, который реализует соответствующий интерфейс)
+
+    public class CrewMovePattern : IMovable 
     {
         private Transform humanTransform;
         private AIDestinationSetter settDestination;
@@ -21,7 +24,7 @@ namespace AI
         {
             settDestination.target = MovePoint;
         }
-        public void GoToRandomPoint(RandomPointGenerator randomPointGenerator, BayTypes LevelAccess)
+        public void GoToRandomPoint(RandomPointGenerator randomPointGenerator, BayTypes LevelAccess) 
         {
             Move(randomPointGenerator.RandomPointGenerate(LevelAccess));
         }

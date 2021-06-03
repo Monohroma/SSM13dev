@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class WorkManager : MonoBehaviour
 {
+    //Скрипт назначения NPC на работу. Для каждой работы отдельный скрипт. Жмёшь плюсик - ассистент превращается в соответстующего отсеку работника (в процессе кодинга), на минус работник становится снова ассистентом
+    
     public Bay Bay;
     public TextMeshProUGUI HumanInBay;
     public Button PlusButton;

@@ -5,6 +5,8 @@ using Pathfinding;
 
 public class DefaultWorkPattern : IWork 
 {
+    //      (Паттерн стратегия)
+    //Один из паттернов работы для NPC, назначается в crew приравниванием переменной IWork нужному паттерну ходьбы (класс с патерном, который реализует соответствующий интерфейс)
     private float WorkEnergyConsumption;
     private List<Transform> WorkZone = new List<Transform>();
 
@@ -28,6 +30,6 @@ public class DefaultWorkPattern : IWork
 
     public void StartWork()
     {
-        throw new System.NotImplementedException();
+        throw new System.NotImplementedException(); //В процессе кодинга
     }
 }
