@@ -15,6 +15,7 @@ public class Cargo : Bay
     private List<Vector3> _availablePlaces;
     public bool ShuttleArrive = false;
     public GameObject CargoItem;
+    public GameObject CargoShuttle;
    // public Transform spawn; легаси код
    // public GameObject Assistent; легаси код
 
@@ -39,6 +40,7 @@ public class Cargo : Bay
         string a = _inventory.dev_ShowInfo();
         print(a);
         _availablePlaces = GetComponent<CargoShuttle>().availablePlaces;
+        CargoShuttle.SetActive(ShuttleArrive);
     }
     // ================ methods ================
     public void BuyItem(string nameItem, int cost)
@@ -110,15 +112,36 @@ public class Cargo : Bay
         UIManager.ShowInventoryMenu();
     }
 
-    void CallShuttle(bool arive, List<string> shoplist)
+    public void CallShuttle(bool arive)
     {
         if (!arive)
         {
-           // тут нужно написать логику спавнящую префаб карго итем в свободном тайле каргошатла и меняющую его спрайт в спрайт рендере на покупаемый итем. а так же запускать корутину по окончанию которой шатл будет прилетать
+            // тут нужно написать логику спавнящую префаб карго итем в свободном тайле каргошатла и меняющую его спрайт в спрайт рендере на покупаемый итем. а так же запускать корутину по окончанию которой шатл будет прилетать
+            StartCoroutine(CargoShuttleArrive(10));
+            
         }
         else
         {
 
         }
+    }
+    IEnumerator CargoShuttleArrive(float seconds) // работает но через жопу. Предметы спавнятся на всех тайлах, а должно спавнится столько сколько нужно.
+    {
+        yield return new WaitForSeconds(seconds);
+        ShuttleArrive = true;
+        CargoShuttle.SetActive(ShuttleArrive);
+        GameItem TempItem;
+            foreach(Vector3 tilePos in _availablePlaces)
+            {
+            foreach (string item in ShopList)
+            {
+                TempItem = _inventory.GetItem(item);
+                CargoItem.name = item;
+                CargoItem.GetComponent<SpriteRenderer>().sprite = TempItem.ItemSprite;
+                Instantiate(CargoItem, tilePos, Quaternion.identity);
+                TempItem = null;
+            }
+            }
+        
     }
 }

@@ -8,8 +8,8 @@ public class CargoShuttle : MonoBehaviour // скрипт предназначен для добавления 
     public Tilemap tileMap; // тайлмапа с полом каргошатла
 
     public List<Vector3> availablePlaces; // Трансформы тайлов на тайлмапе
-
-    void Start()
+    
+   private void Awake()
     {
         tileMap = GameObject.Find("CargoShittleFloor").GetComponent<Tilemap>();
         availablePlaces = new List<Vector3>();
