@@ -11,13 +11,18 @@ public class Cargo : Bay
 {
     // ================ fields ================
     [Header("System setup")]
-    public Transform spawn;
-    public GameObject Assistent;
+    public List<string> ShopList = new List<string>();
+    private List<Vector3> _availablePlaces;
+    public bool ShuttleArrive = false;
+    public GameObject CargoItem;
+    public GameObject CargoShuttle;
+   // public Transform spawn; легаси код
+   // public GameObject Assistent; легаси код
 
 
     // DON'T use GameItem from assets!!!
-    
-    
+
+
     // ================ inventory ================
     private Inventory _inventory;
     private GameItem _item;
@@ -34,18 +39,21 @@ public class Cargo : Bay
         base.Start();
         string a = _inventory.dev_ShowInfo();
         print(a);
+        _availablePlaces = GetComponent<CargoShuttle>().availablePlaces;
+        CargoShuttle.SetActive(ShuttleArrive);
     }
     // ================ methods ================
     public void BuyItem(string nameItem, int cost)
     {
-        if (_economics.SubtractMoney(cost))
+        if (_economics.SubtractMoney(cost) && _availablePlaces.Count < ShopList.Count)
         {
-            _inventory.AddItem(_inventory.GetItem(nameItem));
+             ShopList.Add(nameItem);
+           // _inventory.AddItem(_inventory.GetItem(nameItem)); легаси код
         }
-        else Debug.Log("Денег нет!");
+        else Debug.Log("Денег нет! или места в списке покупок!");
     }
 
-    public void Sell(int s)
+    public void Sell(int s) // будет тоже переписано аналогично с BuyItem, но попозже
     {
         GameItem gameItem = _inventory.GetItem(s);
         if (gameItem != null)
@@ -62,7 +70,7 @@ public class Cargo : Bay
         }
     }
 
-    public void Sell(string s)
+    public void Sell(string s) // будет тоже переписано аналогично с BuyItem, но попозже
     {
         GameItem gameItem = _inventory.GetItem(s);
         if (gameItem != null)
@@ -85,11 +93,11 @@ public class Cargo : Bay
         BuyItem(gameItem.ItemName, gameItem.ItemPrice);
     }
 
-    public void BuyCrew(int cost)
+    public void BuyCrew(int cost) // будет тоже переписано аналогично с BuyItem, но попозже
     {
         if(_economics.SubtractMoney(cost))
         {
-            Instantiate(Assistent, spawn.position, Quaternion.identity);
+           // Instantiate(Assistent, spawn.position, Quaternion.identity); легаси код
         }
         else Debug.Log("Денег нет!");
     }
@@ -102,5 +110,38 @@ public class Cargo : Bay
     public void ShowMenu()
     {
         UIManager.ShowInventoryMenu();
+    }
+
+    public void CallShuttle(bool arive)
+    {
+        if (!arive)
+        {
+            // тут нужно написать логику спавнящую префаб карго итем в свободном тайле каргошатла и меняющую его спрайт в спрайт рендере на покупаемый итем. а так же запускать корутину по окончанию которой шатл будет прилетать
+            StartCoroutine(CargoShuttleArrive(10));
+            
+        }
+        else
+        {
+
+        }
+    }
+    IEnumerator CargoShuttleArrive(float seconds) // работает но через жопу. Предметы спавнятся на всех тайлах, а должно спавнится столько сколько нужно.
+    {
+        yield return new WaitForSeconds(seconds);
+        ShuttleArrive = true;
+        CargoShuttle.SetActive(ShuttleArrive);
+        GameItem TempItem;
+            foreach(Vector3 tilePos in _availablePlaces)
+            {
+            foreach (string item in ShopList)
+            {
+                TempItem = _inventory.GetItem(item);
+                CargoItem.name = item;
+                CargoItem.GetComponent<SpriteRenderer>().sprite = TempItem.ItemSprite;
+                Instantiate(CargoItem, tilePos, Quaternion.identity);
+                TempItem = null;
+            }
+            }
+        
     }
 }
