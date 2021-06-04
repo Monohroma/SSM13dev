@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class CargoShuttle : MonoBehaviour
+public class CargoShuttle : MonoBehaviour // скрипт предназначен для добавления координат тайлов в лист и дальнейшего использования этих координат для спавна предметов. можно было бы сделать массив вместо листа, но в лист удобнее редактировать
 {
-    public Tilemap tileMap;
+    public Tilemap tileMap; // тайлмапа с полом каргошатла
 
     public List<Vector3> availablePlaces; // Трансформы тайлов на тайлмапе
 
     void Start()
     {
-        tileMap = transform.GetComponentInParent<Tilemap>();
+        tileMap = GameObject.Find("CargoShittleFloor").GetComponent<Tilemap>();
         availablePlaces = new List<Vector3>();
 
         for (int n = tileMap.cellBounds.xMin; n < tileMap.cellBounds.xMax; n++)
