@@ -5,6 +5,9 @@ using Pathfinding;
 
 public class SecurityMovementPattern : IMovable
 {
+    //      (Паттерн стратегия)
+    //Один из паттернов ходьбы для NPC, назначается в human приравниванием переменной IMovable нужному паттерну ходьбы (класс с патерном, который реализует соответствующий интерфейс)
+    //Паттерн ходьбы для security
     private Camera Camera;
     private Transform humanTransform;
     private AIDestinationSetter settDestination;
