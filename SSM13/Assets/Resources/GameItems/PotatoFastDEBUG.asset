@@ -19,6 +19,6 @@ MonoBehaviour:
   Sprite: {fileID: 21300000, guid: 087184a5699491c448aff584918447bf, type: 3}
   _count: 0
   GrowingTime: 5
-  NumberOfGrowths: 1
+  NumberOfGrowths: 3
   HarvestAmount: 1
   Nutritional: 1
