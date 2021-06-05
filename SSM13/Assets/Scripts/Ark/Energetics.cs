@@ -2,13 +2,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 namespace Ark
 {
+    
+   
     public class Energetics : MonoBehaviour
     {
-        public delegate void EnergyBool();
+        public Light2D GlobalLight;
+        public Color OnEnergyLightColor;
+        public Color OffEnergyLightColor;
         public event EnergyBool EnergyChangedBool;
+        public delegate void EnergyBool(bool isPower);
+
         // ====================== fields =======================
         [Header("Energetics value")]
         [SerializeField] private int _storedEnergy;
@@ -26,14 +33,15 @@ namespace Ark
             }
 
             set
-            {
-                _powered = value;
-                EnergyChangedBool?.Invoke();
+            {                
+                if(_powered != !_powered)
+                {
+                    _powered = value;
+                    EnergyChangedBool?.Invoke(value);
+                }
             }                        
-}
-
-public float UpdateGeneratersDelay => _updateGeneratorsDelay;
-
+          }
+        public float UpdateGeneratersDelay => _updateGeneratorsDelay;
         public int InEnergy => _in_energy;
         public int OutEnergy => _out_energy;
 
@@ -56,10 +64,33 @@ public float UpdateGeneratersDelay => _updateGeneratorsDelay;
         }
 
         // ====================== method =======================
-
+        private void EnergyEventListener(bool IsPower)
+        {
+            if (IsPower)
+            {
+                Debug.Log("Включено");
+                GlobalLight.intensity = 1f;
+                GlobalLight.color = OnEnergyLightColor;
+            }
+            else
+            {
+                Debug.Log("Выкл");
+                GlobalLight.intensity = 0.49f;
+                GlobalLight.color = OffEnergyLightColor;
+            }
+        }
         private void Start()
         {
             _generatorUpdater = StartCoroutine(GeneratorsUpdater());
+            EnergyChangedBool += EnergyEventListener;
+        }
+        private void OnDisable()
+        {
+            EnergyChangedBool -= EnergyEventListener;
+        }
+        private void OnEnable()
+        {
+            EnergyChangedBool += EnergyEventListener;
         }
         public bool SubtractEnergy(int value)
         {
@@ -90,6 +121,7 @@ public float UpdateGeneratersDelay => _updateGeneratorsDelay;
             while (true)
             {
                 IsPower = false;
+                
                 generators = GameManager.Instance.currentGenerators;
                 _in_energy = 0;
                 for (i = 0; i < generators.Count; i++)
