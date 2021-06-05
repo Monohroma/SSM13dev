@@ -12,6 +12,7 @@ public class Cargo : Bay
     // ================ fields ================
     [Header("System setup")]
     public List<string> ShopList = new List<string>();
+    private List<GameObject> CargoObjects = new List<GameObject>();
     private List<Vector3> _availablePlaces;
     public bool ShuttleArrive = false;
     public GameObject CargoItem;
@@ -136,8 +137,13 @@ public class Cargo : Bay
                 TempItem = _inventory.GetItem(ShopList[n]);
                 CargoItem.name = ShopList[n];
                 CargoItem.GetComponent<SpriteRenderer>().sprite = TempItem.ItemSprite;
-                Instantiate(CargoItem, _availablePlaces[n], Quaternion.identity); // спавним префаб с измененным спрайтом и именем
+                CargoObjects.Add(Instantiate(CargoItem, _availablePlaces[n], Quaternion.identity)); // спавним префаб с измененным спрайтом и именем
         }
         
+    }
+
+    void CargoShuttleDeparture() // будет дописано попозже
+    { 
+
     }
 }
