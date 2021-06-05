@@ -125,23 +125,19 @@ public class Cargo : Bay
 
         }
     }
-    IEnumerator CargoShuttleArrive(float seconds) // работает но через жопу. Предметы спавнятся на всех тайлах, а должно спавнится столько сколько нужно.
+    IEnumerator CargoShuttleArrive(float seconds)
     {
-        yield return new WaitForSeconds(seconds);
+        yield return new WaitForSeconds(seconds); // таймер прилёта шатла
         ShuttleArrive = true;
-        CargoShuttle.SetActive(ShuttleArrive);
-        GameItem TempItem;
-            foreach(Vector3 tilePos in _availablePlaces)
-            {
-            foreach (string item in ShopList)
-            {
-                TempItem = _inventory.GetItem(item);
-                CargoItem.name = item;
+        CargoShuttle.SetActive(ShuttleArrive); 
+        GameItem TempItem; // временный предмет для получения спрайта предмета
+        for (int n = 1; n <= ShopList.Count; n++)
+        {
+                TempItem = _inventory.GetItem(ShopList[n]);
+                CargoItem.name = ShopList[n];
                 CargoItem.GetComponent<SpriteRenderer>().sprite = TempItem.ItemSprite;
-                Instantiate(CargoItem, tilePos, Quaternion.identity);
-                TempItem = null;
-            }
-            }
+                Instantiate(CargoItem, _availablePlaces[n], Quaternion.identity); // спавним префаб с измененным спрайтом и именем
+        }
         
     }
 }
