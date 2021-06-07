@@ -26959,7 +26959,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1865798058}
         m_TargetAssemblyTypeName: Cargo, Assembly-CSharp
-        m_MethodName: CallShuttle
+        m_MethodName: CargoShuttleCall
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -55720,6 +55720,7 @@ MonoBehaviour:
   _cost: 0
   _bought: 1
   ShopList: []
+  SellList: []
   ShuttleArrive: 0
   CargoItem: {fileID: 3216692338140779186, guid: 2927f798f84e7974f918438097d6b21a,
     type: 3}
