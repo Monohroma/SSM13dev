@@ -12,6 +12,7 @@ public class Cargo : Bay
     // ================ fields ================
     [Header("System setup")]
     public List<string> ShopList = new List<string>();
+    private List<GameObject> CargoObjects = new List<GameObject>();
     private List<Vector3> _availablePlaces;
     public bool ShuttleArrive = false;
     public GameObject CargoItem;
@@ -116,13 +117,19 @@ public class Cargo : Bay
     {
         if (!arive)
         {
-            // тут нужно написать логику спавнящую префаб карго итем в свободном тайле каргошатла и меняющую его спрайт в спрайт рендере на покупаемый итем. а так же запускать корутину по окончанию которой шатл будет прилетать
-            StartCoroutine(CargoShuttleArrive(10));
-            
+            StartCoroutine(CargoShuttleArrive(10));        
         }
-        else
+    }
+    public void CargoShuttleDeparture(bool arive)
+    {
+        if (arive)
         {
-
+            foreach (var Objects in CargoObjects)
+            {
+                Destroy(Objects);
+            }
+            ShuttleArrive = false;
+            CargoShuttle.SetActive(ShuttleArrive);
         }
     }
     IEnumerator CargoShuttleArrive(float seconds)
@@ -131,13 +138,16 @@ public class Cargo : Bay
         ShuttleArrive = true;
         CargoShuttle.SetActive(ShuttleArrive); 
         GameItem TempItem; // временный предмет для получения спрайта предмета
-        for (int n = 1; n <= ShopList.Count; n++)
+        for (int n = 0; n <= ShopList.Count; n++)
         {
                 TempItem = _inventory.GetItem(ShopList[n]);
                 CargoItem.name = ShopList[n];
                 CargoItem.GetComponent<SpriteRenderer>().sprite = TempItem.ItemSprite;
-                Instantiate(CargoItem, _availablePlaces[n], Quaternion.identity); // спавним префаб с измененным спрайтом и именем
+                CargoObjects.Add(Instantiate(CargoItem, _availablePlaces[n], Quaternion.identity)); // спавним префаб с измененным спрайтом и именем
         }
+        ShopList.Clear();
         
     }
+
+
 }
