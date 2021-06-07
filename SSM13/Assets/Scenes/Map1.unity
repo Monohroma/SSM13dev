@@ -29373,27 +29373,27 @@ PrefabInstance:
     - target: {fileID: 4826240393748264294, guid: d2fd8f9c4cab164498b1d5c3e9565b9a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99999464
       objectReference: {fileID: 0}
     - target: {fileID: 4826240393748264294, guid: d2fd8f9c4cab164498b1d5c3e9565b9a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.003275526
       objectReference: {fileID: 0}
     - target: {fileID: 4826240393748264294, guid: d2fd8f9c4cab164498b1d5c3e9565b9a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4826240393748264294, guid: d2fd8f9c4cab164498b1d5c3e9565b9a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4826240393748264294, guid: d2fd8f9c4cab164498b1d5c3e9565b9a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -0.375
       objectReference: {fileID: 0}
     - target: {fileID: 4826240393748264294, guid: d2fd8f9c4cab164498b1d5c3e9565b9a,
         type: 3}
@@ -36871,6 +36871,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5a9ab86f51b42059cc2609f3bbf69da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GlobalLight: {fileID: 1468409629}
+  OnEnergyLightColor: {r: 1, g: 1, b: 1, a: 0}
+  OffEnergyLightColor: {r: 1, g: 1, b: 1, a: 1}
   _storedEnergy: 0
   _updateGeneratorsDelay: 1
   _maxEnergy: 100000
