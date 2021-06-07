@@ -54,6 +54,14 @@ public class Botanics : Bay
 
     public void ShowMenu()
     {
-        UIManager.ShowBotanicsMenu(this);
+        if (Purchased)
+        {
+            UIManager.ShowBotanicsMenu(this);
+        }
+        else
+        {
+            BuyBay();
+        }
+
     }
 }

@@ -108,7 +108,14 @@ public class Cargo : Bay
 
     public void ShowMenu()
     {
-        UIManager.ShowInventoryMenu();
+        if (Purchased)
+        {
+            UIManager.ShowInventoryMenu();
+        }
+        else
+        {
+            BuyBay();
+        }
     }
 
     public void CargoShuttleCall(bool arive)
