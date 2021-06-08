@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RandomPointGenerator : MonoBehaviour
 {
+    //Генерирует случайную точку внутри коллайдера отсека, с указанным доступом в параметрах (в вызове метода)
     public Transform Point;
     private BayList bayList;
     private void Awake()

@@ -53,6 +53,14 @@ namespace Ark
                 _energy = 0;
             }
         }
+        protected virtual void CheckBayActive()
+        {
+            if(WorkersInBay.Count > 0 && Powered && Purchased)
+            {
+                 Active = true;
+            }
+            else Active = false;
+        }
 
         public virtual void SetConsumptionEnergy(int newEnergy)
         {
@@ -74,7 +82,10 @@ namespace Ark
 
         public virtual void BuyBay()
         {
-            _bought = true;
+            if (Economics.Instance.SubtractMoney(Cost))
+            {
+                _bought = true;
+            }
         }
 
         public virtual void SetCost(int newCost)
@@ -93,12 +104,17 @@ namespace Ark
         public virtual void OnCrewEnter(Crew crew)
         {
             if (!WorkersInBay.Contains(crew))
+            {
                 WorkersInBay.Add(crew);
+                CheckBayActive();
+            }
+                
         }
 
         public virtual void OnCrewExit(Crew crew)
         {
             WorkersInBay.Remove(crew);
+            CheckBayActive();
         }
 
         protected virtual void OnDestroy()

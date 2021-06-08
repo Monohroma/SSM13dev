@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Zone : MonoBehaviour
 {
+    //Существует чтобы его наследовали
     public BayList bayList;
     public bool PointIsBusy;
     public GameObject NPCInPoint;

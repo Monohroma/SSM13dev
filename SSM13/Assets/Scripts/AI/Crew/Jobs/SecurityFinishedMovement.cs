@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SecurityFinishedMovement : MonoBehaviour
 {
+
+    //Скрипт триггер, который висит на пустом обьекте офицера СБ, нужен для смены bool Goes в скрипте Security
     private AI.Security security;
     private GameObject NPC;
     private void Start()
