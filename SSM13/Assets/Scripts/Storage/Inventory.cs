@@ -123,6 +123,11 @@ namespace Storage
             GetItem(id).RemoveCount(count);
         }
 
+        public void SubtractItem(string itemName, int count)
+        {
+            GetItem(itemName).RemoveCount(count);
+        }
+
         public bool ContainItem(int id)
         {
             if (GetItem(id).ItemCount > 0)

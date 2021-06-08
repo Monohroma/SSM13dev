@@ -20632,6 +20632,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 684967630}
+  - component: {fileID: 684967631}
   m_Layer: 5
   m_Name: DebugMenu
   m_TagString: Untagged
@@ -20661,6 +20662,19 @@ RectTransform:
   m_AnchoredPosition: {x: -50, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &684967631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684967629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d4ed23db3b21e45a9b2c8be38a39f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoneyText: {fileID: 2081826593}
 --- !u!1 &696702075
 GameObject:
   m_ObjectHideFlags: 0
@@ -26960,7 +26974,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1865798058}
         m_TargetAssemblyTypeName: Cargo, Assembly-CSharp
-        m_MethodName: CallShuttle
+        m_MethodName: CargoShuttleCall
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -55721,6 +55735,7 @@ MonoBehaviour:
   _cost: 0
   _bought: 1
   ShopList: []
+  SellList: []
   ShuttleArrive: 0
   CargoItem: {fileID: 3216692338140779186, guid: 2927f798f84e7974f918438097d6b21a,
     type: 3}
@@ -60194,9 +60209,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1549577639}
-        m_TargetAssemblyTypeName: Ark.Economics, Assembly-CSharp
-        m_MethodName: AddMoney
+      - m_Target: {fileID: 684967631}
+        m_TargetAssemblyTypeName: DebugMenu, Assembly-CSharp
+        m_MethodName: debugAddMoney
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
