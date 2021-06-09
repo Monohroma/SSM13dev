@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
 	public List<Generator> currentGenerators = new List<Generator>();
+	public List<Crew> AllCrew = new List<Crew>();
 	public List<Crew> FreeAssistant = new List<Crew>();
 	public List<Bay> currentBays = new List<Bay>();
 	public Action<Bay> OnBayAdd;
@@ -20,7 +21,8 @@ public class GameManager : MonoBehaviour
     }
     private void Awake()
     {
-        foreach (var crew in GameObject.FindObjectsOfType<Crew>())
+		AllCrew.AddRange(GameObject.FindObjectsOfType<Crew>());
+		foreach (var crew in AllCrew)
         {
 			if(crew is Assistant)
             {

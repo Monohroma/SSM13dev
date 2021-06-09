@@ -21,6 +21,7 @@ namespace UI
         public UIKitchen KitchenBayMenu;
         public UIBotanics BotanicsBayMenu;
         public UICargo CargoBayMenu;
+        public UIBridge BridgeBayMenu;
 
         public static void ShowDebugMenu()
         {
@@ -70,6 +71,16 @@ namespace UI
         public static void HideCargoMenu()
         {
             _instance.CargoBayMenu.Hide();
+        }
+
+        public static void ShowBridgeMenu()
+        {
+            _instance.BridgeBayMenu.Show();
+        }
+
+        public static void HideBridgeMenu()
+        {
+            _instance.BridgeBayMenu.Hide();
         }
     }
 }

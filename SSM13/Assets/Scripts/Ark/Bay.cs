@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using AI;
 
-public enum BayTypes { Cargo, Med, Security, Botanics, Kitchen, Research, Engineering, GreyZone, Bridge }
+public enum BayTypes { Cargo, Med, Security, Botanics, Kitchen, Research, Engineering, GreyZone, Bridge, None }
 namespace Ark
 {
 
