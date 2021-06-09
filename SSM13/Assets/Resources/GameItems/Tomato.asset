@@ -15,6 +15,7 @@ MonoBehaviour:
   Name: Tomato
   ID: 1
   Price: 15
+  Category: "\u0420\u0430\u0441\u0442\u0435\u043D\u0438\u0435"
   Description: "\u041A\u0440\u0430\u0441\u043D\u0430\u044F \u0437\u0430\u043B\u0443\u043F\u0435\u043D\u044C"
   Sprite: {fileID: 21300000, guid: c37eac26ca1840b48aa74a1ca5daaa5a, type: 3}
   _count: 0

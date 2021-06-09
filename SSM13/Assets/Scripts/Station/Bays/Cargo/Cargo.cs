@@ -108,14 +108,7 @@ public class Cargo : Bay
 
     public void ShowMenu()
     {
-        if (Purchased)
-        {
-            UIManager.ShowInventoryMenu();
-        }
-        else
-        {
-            BuyBay();
-        }
+        UIManager.ShowCargoMenu(this);
     }
 
     public void CargoShuttleCall(bool arive)
@@ -140,6 +133,39 @@ public class Cargo : Bay
             CargoShuttle.SetActive(ShuttleArrive);
         }
     }
+
+    public void AddItemToShopList(string itemName, int count = 1)
+    {
+        for (int i = 0; i < count;i++)
+        {
+            ShopList.Add(itemName);
+        }
+    }
+
+    public void AddItemToShopList(GameItem item, int count = 1)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            ShopList.Add(item.ItemName);
+        }
+    }
+
+    public void RemoveItemFromShopList(string itemName, int count = 1)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            ShopList.Remove(itemName);
+        }
+    }
+
+    public void RemoveItemFromShopList(GameItem item, int count = 1)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            ShopList.Remove(item.ItemName);
+        }
+    }
+
     IEnumerator CargoShuttleArrive(float seconds)
     {
         yield return new WaitForSeconds(seconds); // таймер прилёта шатла

@@ -15,6 +15,7 @@ namespace Storage
         [SerializeField] private string Name;
         [SerializeField] private int ID;
         [SerializeField] private int Price;
+        [SerializeField] private string Category;
         
         [TextArea]
         [SerializeField] private string Description;
@@ -30,6 +31,8 @@ namespace Storage
         public int ItemPrice => Price;
         public string ItemDescription => Description;
         public int ItemCount => _count;
+
+        public string ItemCategory => Category;
         //public bool IsEmpty => real_count == 0 ? true : false;
         public Sprite ItemSprite => Sprite;
 
