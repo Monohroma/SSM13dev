@@ -6,7 +6,7 @@ using AI;
 using UnityEngine.Events;
 using UnityEngine.Tilemaps;
 using UnityEngine.EventSystems;
-
+using TMPro;
 
 public class BayTrigger : MonoBehaviour
 {
@@ -14,12 +14,14 @@ public class BayTrigger : MonoBehaviour
     public GameObject selectOutline;
     public GameObject disabledOutline;
     public GameObject buymess;
+    public TMP_Text costText;
     public int Index; // Для дебага
     private Bay bay;
     public bool Bought { get { return bay.Purchased; } set { value = bay.Purchased;} } //Комментарии излишни 
     public bool Active { get { return bay.Active; } set { value = bay.Active; } }
     [HideInInspector]  public BayTypes Type;
     public UnityEvent OnClick;
+    public UnityEvent DisabledOnClick;
     private void Start()
     {
         bay = GetComponent<Bay>();
@@ -33,6 +35,10 @@ public class BayTrigger : MonoBehaviour
             disabledOutline.SetActive(true);
         }
         GenerateColliders();
+        if (costText!=null)
+        {
+            costText.text = "" + bay.Cost;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -63,10 +69,17 @@ public class BayTrigger : MonoBehaviour
         {
             if (selectOutline != null && bay.Purchased)
                 selectOutline.SetActive(true);
+            if (buymess != null && !bay.Purchased)
+                buymess.SetActive(true);
+            if (buymess != null && bay.Purchased)
+                buymess.SetActive(false);
         }
         else
         {
-            selectOutline.SetActive(false);
+            if (selectOutline != null)
+                selectOutline.SetActive(false);
+            if (buymess != null)
+                buymess.SetActive(false);
         }
     }
 
@@ -74,13 +87,18 @@ public class BayTrigger : MonoBehaviour
     {
         if (selectOutline != null && bay.Purchased)
             selectOutline.SetActive(false);
+        if (buymess != null && !bay.Purchased)
+            buymess.SetActive(false);
     }
 
     private void OnMouseDown()
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            OnClick.Invoke();
+            if (bay.Purchased)
+                OnClick.Invoke();
+            else
+                DisabledOnClick.Invoke();
         }
     }
 

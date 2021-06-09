@@ -20,7 +20,7 @@ namespace UI
         public UIEngineering EngeneerBayMenu;
         public UIKitchen KitchenBayMenu;
         public UIBotanics BotanicsBayMenu;
-        public UIInventory InventoryBayMenu;
+        public UICargo CargoBayMenu;
 
         public static void ShowDebugMenu()
         {
@@ -62,14 +62,14 @@ namespace UI
             _instance.BotanicsBayMenu.Hide();
         }
 
-        public static void ShowInventoryMenu()
+        public static void ShowCargoMenu(Cargo cargo)
         {
-            _instance.InventoryBayMenu.Show();
+            _instance.CargoBayMenu.Show(cargo);
         }
 
-        public static void HideInventoryMenu()
+        public static void HideCargoMenu()
         {
-            _instance.InventoryBayMenu.Hide();
+            _instance.CargoBayMenu.Hide();
         }
     }
 }
