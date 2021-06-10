@@ -6,10 +6,16 @@ using Ark;
 
 public class DebugMenu : MonoBehaviour
 {
-    
-public void debugAddMoney()
+    public Text MoneyText;
+    Economics _economics;
+
+    private void Start()
     {
-        
+        _economics = Economics.Instance;
     }
-    // чёта я понял что этот скрипт нахуй не нужен, но пусть пока останется
+    public void debugAddMoney(int MoneyCount)
+    {
+        _economics.AddMoney(MoneyCount);
+        MoneyText.text = _economics.StoredMoney.ToString();
+    }
 }
