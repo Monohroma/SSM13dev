@@ -4,6 +4,7 @@ using UnityEngine;
 using Ark;
 using TMPro;
 using UnityEngine.UI;
+using UI;
 
 public class WorkManager : MonoBehaviour
 {
@@ -11,34 +12,51 @@ public class WorkManager : MonoBehaviour
     
     public Bay Bay;
     public TextMeshProUGUI HumanInBay;
+    public bool IsAssistant;
     public Button PlusButton;
     public Button MinusButton;
+    private UIBridge bridge;
+    public void Setup(UIBridge uib)
+    {
+        bridge = uib;
+    }
+
     private void Start()
     {
         UpdateText();
     }
-    private void UpdateText()
+    public void UpdateText()
     {
-        HumanInBay.text = Bay.WorkersInBay.Count.ToString() + $" /{Bay.WorkZone.Count}";
-
-        if(Bay.WorkersInBay.Count >= Bay.WorkZone.Count)
-        {           
-            MinusButton.gameObject.SetActive(true);
-            PlusButton.gameObject.SetActive(false);
-        }
-        else if(Bay.WorkersInBay.Count <= 0)
+        if (!IsAssistant)
         {
-            MinusButton.gameObject.SetActive(false);
-            PlusButton.gameObject.SetActive(true);
+            if (Bay != null)
+            {
+                HumanInBay.text = Bay.WorkersInBay.Count.ToString() + $" /{Bay.WorkZone.Count}";
+
+                if (Bay.WorkersInBay.Count >= Bay.WorkZone.Count)
+                {
+                    MinusButton.gameObject.SetActive(true);
+                    PlusButton.gameObject.SetActive(false);
+                }
+                else if (Bay.WorkersInBay.Count <= 0)
+                {
+                    MinusButton.gameObject.SetActive(false);
+                    PlusButton.gameObject.SetActive(true);
+                }
+                else
+                {
+                    MinusButton.gameObject.SetActive(true);
+                    PlusButton.gameObject.SetActive(true);
+                }
+                if (GameManager.Instance.FreeAssistant.Count == 0)
+                {
+                    PlusButton.gameObject.SetActive(false);
+                }
+            }
         }
         else
         {
-            MinusButton.gameObject.SetActive(true);
-            PlusButton.gameObject.SetActive(true);
-        }
-        if(GameManager.Instance.FreeAssistant.Count == 0)
-        {
-            PlusButton.gameObject.SetActive(false);
+            HumanInBay.text = GameManager.Instance.FreeAssistant.Count + $" /{GameManager.Instance.AllCrew.Count}";
         }
     }
     public void AddWorkerInBay()
@@ -51,6 +69,7 @@ public class WorkManager : MonoBehaviour
             Bay.WorkersInBay[Bay.WorkersInBay.Count - 1].NextActions();
             GameManager.Instance.FreeAssistant.RemoveAt(0);
         }
+        bridge.UpdateParams();
         UpdateText();
     }
     public void RemoveWorker()
@@ -62,6 +81,7 @@ public class WorkManager : MonoBehaviour
             Bay.WorkersInBay[0].NextActions();
             Bay.WorkersInBay.RemoveAt(0);
         }
+        bridge.UpdateParams();
         UpdateText();
     }
 }
