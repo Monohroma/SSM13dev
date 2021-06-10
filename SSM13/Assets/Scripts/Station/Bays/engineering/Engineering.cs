@@ -8,13 +8,6 @@ public class Engineering : Bay
 {
     public void OpenMenu()
     {
-        if (Purchased)
-        {
-            UIManager.ShowEngeneerBayMenu();
-        }
-        else
-        {
-            BuyBay();
-        }
+        UIManager.ShowEngeneerBayMenu();
     }
 }

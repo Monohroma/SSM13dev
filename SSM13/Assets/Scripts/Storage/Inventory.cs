@@ -8,6 +8,8 @@ namespace Storage
 {
     public class Inventory : MonoBehaviour
     {
+        public static Action<GameItem> OnAddItem;
+        public static Action<GameItem> OnRemoveItem;
         private static Inventory _instance;
         private List<GameItem> _items = new List<GameItem>();
 
@@ -23,6 +25,10 @@ namespace Storage
         private void ValidateInventory()
         {
             _items = GameItemDatabase.GetListItems();
+            foreach (var item in _items)
+            {
+                item.SetCount(0);
+            }
         }
 
         public void ClearInventory()
@@ -30,10 +36,11 @@ namespace Storage
             foreach(GameItem item in _items)
 			{
                 item.SetCount(0);
-			}
+                OnRemoveItem?.Invoke(item);
+            }
         }
 
-        private void Start()
+        private void Awake()
         {
             ValidateInventory();
         }
@@ -47,6 +54,7 @@ namespace Storage
             foreach (var item in _items)
             {
                 item.SetCount(0);
+                OnRemoveItem?.Invoke(item);
             }
         }
 
@@ -82,6 +90,7 @@ namespace Storage
             if (_items.Count != 0)
             {
                 GetItem(item).AddCount(1);
+                OnAddItem?.Invoke(GetItem(item));
                 return;
             }
             else throw new ArgumentNullException(nameof(_items));
@@ -93,7 +102,10 @@ namespace Storage
             //ValidateInventory();
             if (_items.Count != 0)
             {
+                Debug.Log(count);
                 GetItem(item).AddCount(count);
+                Debug.Log(item.ItemCount);
+                OnAddItem?.Invoke(GetItem(item));
                 return;
             }
             else throw new ArgumentNullException(nameof(_items));
@@ -106,6 +118,7 @@ namespace Storage
             {
                 var i = GetItem(id);
                 i.AddCount(count);
+                OnAddItem?.Invoke(i);
             }
             else throw new ArgumentNullException(nameof(_items));
         }
@@ -115,17 +128,20 @@ namespace Storage
             if (item == null) throw new ArgumentNullException(nameof(item));
             //ValidateInventory();
             GetItem(item).RemoveCount(item.ItemCount);
+            OnRemoveItem?.Invoke(GetItem(item));
         }
         
         public void SubtractItem(int id, int count)
         {
             //ValidateInventory();
             GetItem(id).RemoveCount(count);
+            OnRemoveItem?.Invoke(GetItem(id));
         }
 
         public void SubtractItem(string itemName, int count)
         {
             GetItem(itemName).RemoveCount(count);
+            OnRemoveItem?.Invoke(GetItem(itemName));
         }
 
         public bool ContainItem(int id)

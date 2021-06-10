@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: PTF
   ID: 0
   Description: "\u041A\u0430\u0440\u0442\u043E\u0448\u043A\u0443 \u0432 \u043A\u0430\u0440\u0442\u043E\u0448\u043A\u0443"
-  Result: {fileID: 11400000, guid: e7c1d605609cea049babca980ac2d802, type: 2}
+  Result: {fileID: 11400000, guid: 6cc3df1f5a954c94aaaa5b4af39590a9, type: 2}
   ingredients:
   - {fileID: 11400000, guid: b831f31ec6d35c5488b4971e3477d4d2, type: 2}
   CookingTime: 10

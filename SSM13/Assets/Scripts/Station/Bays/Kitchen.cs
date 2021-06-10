@@ -142,13 +142,6 @@ public class Kitchen : Bay
 
     public void OpenMenu()
     {
-        if (Purchased)
-        {
-            UIManager.ShowKitchenBayMenu(this);
-        }
-        else
-        {
-            BuyBay();
-        }
+        UIManager.ShowKitchenBayMenu(this);
     }
 }

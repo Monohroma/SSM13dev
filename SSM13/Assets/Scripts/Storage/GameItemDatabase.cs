@@ -28,13 +28,14 @@ public class GameItemDatabase
 
    private static void LoadDatabaseForce()
    {
-        ValidateDatabase();
+        //ValidateDatabase();
         GameItem[] resources = Resources.LoadAll<GameItem>(@"GameItems");
         foreach (GameItem item in resources)
         {
             if (!_items.Contains(item))
             {
-            _items.Add(item);
+                _items.Add(item);
+                item.SetCount(0);
             }
             else
 			{
