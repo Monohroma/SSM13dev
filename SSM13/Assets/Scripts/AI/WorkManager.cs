@@ -31,7 +31,7 @@ public class WorkManager : MonoBehaviour
         {
             if (Bay != null)
             {
-                HumanInBay.text = Bay.WorkersInBay.Count.ToString() + $" /{Bay.WorkZone.Count}";
+                HumanInBay.text = Bay.AssignedToWork.Count.ToString() + $" /{Bay.WorkZone.Count}";
 
                 if (Bay.WorkersInBay.Count >= Bay.WorkZone.Count)
                 {
@@ -61,12 +61,20 @@ public class WorkManager : MonoBehaviour
     }
     public void AddWorkerInBay()
     {
-        Debug.Log("Add");
         if(GameManager.Instance.FreeAssistant.Count > 0 && Bay.WorkersInBay.Count < Bay.WorkZone.Count)
         {
             Bay.WorkersInBay.Add(GameManager.Instance.FreeAssistant[0]);
 
-            Bay.WorkersInBay[Bay.WorkersInBay.Count - 1].NextActions();
+            var crew = Bay.WorkersInBay[Bay.WorkersInBay.Count - 1];
+
+
+            crew.NextActions();
+            var newCrew = Instantiate(Bay.WorkerPrefab, crew.transform.position, Quaternion.identity);
+            Bay.AssignedToWork.Add(newCrew.GetComponent<AI.Crew>());
+            newCrew.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = crew.gameObject.GetComponentInChildren<SpriteRenderer>().sprite;
+            newCrew.name = Bay.gameObject.name;
+            Destroy(crew);
+
             GameManager.Instance.FreeAssistant.RemoveAt(0);
         }
         bridge.UpdateParams();
@@ -74,10 +82,19 @@ public class WorkManager : MonoBehaviour
     }
     public void RemoveWorker()
     {
-        Debug.Log("Remove");
         if (Bay.WorkersInBay.Count > 0)
         {  
             GameManager.Instance.FreeAssistant.Add(Bay.WorkersInBay[0]);
+
+            var crew = Bay.WorkersInBay[0];
+
+            Bay.AssignedToWork.Remove(crew);
+            crew.NextActions();
+            var newCrew = Instantiate(GameManager.Instance.AssistantPrefab, crew.transform.position, Quaternion.identity);
+            newCrew.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = crew.gameObject.GetComponentInChildren<SpriteRenderer>().sprite;
+            newCrew.name = "Assistant";
+            Destroy(crew);
+
             Bay.WorkersInBay[0].NextActions();
             Bay.WorkersInBay.RemoveAt(0);
         }
