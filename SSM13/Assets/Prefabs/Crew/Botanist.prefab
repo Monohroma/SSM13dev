@@ -243,6 +243,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec583fa65d1da264789cf0913d9074e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Up: {fileID: -1761608541376497799, guid: ae47c9e46af5144419b9dbedb5d31e6c, type: 3}
+  Down: {fileID: 428769192662469898, guid: ae47c9e46af5144419b9dbedb5d31e6c, type: 3}
+  Right: {fileID: 4865651850653354526, guid: ae47c9e46af5144419b9dbedb5d31e6c, type: 3}
+  Left: {fileID: 8338297180362019975, guid: ae47c9e46af5144419b9dbedb5d31e6c, type: 3}
   rest: 100
   CurrentHp: 100
   food: 100
@@ -250,9 +254,5 @@ MonoBehaviour:
   NPCIsEating: 0
   NPCIsRest: 0
   Goes: 0
-  WorkZone:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  WorkBay: {fileID: 0}
   AccessLevel: 3

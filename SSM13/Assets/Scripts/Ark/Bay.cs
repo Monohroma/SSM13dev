@@ -10,6 +10,7 @@ namespace Ark
     public class Bay : MonoBehaviour
     {
         public List<Crew> WorkersInBay = new List<Crew>(); // Если рабочий заходит в свою work zone, он начинает дико работать пока не упадёт без сил
+        public List<Crew> AssignedToWork = new List<Crew>();
         public List<Transform> WorkZone = new List<Transform>();
         public GameObject WorkerPrefab;
         public int Energy => _energy;
@@ -32,8 +33,18 @@ namespace Ark
         protected virtual void Start()
         {
             GameManager.Instance.AddBay(this);
+            AddWorkerInList();
         }
-
+        private void AddWorkerInList() 
+        {
+            foreach (var crew in GameManager.Instance.AllCrew)
+            {
+                if(crew.WorkBay == this)
+                {
+                    AssignedToWork.Add(crew);
+                }
+            }
+        }
         public virtual void AddConsumptionEnergy(int value)
         {
             if (value >= 0)
