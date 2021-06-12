@@ -108,6 +108,8 @@ namespace Ark
             if (value >= 0)
             {
                 _storedEnergy += value;
+                if (_storedEnergy > MaxEnergy)
+                    _storedEnergy = MaxEnergy;
             }
             else throw new ArgumentOutOfRangeException(nameof(value),
                 $"The {nameof(value)} value cannot be negative.");
