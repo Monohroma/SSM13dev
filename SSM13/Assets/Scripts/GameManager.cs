@@ -8,6 +8,7 @@ using AI;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
+	public GameObject AssistantPrefab;
 	public List<Generator> currentGenerators = new List<Generator>();
 	public List<Crew> AllCrew = new List<Crew>();
 	public List<Crew> FreeAssistant = new List<Crew>();
