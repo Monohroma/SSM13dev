@@ -6,6 +6,8 @@ namespace Ark
 {
     public class Economics : MonoBehaviour
     {
+        public delegate void ChangeMoney(int money);
+        public event ChangeMoney MoneyChanged;
         // ============= fields =============
         [Header("Economics value")]
         [SerializeField] private int _storedMoney;
@@ -44,19 +46,27 @@ namespace Ark
         /// <returns>Возвращает true, если операция выполнена. False если обратное</returns>
         public bool SubtractMoney(int value)
         {
-            if ((_storedMoney - value) < 0) return false;
-            _storedMoney -= value;
-            return true;
+            if (value < 0)
+			{
+                throw new ArgumentOutOfRangeException(nameof(value), $"Can't subtract negative money value");
+			}
+            if ((_storedMoney - value) >= 0)
+			{
+                _storedMoney -= value;
+                MoneyChanged(_storedMoney);
+                return true;
+            }
+            return false;
         }
 
         public void AddMoney(int value)
         {
-            if (value >= 0)
-            {
-                _storedMoney += value;
-            }
-            else throw new ArgumentOutOfRangeException(nameof(value),
-                $"The {nameof(value)} value cannot be negative.");
+            if (value < 0)
+			{
+                throw new ArgumentOutOfRangeException(nameof(value), $"Can't add negative money value");
+			}
+            _storedMoney += value;
+            MoneyChanged(_storedMoney);
         }
     }
 }

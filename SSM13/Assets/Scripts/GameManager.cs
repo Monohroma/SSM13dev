@@ -16,6 +16,10 @@ public class GameManager : MonoBehaviour
 	public Action<Bay> OnBayAdd;
 	public Action<Bay> OnBayRemove;
 
+	// Засуну сюда, просто потому что
+	public delegate void ChangeCrew(int count);
+	public event ChangeCrew CrewChanged;
+
     private GameManager()
     {
 		_instance = this;
@@ -38,6 +42,19 @@ public class GameManager : MonoBehaviour
 			return _instance;
 		}
 	}
+
+	/*
+	public void AddCrew(Crew crew)
+	{
+		if (!AllCrew.Contains(crew))
+		{
+			AllCrew.Add(crew);
+			CrewChanged(AllCrew.Count);
+			return;
+		}
+		throw new ArgumentException($"Trying add crew to {nameof(AllCrew)} that already have it");
+	}
+	*/
 
 	public void AddGenerator(Generator generator)
     {
