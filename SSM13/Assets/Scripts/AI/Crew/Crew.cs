@@ -23,6 +23,9 @@ namespace AI
             bayList = GameObject.FindObjectOfType<BayList>();
             StartNeedCoroutine(true, true, bayList);
             InitBehaviors();
+
+            //GameManager.Instance.AddCrew(this);
+
             NextAction += NextActions;
         }
         private void Start() //Вызывается только в том случае, если на NPC весит скрипт Crew 
