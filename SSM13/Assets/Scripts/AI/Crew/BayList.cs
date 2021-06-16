@@ -19,9 +19,12 @@ public class BayList : MonoBehaviour
         int index = 0;
         foreach (Transform child in transform)
         {
-            index++;
-            Bays.Add(child.gameObject);
-            child.gameObject.GetComponent<BayTrigger>().Index = index;
+            if(child.tag == "bayTrigger")
+            {
+                index++;
+                Bays.Add(child.gameObject);
+                child.gameObject.GetComponent<BayTrigger>().Index = index;
+            }
         }
         UpdateList();
         

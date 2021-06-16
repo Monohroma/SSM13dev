@@ -24,9 +24,9 @@ namespace AI
         {
             settDestination.target = MovePoint;
         }
-        public void GoToRandomPoint(RandomPointGenerator randomPointGenerator, BayTypes LevelAccess) 
+        public Transform GetRandomPoint(RandomPointGenerator randomPointGenerator) 
         {
-            Move(randomPointGenerator.RandomPointGenerate(LevelAccess));
+            return randomPointGenerator.RandomPointGenerate();
         }
     }
 }

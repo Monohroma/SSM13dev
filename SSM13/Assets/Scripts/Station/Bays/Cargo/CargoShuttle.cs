@@ -14,12 +14,13 @@ public class CargoShuttle : MonoBehaviour // скрипт предназначен для добавления 
         tileMap = GameObject.Find("CargoShittleFloor").GetComponent<Tilemap>();
         availablePlaces = new List<Vector3>();
 
-        for (int n = tileMap.cellBounds.xMin; n < tileMap.cellBounds.xMax; n++)
+        for (int x = tileMap.cellBounds.xMin; x < tileMap.cellBounds.xMax; x++)
         {
-            for (int p = tileMap.cellBounds.yMin; p < tileMap.cellBounds.yMax; p++)
+            for (int y = tileMap.cellBounds.yMin; y < tileMap.cellBounds.yMax; y++)
             {
-                Vector3Int localPlace = new Vector3Int(n, p, (int)tileMap.transform.position.z);
+                Vector3Int localPlace = new Vector3Int(x, y, (int)tileMap.transform.position.z);
                 Vector3 place = tileMap.CellToWorld(localPlace);
+                
                 if (tileMap.HasTile(localPlace))
                 {
                     //Tile at "place"

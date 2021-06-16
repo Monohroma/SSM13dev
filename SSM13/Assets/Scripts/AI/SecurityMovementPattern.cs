@@ -13,12 +13,12 @@ public class SecurityMovementPattern : IMovable
     private AIDestinationSetter settDestination;
     private GameObject targetPoint;
     private float speed;
-    public SecurityMovementPattern(Transform humanTransform, float speed, AIDestinationSetter aIDestinationSetter, GameObject targetPoint)
+    public SecurityMovementPattern(Transform humanTransform, float speed, AIDestinationSetter aIDestinationSetter, GameObject point)
     {
         this.humanTransform = humanTransform;
         this.speed = speed;
         settDestination = aIDestinationSetter;
-        this.targetPoint = targetPoint;
+        targetPoint = point;
         Camera = Camera.main;
     }
 

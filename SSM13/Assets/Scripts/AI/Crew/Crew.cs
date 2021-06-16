@@ -17,16 +17,16 @@ namespace AI
         public BayTypes AccessLevel; 
         private RandomPointGenerator randomPointGenerator;
         protected void CrewStartMethod()
-        {
+        {          
             randomPointGenerator = GameObject.FindObjectOfType<RandomPointGenerator>();
             setter = GetComponent<AIDestinationSetter>();
             bayList = GameObject.FindObjectOfType<BayList>();
             StartNeedCoroutine(true, true, bayList);
             InitBehaviors();
-
+           
             //GameManager.Instance.AddCrew(this);
-
             NextAction += NextActions;
+            NextActions();
         }
         private void Start() //Вызывается только в том случае, если на NPC весит скрипт Crew 
         {
@@ -66,7 +66,7 @@ namespace AI
         }
         public void GoInWork()
         {
-            PerformWalkMove(_IWork.GoInWork(WorkBay.WorkZone));
+            Movement(_IWork.GoInWork(WorkBay.WorkZone));
         }
 
         protected void InitBehaviors()
@@ -75,18 +75,24 @@ namespace AI
         }
         protected void Movement(Transform Point)
         {
+            Goes = true;
             PerformWalkMove(Point);
         }
         public void RandomMovePoint()
         {
-            if (rest >= 10 && food >= 15)
-            {
-                if (_IMovable is CrewMovePattern)
+            if (_IMovable is CrewMovePattern)
                 {
-                    ((CrewMovePattern)_IMovable).GoToRandomPoint(randomPointGenerator, AccessLevel);
+                    var randomPoint = ((CrewMovePattern)_IMovable).GetRandomPoint(randomPointGenerator);
+                    Movement(randomPoint);
                     IsWork = false;
+                StartCoroutine(ChangePositionAfterDelay());
                 }
-            }
+        }
+        private IEnumerator ChangePositionAfterDelay()
+        {
+            yield return new WaitForSeconds(20f);
+            NextActions();
+            yield break;
         }
     }
 }
