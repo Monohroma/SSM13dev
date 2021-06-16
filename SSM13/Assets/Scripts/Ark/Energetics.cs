@@ -14,7 +14,9 @@ namespace Ark
         public Color OnEnergyLightColor;
         public Color OffEnergyLightColor;
         public event EnergyBool EnergyChangedBool;
+        public event EnergyChange EnergyChanged;
         public delegate void EnergyBool(bool isPower);
+        public delegate void EnergyChange(int power);
 
         // ====================== fields =======================
         [Header("Energetics value")]
@@ -94,13 +96,20 @@ namespace Ark
         }
         public bool SubtractEnergy(int value)
         {
-            if ((_storedEnergy - value) < 0)
+            if (value >= 0)
             {
-                _storedEnergy = 0;
-                return false;
+                if ((_storedEnergy - value) < 0)
+                {
+                    _storedEnergy = 0;
+                    EnergyChanged(_storedEnergy);
+                    return false;
+                }
+                _storedEnergy -= value;
+                EnergyChanged(_storedEnergy);
+                return true;
             }
-            _storedEnergy -= value;
-            return true;
+            else throw new ArgumentOutOfRangeException(nameof(value),
+                $"The {nameof(value)} value cannot be negative.");
         }
 
         public void AddEnergy(int value)
@@ -108,6 +117,11 @@ namespace Ark
             if (value >= 0)
             {
                 _storedEnergy += value;
+                if (_storedEnergy > MaxEnergy)
+                {
+                    _storedEnergy = MaxEnergy;
+                }
+                EnergyChanged(_storedEnergy);
             }
             else throw new ArgumentOutOfRangeException(nameof(value),
                 $"The {nameof(value)} value cannot be negative.");
