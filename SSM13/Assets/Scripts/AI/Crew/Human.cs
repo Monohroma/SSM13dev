@@ -112,10 +112,12 @@ namespace AI
         {
             _IMovable.Move(point);
             StopCoroutine(SpriteDirection());
+            StopCoroutine(GoesOffDelay());
             StartCoroutine(SpriteDirection());
         }
         protected IEnumerator SpriteDirection()
         {
+            StartCoroutine(GoesOffDelay());
             while (Goes)
             {
                 Vector3 temp = transform.position;
@@ -136,9 +138,15 @@ namespace AI
                 {
                     spriteRenderer.sprite = Down;
                 }
+                
             }
             yield break;
-            
+        }
+        protected IEnumerator GoesOffDelay()
+        {
+            yield return new WaitForSeconds(25f);
+            Goes = false;
+            yield break;
         }
         protected void StartNeedCoroutine(bool HumanGoesToKitchen = false, bool HumanGoesToRest = false, BayList bayList = null)
         {

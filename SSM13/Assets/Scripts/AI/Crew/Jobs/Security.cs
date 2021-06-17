@@ -17,7 +17,7 @@ namespace AI
         }
         void Start()
         {
-            StartNeedCoroutine(true, true, bayList); // Из базовых классов почему-то не запускается  //Нужно вынести в класс crew
+            StartNeedCoroutine(true, true, bayList); 
         }
         private void Update()
         {
@@ -25,18 +25,16 @@ namespace AI
             if (Input.GetMouseButtonDown(1))
             {
                 ((SecurityMovementPattern)_IMovable).MoveToClick();
-                StopCoroutine(SpriteDirection());
-                StartCoroutine(SpriteDirection());        //Кодить будет Толик, поэтому пофикси, корутина работает while Goes, значит нужно сделать условие перехода Goes в Security 
                 Goes = true;
+                StopCoroutine(SpriteDirection());
+                StopCoroutine(GoesOffDelay());
+                StartCoroutine(SpriteDirection());      
             }
         }
-        public void FinishedMovement()
-        {
-            Goes = false;
-        }
+
         private void InitBehaviors()
         {
-            SetWalkBehaviour(new SecurityMovementPattern(transform, 1f, setter,Point));
+            SetWalkBehaviour(new SecurityMovementPattern(transform, 1f, setter, Point));
         }
     }
 }

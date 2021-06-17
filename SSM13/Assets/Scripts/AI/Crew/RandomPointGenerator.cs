@@ -1,32 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class RandomPointGenerator : MonoBehaviour
 {
-    //Генерирует случайную точку внутри коллайдера отсека, с указанным доступом в параметрах (в вызове метода)
-    public Transform Point;
-    private BayList bayList;
+    //Генерирует случайную точку из тайлампы GreyZone
+    public GameObject empty;
+    public Tilemap GreyZone; //Задаётся вручную
+    private List<Vector3> tileWorldLocations;
     private void Awake()
     {
-        bayList = GameObject.FindObjectOfType<BayList>();
+        empty = new GameObject();
+        UpdateTileList();
     }
-
-    public Transform RandomPointGenerate(BayTypes levelAccess)
+    public void UpdateTileList()
     {
-        Vector2 RandomPoint;
-
-        for (int i = 0;i < bayList.Bays.Count; i++ )
+        tileWorldLocations = new List<Vector3>();
+        foreach (var pos in GreyZone.cellBounds.allPositionsWithin)
         {
-            if (bayList.Bays[i].GetComponent<BayTrigger>().Type == BayTypes.GreyZone) //Временно
+            Vector3Int localPlace = new Vector3Int(pos.x, pos.y, pos.z);
+            Vector3 place = GreyZone.CellToWorld(localPlace);
+            if (GreyZone.HasTile(localPlace))
             {
-                var BayCollider = bayList.Bays[i].GetComponent<BoxCollider2D>();
-                RandomPoint.x = Random.Range(bayList.Bays[i].gameObject.transform.position.x - BayCollider.size.x/2, bayList.Bays[i].gameObject.transform.position.x + BayCollider.size.x/2);
-                RandomPoint.y = Random.Range(bayList.Bays[i].gameObject.transform.position.y - BayCollider.size.y/2, bayList.Bays[i].gameObject.transform.position.y + BayCollider.size.y/2);
-                Point.transform.position = RandomPoint;
-                return Point;
+                tileWorldLocations.Add(place);
             }
         }
-        return null;
+    }
+    public Transform RandomPointGenerate()
+    {
+        Vector2 randomPoint = tileWorldLocations[Random.Range(0, tileWorldLocations.Count)];
+        var emptyTransform = Instantiate(empty.transform, randomPoint, Quaternion.identity);
+        StartCoroutine(DestroyEmptyTransforms(emptyTransform.gameObject));
+        return emptyTransform; //Супер костылище (в А* можно только transform передавать)
+    }
+    IEnumerator DestroyEmptyTransforms(GameObject transform)
+    {
+        yield return new WaitForSeconds(0.0002f);
+        Destroy(transform);
+        yield break;
     }
 }
