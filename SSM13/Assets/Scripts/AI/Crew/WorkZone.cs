@@ -32,7 +32,7 @@ public class WorkZone : Zone
             }
             else
             {
-                other.gameObject.GetComponent<AI.Crew>().RandomMovePoint();
+                other.gameObject.GetComponent<AI.Crew>().NextActions();
             }
         }
     }
