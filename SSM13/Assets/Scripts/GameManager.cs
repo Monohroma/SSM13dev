@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 	public List<Crew> AllCrew = new List<Crew>();
 	public List<Crew> FreeAssistant = new List<Crew>();
 	public List<Bay> currentBays = new List<Bay>();
+	public AlertLevel alertLevel;
+	public Bay safeBay;
 	public Action<Bay> OnBayAdd;
 	public Action<Bay> OnBayRemove;
 
